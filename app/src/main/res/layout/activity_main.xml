@@ -78,11 +78,11 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_create_commander" />
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="335dp"
-            android:layout_height="wrap_content"
-            tools:layout_editor_absoluteX="611dp"
-            tools:layout_editor_absoluteY="289dp" />
+        <!--<android.support.design.widget.TextInputLayout-->
+            <!--android:layout_width="335dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--tools:layout_editor_absoluteX="611dp"-->
+            <!--tools:layout_editor_absoluteY="289dp" />-->
 
         <EditText
             android:id="@+id/editText"

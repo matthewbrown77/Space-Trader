@@ -2,6 +2,8 @@ package com.example.spacetrader;
 
 public class Player {
 
+    public final int skillPoints = 16;
+
     private String name;
     private int pilotSkillPoints;
     private int fighterSkillPoints;
@@ -16,10 +18,26 @@ public class Player {
         this.engineerSkillPoints = 0;
     }
 
-    public void incrementPilotSkillPoints() { pilotSkillPoints++; }
-    public void incrementFighterSkillPoints() { fighterSkillPoints++; }
-    public void incrementTraderSkillPoints() { traderSkillPoints++; }
-    public void incrementEngineerSkillPoints() { engineerSkillPoints++; }
+    public void incrementPilotSkillPoints() {
+        if (getSkillSum() < skillPoints) {
+            pilotSkillPoints++;
+        }
+    }
+    public void incrementFighterSkillPoints() {
+        if (getSkillSum() < skillPoints) {
+            fighterSkillPoints++;
+        }
+    }
+    public void incrementTraderSkillPoints() {
+        if (getSkillSum() < skillPoints) {
+            traderSkillPoints++;
+        }
+    }
+    public void incrementEngineerSkillPoints() {
+        if (getSkillSum() < skillPoints) {
+            engineerSkillPoints++;
+        }
+    }
 
     public void decrementPilotSkillPoints() {
         if (pilotSkillPoints > 0) {
@@ -40,6 +58,10 @@ public class Player {
         if (engineerSkillPoints > 0) {
             engineerSkillPoints--;
         }
+    }
+
+    private int getSkillSum(){
+        return pilotSkillPoints + fighterSkillPoints + traderSkillPoints + engineerSkillPoints;
     }
 
     public int getPilotSkillPoints() {return pilotSkillPoints;}

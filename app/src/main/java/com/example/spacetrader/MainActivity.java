@@ -36,24 +36,6 @@ public class MainActivity extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		player = new Player();
 		setContentView(R.layout.activity_main);
-		mTextMessage = (TextView) findViewById(R.id.message);
-
-		okButton = findViewById(R.id.ok_button);
-		okButton.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Log.e("main", "Ok was clicked");
-			}
-		});
-		pilotPlusButton = findViewById(R.id.pilot_plus);
-        pilotPlusButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final TextView mTextView = (TextView) findViewById(R.id.pilot_counter);
-                player.incrementPilotSkillPoints();
-                mTextView.setText("" + player.getPilotSkillPoints());
-            }
-        });
 
         ///////////////////////////////////////////////////////////////////////////////////////
         //Pilot
@@ -148,6 +130,19 @@ public class MainActivity extends AppCompatActivity {
                 final TextView mTextView = (TextView) findViewById(R.id.engineer_counter);
                 player.decrementEngineerSkillPoints();
                 mTextView.setText("" + player.getEngineerSkillPoints());
+            }
+        });
+
+        ///////////////////////////////////////////////////////////////////////////////////////
+        //Ok
+        ///////////////////////////////////////////////////////////////////////////////////////
+
+        mTextMessage = (TextView) findViewById(R.id.message);
+        okButton = findViewById(R.id.ok_button);
+        okButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.e("main", "Ok was clicked");
             }
         });
 

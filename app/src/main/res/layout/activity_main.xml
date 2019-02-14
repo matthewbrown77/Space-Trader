@@ -13,12 +13,12 @@
 
         <TextView
             android:id="@+id/text_create_commander"
-            android:layout_width="0dp"
+            android:layout_width="218dp"
             android:layout_height="45dp"
             android:layout_marginStart="80dp"
             android:layout_marginEnd="80dp"
             android:fontFamily="@font/pixeled"
-            android:text="New Commander"
+            android:text="@string/new_commander"
             android:textAlignment="center"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -78,12 +78,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_create_commander" />
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="335dp"
-            android:layout_height="wrap_content"
-            tools:layout_editor_absoluteX="611dp"
-            tools:layout_editor_absoluteY="289dp" />
-
         <EditText
             android:id="@+id/editText"
             android:layout_width="188dp"
@@ -114,7 +108,7 @@
             android:layout_marginTop="300dp"
             android:layout_marginEnd="76dp"
             android:fontFamily="@font/pixeled"
-            android:text="+"
+            android:text="@string/add_skill"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -125,7 +119,7 @@
             android:layout_marginStart="64dp"
             android:layout_marginTop="300dp"
             android:fontFamily="@font/pixeled"
-            android:text="-"
+            android:text="@string/minus_skill"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -136,7 +130,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="76dp"
             android:fontFamily="@font/pixeled"
-            android:text="+"
+            android:text="@string/add_skill"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/pilot_plus" />
 
@@ -147,7 +141,7 @@
             android:layout_marginStart="64dp"
             android:layout_marginTop="20dp"
             android:fontFamily="@font/pixeled"
-            android:text="-"
+            android:text="@string/minus_skill"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/pilot_minus" />
 
@@ -158,7 +152,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="76dp"
             android:fontFamily="@font/pixeled"
-            android:text="+"
+            android:text="@string/add_skill"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/fighter_plus" />
 
@@ -169,7 +163,7 @@
             android:layout_marginStart="64dp"
             android:layout_marginTop="20dp"
             android:fontFamily="@font/pixeled"
-            android:text="-"
+            android:text="@string/minus_skill"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/fighter_minus" />
 
@@ -180,7 +174,7 @@
             android:layout_marginStart="64dp"
             android:layout_marginTop="16dp"
             android:fontFamily="@font/pixeled"
-            android:text="-"
+            android:text="@string/minus_skill"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/trader_minus" />
 
@@ -191,7 +185,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="76dp"
             android:fontFamily="@font/pixeled"
-            android:text="+"
+            android:text="@string/add_skill"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/trader_plus" />
 

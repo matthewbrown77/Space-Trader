@@ -1,256 +1,261 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/text_create_commander"
-        android:layout_width="0dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="80dp"
-        android:layout_marginEnd="80dp"
-        android:fontFamily="@font/pixeled"
-        android:text="New Commander"
-        android:textAlignment="center"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+<ScrollView android:layout_height="match_parent" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <TextView
-        android:id="@+id/text_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="84dp"
-        android:fontFamily="@font/pixeled"
-        android:text="Name: "
-        android:textSize="11sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/text_skillpoints"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="52dp"
-        android:fontFamily="@font/pixeled"
-        android:text="Skill Points: "
-        android:textSize="11sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_difficulty" />
+        <TextView
+            android:id="@+id/text_create_commander"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginEnd="80dp"
+            android:fontFamily="@font/pixeled"
+            android:text="New Commander"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/text_difficulty"
-        android:layout_width="103dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="52dp"
-        android:fontFamily="@font/pixeled"
-        android:text="Difficulty: "
-        android:textSize="11sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_name" />
+        <TextView
+            android:id="@+id/text_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="84dp"
+            android:fontFamily="@font/pixeled"
+            android:text="Name: "
+            android:textSize="11sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/ok_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="570dp"
-        android:layout_marginEnd="8dp"
-        android:fontFamily="@font/pixeled"
-        android:text="OK"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.48"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_create_commander" />
+        <TextView
+            android:id="@+id/text_skillpoints"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="52dp"
+            android:fontFamily="@font/pixeled"
+            android:text="Skill Points: "
+            android:textSize="11sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_difficulty" />
 
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="335dp"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="611dp"
-        tools:layout_editor_absoluteY="289dp" />
+        <TextView
+            android:id="@+id/text_difficulty"
+            android:layout_width="103dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="52dp"
+            android:fontFamily="@font/pixeled"
+            android:text="Difficulty: "
+            android:textSize="11sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_name" />
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="188dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="84dp"
-        android:ems="10"
-        android:fontFamily="@font/pixeled"
-        android:inputType="textPersonName"
-        android:textSize="11sp"
-        app:layout_constraintStart_toEndOf="@+id/text_name"
-        app:layout_constraintTop_toTopOf="@+id/text_create_commander" />
+        <Button
+            android:id="@+id/ok_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="570dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/pixeled"
+            android:text="OK"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.48"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_create_commander" />
 
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="182dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="60dp"
-        android:fontFamily="@font/pixeled"
-        app:layout_constraintStart_toEndOf="@+id/text_difficulty"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="335dp"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="611dp"
+            tools:layout_editor_absoluteY="289dp" />
 
-    <Button
-        android:id="@+id/pilot_plus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
-        android:layout_marginEnd="76dp"
-        android:fontFamily="@font/pixeled"
-        android:text="+"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="188dp"
+            android:layout_height="38dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="84dp"
+            android:ems="10"
+            android:fontFamily="@font/pixeled"
+            android:inputType="textPersonName"
+            android:textSize="11sp"
+            app:layout_constraintStart_toEndOf="@+id/text_name"
+            app:layout_constraintTop_toTopOf="@+id/text_create_commander" />
 
-    <Button
-        android:id="@+id/pilot_minus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="300dp"
-        android:fontFamily="@font/pixeled"
-        android:text="-"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="182dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="60dp"
+            android:fontFamily="@font/pixeled"
+            app:layout_constraintStart_toEndOf="@+id/text_difficulty"
+            app:layout_constraintTop_toBottomOf="@+id/editText" />
 
-    <Button
-        android:id="@+id/fighter_plus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="76dp"
-        android:fontFamily="@font/pixeled"
-        android:text="+"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pilot_plus" />
+        <Button
+            android:id="@+id/pilot_plus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="300dp"
+            android:layout_marginEnd="76dp"
+            android:fontFamily="@font/pixeled"
+            android:text="+"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/fighter_minus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/pixeled"
-        android:text="-"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pilot_minus" />
+        <Button
+            android:id="@+id/pilot_minus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="300dp"
+            android:fontFamily="@font/pixeled"
+            android:text="-"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/trader_plus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="76dp"
-        android:fontFamily="@font/pixeled"
-        android:text="+"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fighter_plus" />
+        <Button
+            android:id="@+id/fighter_plus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="76dp"
+            android:fontFamily="@font/pixeled"
+            android:text="+"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pilot_plus" />
 
-    <Button
-        android:id="@+id/trader_minus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/pixeled"
-        android:text="-"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fighter_minus" />
+        <Button
+            android:id="@+id/fighter_minus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/pixeled"
+            android:text="-"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pilot_minus" />
 
-    <Button
-        android:id="@+id/engineer_minus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/pixeled"
-        android:text="-"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/trader_minus" />
+        <Button
+            android:id="@+id/trader_plus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="76dp"
+            android:fontFamily="@font/pixeled"
+            android:text="+"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fighter_plus" />
 
-    <Button
-        android:id="@+id/engineer_plus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="76dp"
-        android:fontFamily="@font/pixeled"
-        android:text="+"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/trader_plus" />
+        <Button
+            android:id="@+id/trader_minus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/pixeled"
+            android:text="-"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fighter_minus" />
 
-    <TextView
-        android:id="@+id/pilot_counter"
-        android:layout_width="14dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="264dp"
-        android:layout_marginEnd="8dp"
-        android:fontFamily="@font/pixeled"
-        android:text="0"
-        android:textAlignment="center"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toStartOf="@+id/pilot_plus"
-        app:layout_constraintHorizontal_bias="0.507"
-        app:layout_constraintStart_toEndOf="@+id/pilot_minus"
-        app:layout_constraintTop_toBottomOf="@+id/text_create_commander" />
+        <Button
+            android:id="@+id/engineer_minus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/pixeled"
+            android:text="-"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/trader_minus" />
 
-    <TextView
-        android:id="@+id/fighter_counter"
-        android:layout_width="12dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="39dp"
-        android:layout_marginEnd="8dp"
-        android:fontFamily="@font/pixeled"
-        android:text="0"
-        android:textAlignment="center"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toStartOf="@+id/fighter_plus"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toEndOf="@+id/fighter_minus"
-        app:layout_constraintTop_toBottomOf="@+id/pilot_counter" />
+        <Button
+            android:id="@+id/engineer_plus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="76dp"
+            android:fontFamily="@font/pixeled"
+            android:text="+"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/trader_plus" />
 
-    <TextView
-        android:id="@+id/trader_counter"
-        android:layout_width="11dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="39dp"
-        android:layout_marginEnd="30dp"
-        android:fontFamily="@font/pixeled"
-        android:text="0"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toStartOf="@+id/trader_plus"
-        app:layout_constraintHorizontal_bias="0.458"
-        app:layout_constraintStart_toEndOf="@+id/trader_minus"
-        app:layout_constraintTop_toBottomOf="@+id/fighter_counter" />
+        <TextView
+            android:id="@+id/pilot_counter"
+            android:layout_width="14dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="264dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/pixeled"
+            android:text="0"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@+id/pilot_plus"
+            app:layout_constraintHorizontal_bias="0.507"
+            app:layout_constraintStart_toEndOf="@+id/pilot_minus"
+            app:layout_constraintTop_toBottomOf="@+id/text_create_commander" />
 
-    <TextView
-        android:id="@+id/engineer_counter"
-        android:layout_width="14dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="39dp"
-        android:layout_marginEnd="30dp"
-        android:fontFamily="@font/pixeled"
-        android:text="0"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toStartOf="@+id/engineer_plus"
-        app:layout_constraintHorizontal_bias="0.523"
-        app:layout_constraintStart_toEndOf="@+id/engineer_minus"
-        app:layout_constraintTop_toBottomOf="@+id/trader_counter" />
+        <TextView
+            android:id="@+id/fighter_counter"
+            android:layout_width="12dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="39dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/pixeled"
+            android:text="0"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@+id/fighter_plus"
+            app:layout_constraintHorizontal_bias="0.492"
+            app:layout_constraintStart_toEndOf="@+id/fighter_minus"
+            app:layout_constraintTop_toBottomOf="@+id/pilot_counter" />
 
-</android.support.constraint.ConstraintLayout>
+        <TextView
+            android:id="@+id/trader_counter"
+            android:layout_width="11dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="39dp"
+            android:layout_marginEnd="30dp"
+            android:fontFamily="@font/pixeled"
+            android:text="0"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toStartOf="@+id/trader_plus"
+            app:layout_constraintHorizontal_bias="0.458"
+            app:layout_constraintStart_toEndOf="@+id/trader_minus"
+            app:layout_constraintTop_toBottomOf="@+id/fighter_counter" />
+
+        <TextView
+            android:id="@+id/engineer_counter"
+            android:layout_width="14dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="39dp"
+            android:layout_marginEnd="30dp"
+            android:fontFamily="@font/pixeled"
+            android:text="0"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toStartOf="@+id/engineer_plus"
+            app:layout_constraintHorizontal_bias="0.523"
+            app:layout_constraintStart_toEndOf="@+id/engineer_minus"
+            app:layout_constraintTop_toBottomOf="@+id/trader_counter" />
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

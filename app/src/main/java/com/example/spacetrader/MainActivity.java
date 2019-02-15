@@ -1,5 +1,6 @@
 package com.example.spacetrader;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -7,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.EditText;
@@ -14,7 +16,6 @@ import android.widget.Spinner;
 import java.util.List;
 import java.util.ArrayList;
 import android.widget.ArrayAdapter;
-
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
 
     private Spinner spinner;
 
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -46,14 +46,9 @@ public class MainActivity extends AppCompatActivity {
 
         //populate spinner
         spinner = (Spinner)findViewById(R.id.spinner);
-        List<String> list = new ArrayList<String>();
-        list.add("Easy");
-        list.add("Normal");
-        list.add("Hard");
-        list.add("Impossible");
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, list);
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<CharSequence> dataAdapter =
+				ArrayAdapter.createFromResource(this, R.array.difficulty, R.layout.my_spinner);
+        dataAdapter.setDropDownViewResource(R.layout.spinner_dropdown);
         spinner.setAdapter(dataAdapter);
 
         ///////////////////////////////////////////////////////////////////////////////////////

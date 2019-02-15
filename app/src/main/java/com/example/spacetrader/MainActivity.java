@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         spinner = (Spinner)findViewById(R.id.spinner);
         ArrayAdapter<CharSequence> dataAdapter =
 				ArrayAdapter.createFromResource(this, R.array.difficulty, R.layout.my_spinner);
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        dataAdapter.setDropDownViewResource(R.layout.spinner_dropdown);
         spinner.setAdapter(dataAdapter);
 
         ///////////////////////////////////////////////////////////////////////////////////////

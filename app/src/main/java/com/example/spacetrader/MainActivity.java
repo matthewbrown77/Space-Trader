@@ -9,6 +9,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.EditText;
+import android.widget.Spinner;
+import java.util.List;
+import java.util.ArrayList;
+import android.widget.ArrayAdapter;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -17,25 +22,39 @@ public class MainActivity extends AppCompatActivity {
 	private TextView addButton;
 	private Player player;
 
-    Button okButton;
-    Button pilotPlusButton;
-    Button pilotMinusButton;
+    private Button okButton;
+    private Button pilotPlusButton;
+    private Button pilotMinusButton;
+    private Button fighterPlusButton;
+    private Button fighterMinusButton;
+    private Button traderPlusButton;
+    private Button traderMinusButton;
+    private Button engineerPlusButton;
+    private Button engineerMinusButton;
 
-    Button fighterPlusButton;
-    Button fighterMinusButton;
-
-    Button traderPlusButton;
-    Button traderMinusButton;
-
-    Button engineerPlusButton;
-    Button engineerMinusButton;
+    private Spinner spinner;
 
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		player = new Player();
 		setContentView(R.layout.activity_main);
+        player = new Player();
+
+        final TextView mTextView2 = (TextView) findViewById(R.id.total_counter);
+        mTextView2.setText("" + player.getRemainingCount());
+
+        //populate spinner
+        spinner = (Spinner)findViewById(R.id.spinner);
+        List<String> list = new ArrayList<String>();
+        list.add("Easy");
+        list.add("Normal");
+        list.add("Hard");
+        list.add("Impossible");
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, list);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(dataAdapter);
 
         ///////////////////////////////////////////////////////////////////////////////////////
         //Pilot
@@ -46,8 +65,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 final TextView mTextView = (TextView) findViewById(R.id.pilot_counter);
+                final TextView mTextView2 = (TextView) findViewById(R.id.total_counter);
                 player.incrementPilotSkillPoints();
                 mTextView.setText("" + player.getPilotSkillPoints());
+                mTextView2.setText("" + player.getRemainingCount());
             }
         });
 
@@ -56,8 +77,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 final TextView mTextView = (TextView) findViewById(R.id.pilot_counter);
+                final TextView mTextView2 = (TextView) findViewById(R.id.total_counter);
                 player.decrementPilotSkillPoints();
                 mTextView.setText("" + player.getPilotSkillPoints());
+                mTextView2.setText("" + player.getRemainingCount());
             }
         });
 
@@ -70,8 +93,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 final TextView mTextView = (TextView) findViewById(R.id.fighter_counter);
+                final TextView mTextView2 = (TextView) findViewById(R.id.total_counter);
                 player.incrementFighterSkillPoints();
                 mTextView.setText("" + player.getFighterSkillPoints());
+                mTextView2.setText("" + player.getRemainingCount());
             }
         });
 
@@ -80,8 +105,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 final TextView mTextView = (TextView) findViewById(R.id.fighter_counter);
+                final TextView mTextView2 = (TextView) findViewById(R.id.total_counter);
                 player.decrementFighterSkillPoints();
                 mTextView.setText("" + player.getFighterSkillPoints());
+                mTextView2.setText("" + player.getRemainingCount());
             }
         });
 
@@ -94,8 +121,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 final TextView mTextView = (TextView) findViewById(R.id.trader_counter);
+                final TextView mTextView2 = (TextView) findViewById(R.id.total_counter);
                 player.incrementTraderSkillPoints();
                 mTextView.setText("" + player.getTraderSkillPoints());
+                mTextView2.setText("" + player.getRemainingCount());
             }
         });
 
@@ -104,8 +133,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 final TextView mTextView = (TextView) findViewById(R.id.trader_counter);
+                final TextView mTextView2 = (TextView) findViewById(R.id.total_counter);
                 player.decrementTraderSkillPoints();
                 mTextView.setText("" + player.getTraderSkillPoints());
+                mTextView2.setText("" + player.getRemainingCount());
             }
         });
 
@@ -118,8 +149,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 final TextView mTextView = (TextView) findViewById(R.id.engineer_counter);
+                final TextView mTextView2 = (TextView) findViewById(R.id.total_counter);
                 player.incrementEngineerSkillPoints();
                 mTextView.setText("" + player.getEngineerSkillPoints());
+                mTextView2.setText("" + player.getRemainingCount());
             }
         });
 
@@ -128,8 +161,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 final TextView mTextView = (TextView) findViewById(R.id.engineer_counter);
+                final TextView mTextView2 = (TextView) findViewById(R.id.total_counter);
                 player.decrementEngineerSkillPoints();
                 mTextView.setText("" + player.getEngineerSkillPoints());
+                mTextView2.setText("" + player.getRemainingCount());
             }
         });
 
@@ -143,6 +178,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.e("main", "Ok was clicked");
+                EditText myName = findViewById(R.id.editText);
+                player.setName(myName.getText().toString());
+                Log.e("main", player.toString());
             }
         });
 

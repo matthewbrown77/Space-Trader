@@ -9,13 +9,20 @@ public class Player {
     private int fighterSkillPoints;
     private int traderSkillPoints;
     private int engineerSkillPoints;
-    private String difficulty; //should change to enum if we choose to implement difficulty levels
+    private int credits;
+    private String spaceship; //will implement spaceship class in future sprint
 
     public Player() {
         this.pilotSkillPoints = 0;
         this.fighterSkillPoints = 0;
         this.traderSkillPoints = 0;
         this.engineerSkillPoints = 0;
+        this.credits = 1000;
+        this.spaceship = "Gnat";
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void incrementPilotSkillPoints() {
@@ -64,9 +71,23 @@ public class Player {
         return pilotSkillPoints + fighterSkillPoints + traderSkillPoints + engineerSkillPoints;
     }
 
+    public int getRemainingCount() {
+        return skillPoints - getSkillSum();
+    }
+
     public int getPilotSkillPoints() {return pilotSkillPoints;}
     public int getFighterSkillPoints() {return fighterSkillPoints;}
     public int getTraderSkillPoints() {return traderSkillPoints;}
     public int getEngineerSkillPoints() {return engineerSkillPoints;}
+
+    public String toString() {
+        return "Player name: " + this.name + "\n"
+                + "Pilot Skill Points: " + this.pilotSkillPoints + "\n"
+                + "Fighter Skills Points: " + this.fighterSkillPoints + "\n"
+                + "Trader Skills Points: " + this.traderSkillPoints + "\n"
+                + "Engineer Skills Points: " + this.engineerSkillPoints + "\n"
+                + "Credits: " + this.credits + "\n"
+                + "Spaceship: " + this.spaceship + "\n";
+    }
 
 }

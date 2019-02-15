@@ -133,6 +133,7 @@
         <android.support.design.widget.TextInputLayout
             android:layout_width="335dp"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/pixeled"
             tools:layout_editor_absoluteX="611dp"
             tools:layout_editor_absoluteY="289dp" />
 
@@ -152,9 +153,9 @@
         <Spinner
             android:id="@+id/spinner"
             android:layout_width="182dp"
-            android:layout_height="20dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="43dp"
+            android:layout_height="39dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="36dp"
             android:fontFamily="@font/pixeled"
             app:layout_constraintStart_toEndOf="@+id/text_difficulty"
             app:layout_constraintTop_toBottomOf="@+id/editText" />
@@ -267,8 +268,8 @@
             android:id="@+id/total_counter"
             android:layout_width="30dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="44dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="36dp"
             android:fontFamily="@font/pixeled"
             android:text="0"
             android:textAlignment="center"

@@ -1,27 +1,18 @@
 package com.example.spacetrader;
 
-import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.EditText;
 import android.widget.Spinner;
-import java.util.List;
-import java.util.ArrayList;
 import android.widget.ArrayAdapter;
 
 public class MainActivity extends AppCompatActivity {
 
-	private TextView mTextMessage;
-	private TextView addButton;
-	private Player player;
+    private Player player;
 
     private Button okButton;
     private Button pilotPlusButton;
@@ -35,17 +26,33 @@ public class MainActivity extends AppCompatActivity {
 
     private Spinner spinner;
 
+    private TextView counterTextView;
+    private TextView pilotCounterTextView;
+    private TextView pilotFighterTextView;
+    private TextView pilotTraderTextView;
+    private TextView pilotEngineerTextView;
+
+    private EditText myName;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+
         player = new Player();
 
-        final TextView mTextView2 = (TextView) findViewById(R.id.total_counter);
-        mTextView2.setText("" + player.getRemainingCount());
+        counterTextView = findViewById(R.id.total_counter);
+        counterTextView.setText("" + player.getRemainingCount());
+
+        pilotCounterTextView = findViewById(R.id.pilot_counter);
+        pilotFighterTextView = findViewById(R.id.fighter_counter);
+        pilotTraderTextView = findViewById(R.id.trader_counter);
+        pilotEngineerTextView = findViewById(R.id.engineer_counter);
+
+        myName = findViewById(R.id.editText);
 
         //populate spinner
-        spinner = (Spinner)findViewById(R.id.spinner);
+        spinner = findViewById(R.id.spinner);
         ArrayAdapter<CharSequence> dataAdapter =
 				ArrayAdapter.createFromResource(this, R.array.difficulty, R.layout.my_spinner);
         dataAdapter.setDropDownViewResource(R.layout.spinner_dropdown);
@@ -59,11 +66,9 @@ public class MainActivity extends AppCompatActivity {
         pilotPlusButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final TextView mTextView = (TextView) findViewById(R.id.pilot_counter);
-                final TextView mTextView2 = (TextView) findViewById(R.id.total_counter);
                 player.incrementPilotSkillPoints();
-                mTextView.setText("" + player.getPilotSkillPoints());
-                mTextView2.setText("" + player.getRemainingCount());
+                pilotCounterTextView.setText("" + player.getPilotSkillPoints());
+                counterTextView.setText("" + player.getRemainingCount());
             }
         });
 
@@ -71,11 +76,9 @@ public class MainActivity extends AppCompatActivity {
         pilotMinusButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final TextView mTextView = (TextView) findViewById(R.id.pilot_counter);
-                final TextView mTextView2 = (TextView) findViewById(R.id.total_counter);
                 player.decrementPilotSkillPoints();
-                mTextView.setText("" + player.getPilotSkillPoints());
-                mTextView2.setText("" + player.getRemainingCount());
+                pilotCounterTextView.setText("" + player.getPilotSkillPoints());
+                counterTextView.setText("" + player.getRemainingCount());
             }
         });
 
@@ -87,11 +90,9 @@ public class MainActivity extends AppCompatActivity {
         fighterPlusButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final TextView mTextView = (TextView) findViewById(R.id.fighter_counter);
-                final TextView mTextView2 = (TextView) findViewById(R.id.total_counter);
                 player.incrementFighterSkillPoints();
-                mTextView.setText("" + player.getFighterSkillPoints());
-                mTextView2.setText("" + player.getRemainingCount());
+                pilotFighterTextView.setText("" + player.getFighterSkillPoints());
+                counterTextView.setText("" + player.getRemainingCount());
             }
         });
 
@@ -99,11 +100,9 @@ public class MainActivity extends AppCompatActivity {
         fighterMinusButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final TextView mTextView = (TextView) findViewById(R.id.fighter_counter);
-                final TextView mTextView2 = (TextView) findViewById(R.id.total_counter);
                 player.decrementFighterSkillPoints();
-                mTextView.setText("" + player.getFighterSkillPoints());
-                mTextView2.setText("" + player.getRemainingCount());
+                pilotFighterTextView.setText("" + player.getFighterSkillPoints());
+                counterTextView.setText("" + player.getRemainingCount());
             }
         });
 
@@ -115,11 +114,9 @@ public class MainActivity extends AppCompatActivity {
         traderPlusButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final TextView mTextView = (TextView) findViewById(R.id.trader_counter);
-                final TextView mTextView2 = (TextView) findViewById(R.id.total_counter);
                 player.incrementTraderSkillPoints();
-                mTextView.setText("" + player.getTraderSkillPoints());
-                mTextView2.setText("" + player.getRemainingCount());
+                pilotTraderTextView.setText("" + player.getTraderSkillPoints());
+                counterTextView.setText("" + player.getRemainingCount());
             }
         });
 
@@ -127,11 +124,9 @@ public class MainActivity extends AppCompatActivity {
         traderMinusButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final TextView mTextView = (TextView) findViewById(R.id.trader_counter);
-                final TextView mTextView2 = (TextView) findViewById(R.id.total_counter);
                 player.decrementTraderSkillPoints();
-                mTextView.setText("" + player.getTraderSkillPoints());
-                mTextView2.setText("" + player.getRemainingCount());
+                pilotTraderTextView.setText("" + player.getTraderSkillPoints());
+                counterTextView.setText("" + player.getRemainingCount());
             }
         });
 
@@ -143,11 +138,9 @@ public class MainActivity extends AppCompatActivity {
         engineerPlusButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final TextView mTextView = (TextView) findViewById(R.id.engineer_counter);
-                final TextView mTextView2 = (TextView) findViewById(R.id.total_counter);
                 player.incrementEngineerSkillPoints();
-                mTextView.setText("" + player.getEngineerSkillPoints());
-                mTextView2.setText("" + player.getRemainingCount());
+                pilotEngineerTextView.setText("" + player.getEngineerSkillPoints());
+                counterTextView.setText("" + player.getRemainingCount());
             }
         });
 
@@ -155,11 +148,9 @@ public class MainActivity extends AppCompatActivity {
         engineerMinusButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final TextView mTextView = (TextView) findViewById(R.id.engineer_counter);
-                final TextView mTextView2 = (TextView) findViewById(R.id.total_counter);
                 player.decrementEngineerSkillPoints();
-                mTextView.setText("" + player.getEngineerSkillPoints());
-                mTextView2.setText("" + player.getRemainingCount());
+                pilotEngineerTextView.setText("" + player.getEngineerSkillPoints());
+                counterTextView.setText("" + player.getRemainingCount());
             }
         });
 
@@ -167,13 +158,10 @@ public class MainActivity extends AppCompatActivity {
         //Ok
         ///////////////////////////////////////////////////////////////////////////////////////
 
-        mTextMessage = (TextView) findViewById(R.id.message);
         okButton = findViewById(R.id.ok_button);
         okButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.e("main", "Ok was clicked");
-                EditText myName = findViewById(R.id.editText);
                 player.setName(myName.getText().toString());
                 Log.e("main", player.toString());
             }

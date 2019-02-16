@@ -10,7 +10,7 @@ public class Player {
     private int traderSkillPoints;
     private int engineerSkillPoints;
     private int credits;
-    private String spaceship; //will implement spaceship class in future sprint
+    private Ship spaceship; //will implement spaceship class in future sprint
 
     public Player() {
         this.pilotSkillPoints = 0;
@@ -18,7 +18,7 @@ public class Player {
         this.traderSkillPoints = 0;
         this.engineerSkillPoints = 0;
         this.credits = 1000;
-        this.spaceship = "Gnat";
+        this.spaceship = new Ship(ShipType.GNAT);
     }
 
     public void setName(String name) {

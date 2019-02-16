@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     private Player player;
 
     private Button okButton;
+    private Button exitButton;
     private Button pilotPlusButton;
     private Button pilotMinusButton;
     private Button fighterPlusButton;
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView pilotFighterTextView;
     private TextView pilotTraderTextView;
     private TextView pilotEngineerTextView;
+    private TextView toastTextView;
 
     private EditText myName;
 
@@ -48,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         pilotFighterTextView = findViewById(R.id.fighter_counter);
         pilotTraderTextView = findViewById(R.id.trader_counter);
         pilotEngineerTextView = findViewById(R.id.engineer_counter);
+        toastTextView = findViewById(R.id.toast);
 
         myName = findViewById(R.id.editText);
 
@@ -162,8 +165,29 @@ public class MainActivity extends AppCompatActivity {
         okButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                player.setName(myName.getText().toString());
-                Log.e("main", player.toString());
+                if (myName.getText().length() == 0) {
+                    toastTextView.setText("PLEASE ENTER NAME");
+                } else if (player.getRemainingCount() != 0) {
+                    toastTextView.setText("PLEASE ALLOCATE ALL SKILL POINTS");
+                } else {
+                    player.setName(myName.getText().toString());
+                    toastTextView.setText("PLAYER SUCCESSFULLY CREATED");
+                    Log.e("main", player.toString());
+                }
+            }
+        });
+
+        ///////////////////////////////////////////////////////////////////////////////////////
+        //Exit
+        ///////////////////////////////////////////////////////////////////////////////////////
+
+        exitButton = findViewById(R.id.exit_button);
+        exitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.e("main", "Will Exit Game");
+                finish();
+                System.exit(0);
             }
         });
 

@@ -6,9 +6,20 @@ public class Planet {
     private TechLevel techLevel;
     private ResourceType resourceType;
 
-    public Planet(String name, TechLevel techLevel, ResourceType resourceType) {
+    /**
+     * Planet constructor
+     * Will create a random techLevel and resourceType
+     * @param name name of the planet
+     */
+    public Planet(String name) {
         this.name = name;
-        this.techLevel = techLevel;
-        this.resourceType = resourceType;
+        this.techLevel = TechLevel.values()[(int)(Math.random() * TechLevel.values().length)];
+        this.resourceType = ResourceType.values()[(int)(Math.random() * ResourceType.values().length)];
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
+
 }

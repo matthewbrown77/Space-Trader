@@ -1,4 +1,4 @@
-package com.example.spacetrader;
+package com.example.spacetrader.view;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +9,9 @@ import android.widget.TextView;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.ArrayAdapter;
+
+import com.example.spacetrader.R;
+import com.example.spacetrader.entity.Player;
 
 public class MainActivity extends AppCompatActivity {
 

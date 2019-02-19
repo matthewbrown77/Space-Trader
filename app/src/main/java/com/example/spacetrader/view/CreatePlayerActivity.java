@@ -1,4 +1,4 @@
-package com.example.spacetrader;
+package com.example.spacetrader.view;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -10,7 +10,10 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.ArrayAdapter;
 
-public class MainActivity extends AppCompatActivity {
+import com.example.spacetrader.R;
+import com.example.spacetrader.entity.Player;
+
+public class CreatePlayerActivity extends AppCompatActivity {
 
     private Player player;
 
@@ -39,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.activity_create_player);
 
         player = new Player();
 

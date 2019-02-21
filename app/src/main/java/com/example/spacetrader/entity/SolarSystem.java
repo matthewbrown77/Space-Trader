@@ -1,5 +1,7 @@
-package com.example.spacetrader;
+package com.example.spacetrader.entity;
 import android.graphics.Point;
+
+import com.example.spacetrader.entity.Planet;
 
 public class SolarSystem {
     private String name;

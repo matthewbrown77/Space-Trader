@@ -1,4 +1,4 @@
-package com.example.spacetrader;
+package com.example.spacetrader.entity;
 
 public enum TechLevel {
     PRE_AGRICULTURE("Pre-Agriculture", 0), AGRICULTURE("Agriculture", 1),

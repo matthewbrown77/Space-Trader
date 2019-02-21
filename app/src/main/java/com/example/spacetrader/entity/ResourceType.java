@@ -1,4 +1,4 @@
-package com.example.spacetrader;
+package com.example.spacetrader.entity;
 
 public enum ResourceType {
     NO_SPECIAL_RESOURCES("No Special Resources"), MINERAL_RICH("Mineral Rich"),

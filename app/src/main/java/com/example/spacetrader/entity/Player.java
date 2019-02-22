@@ -12,7 +12,7 @@ public class Player implements Serializable {
     private int traderSkillPoints;
     private int engineerSkillPoints;
     private int credits;
-    private Ship spaceship; //will implement spaceship class in future sprint
+    private Ship ship; //will implement spaceship class in future sprint
 
     public Player() {
         this.pilotSkillPoints = 0;
@@ -20,11 +20,28 @@ public class Player implements Serializable {
         this.traderSkillPoints = 0;
         this.engineerSkillPoints = 0;
         this.credits = 1000;
-        this.spaceship = new Ship(ShipType.GNAT);
+        this.ship = new Ship(ShipType.GNAT);
+    }
+
+    public int[] getSkillPointsArray() {
+        int []skillPoints = {pilotSkillPoints, fighterSkillPoints, traderSkillPoints, engineerSkillPoints};
+        return skillPoints;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getCredits() {
+        return credits;
+    }
+
+    public String getShipName() {
+        return ship.toString();
     }
 
     public void incrementPilotSkillPoints() {
@@ -89,7 +106,7 @@ public class Player implements Serializable {
                 + "Trader Skills Points: " + this.traderSkillPoints + "\n"
                 + "Engineer Skills Points: " + this.engineerSkillPoints + "\n"
                 + "Credits: " + this.credits + "\n"
-                + "Spaceship: " + this.spaceship + "\n";
+                + "Spaceship: " + this.ship + "\n";
     }
 
 }

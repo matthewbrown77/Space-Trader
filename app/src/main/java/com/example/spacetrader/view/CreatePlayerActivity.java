@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -17,17 +16,6 @@ import com.example.spacetrader.entity.Player;
 public class CreatePlayerActivity extends AppCompatActivity {
 
     private Player player;
-
-    private Button okButton;
-    private Button exitButton;
-    private Button pilotPlusButton;
-    private Button pilotMinusButton;
-    private Button fighterPlusButton;
-    private Button fighterMinusButton;
-    private Button traderPlusButton;
-    private Button traderMinusButton;
-    private Button engineerPlusButton;
-    private Button engineerMinusButton;
 
     private Spinner spinner;
 
@@ -45,7 +33,7 @@ public class CreatePlayerActivity extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_create_player);
 
-        player = new Player();
+        player = new Player();//player to pass to MainActivity
 
         counterTextView = findViewById(R.id.total_counter);
         counterTextView.setText("" + player.getRemainingCount());
@@ -137,17 +125,14 @@ public class CreatePlayerActivity extends AppCompatActivity {
     public void onClickOK(View v) {
         if (myName.getText().length() == 0) {
             toastTextView.setText("PLEASE ENTER NAME");
-            Log.e("main", "GOT HERE");
         } else if (player.getRemainingCount() != 0) {
             toastTextView.setText("PLEASE ALLOCATE ALL SKILL POINTS");
-            Log.e("main", "GOT HERE");
         } else {
             player.setName(myName.getText().toString());
             toastTextView.setText("PLAYER SUCCESSFULLY CREATED");
-            Log.e("main", "GOT HERE");
             Intent intent = new Intent(CreatePlayerActivity.this, MainActivity.class);
             intent.putExtra("Player", player);
-            startActivity(intent);
+            startActivity(intent); //goes to MainActivity.
         }
     }
 

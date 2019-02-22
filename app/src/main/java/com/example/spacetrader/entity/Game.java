@@ -14,6 +14,22 @@ public class Game {
         this.universe = new Universe();
     }
 
+    public String getPlayerShipName() {
+        return player.getShipName();
+    }
+
+    public int [] getPlayerSkillPointsArray() {
+        return player.getSkillPointsArray();
+    }
+
+    public String getPlayerName() {
+        return player.getName();
+    }
+
+    public int getPlayerCredits() {
+        return player.getCredits();
+    }
+
     public String toString() {
         return "GAME: " + player.toString();
     }

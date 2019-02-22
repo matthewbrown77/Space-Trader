@@ -1,5 +1,6 @@
 package com.example.spacetrader.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -176,6 +177,7 @@ public class CreatePlayerActivity extends AppCompatActivity {
                     player.setName(myName.getText().toString());
                     toastTextView.setText("PLAYER SUCCESSFULLY CREATED");
                     Log.e("main", player.toString());
+                    startActivity(new Intent(CreatePlayerActivity.this, MainActivity.class));
                 }
             }
         });

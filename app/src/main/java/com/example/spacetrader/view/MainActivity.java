@@ -12,11 +12,15 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.spacetrader.R;
+import com.example.spacetrader.entity.Game;
+import com.example.spacetrader.entity.Player;
+
+import java.io.Serializable;
 
 public class MainActivity extends AppCompatActivity {
 
 	private TextView mTextMessage;
-	private Button testButton; //button to test going back to createPlayer.
+	private Game game;
 
 	private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
 			= new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -42,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		Serializable player = getIntent().getSerializableExtra("Player");
+		Log.e("main", "Created Player " + player.toString());
 
 		mTextMessage = (TextView) findViewById(R.id.message);
 		BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);

@@ -1,6 +1,8 @@
 package com.example.spacetrader.entity;
 
-public class Player {
+import java.io.Serializable;
+
+public class Player implements Serializable {
 
     public final int skillPoints = 16;
 

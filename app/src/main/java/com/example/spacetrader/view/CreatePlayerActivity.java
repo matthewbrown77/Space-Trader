@@ -176,8 +176,10 @@ public class CreatePlayerActivity extends AppCompatActivity {
                 } else {
                     player.setName(myName.getText().toString());
                     toastTextView.setText("PLAYER SUCCESSFULLY CREATED");
-                    Log.e("main", player.toString());
-                    startActivity(new Intent(CreatePlayerActivity.this, MainActivity.class));
+                    //Log.e("main", player.toString());
+                    Intent intent = new Intent(CreatePlayerActivity.this, MainActivity.class);
+                    intent.putExtra("Player", player);
+                    startActivity(intent);
                 }
             }
         });

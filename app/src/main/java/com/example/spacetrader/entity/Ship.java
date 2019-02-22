@@ -1,6 +1,7 @@
 package com.example.spacetrader.entity;
+import java.io.Serializable;
 
-public class Ship {
+public class Ship implements Serializable{
 
     private int cargo;
 

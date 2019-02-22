@@ -64,142 +64,101 @@ public class CreatePlayerActivity extends AppCompatActivity {
 				ArrayAdapter.createFromResource(this, R.array.difficulty, R.layout.my_spinner);
         dataAdapter.setDropDownViewResource(R.layout.spinner_dropdown);
         spinner.setAdapter(dataAdapter);
-
-        ///////////////////////////////////////////////////////////////////////////////////////
-        //Pilot
-        ///////////////////////////////////////////////////////////////////////////////////////
-
-        pilotPlusButton = findViewById(R.id.pilot_plus);
-        pilotPlusButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                player.incrementPilotSkillPoints();
-                pilotCounterTextView.setText("" + player.getPilotSkillPoints());
-                counterTextView.setText("" + player.getRemainingCount());
-            }
-        });
-
-        pilotMinusButton = findViewById(R.id.pilot_minus);
-        pilotMinusButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                player.decrementPilotSkillPoints();
-                pilotCounterTextView.setText("" + player.getPilotSkillPoints());
-                counterTextView.setText("" + player.getRemainingCount());
-            }
-        });
-
-        ///////////////////////////////////////////////////////////////////////////////////////
-        //Fighter
-        ///////////////////////////////////////////////////////////////////////////////////////
-
-        fighterPlusButton = findViewById(R.id.fighter_plus);
-        fighterPlusButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                player.incrementFighterSkillPoints();
-                pilotFighterTextView.setText("" + player.getFighterSkillPoints());
-                counterTextView.setText("" + player.getRemainingCount());
-            }
-        });
-
-        fighterMinusButton = findViewById(R.id.fighter_minus);
-        fighterMinusButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                player.decrementFighterSkillPoints();
-                pilotFighterTextView.setText("" + player.getFighterSkillPoints());
-                counterTextView.setText("" + player.getRemainingCount());
-            }
-        });
-
-        ///////////////////////////////////////////////////////////////////////////////////////
-        //Trader
-        ///////////////////////////////////////////////////////////////////////////////////////
-
-        traderPlusButton = findViewById(R.id.trader_plus);
-        traderPlusButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                player.incrementTraderSkillPoints();
-                pilotTraderTextView.setText("" + player.getTraderSkillPoints());
-                counterTextView.setText("" + player.getRemainingCount());
-            }
-        });
-
-        traderMinusButton = findViewById(R.id.trader_minus);
-        traderMinusButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                player.decrementTraderSkillPoints();
-                pilotTraderTextView.setText("" + player.getTraderSkillPoints());
-                counterTextView.setText("" + player.getRemainingCount());
-            }
-        });
-
-        ///////////////////////////////////////////////////////////////////////////////////////
-        //Engineer
-        ///////////////////////////////////////////////////////////////////////////////////////
-
-        engineerPlusButton = findViewById(R.id.engineer_plus);
-        engineerPlusButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                player.incrementEngineerSkillPoints();
-                pilotEngineerTextView.setText("" + player.getEngineerSkillPoints());
-                counterTextView.setText("" + player.getRemainingCount());
-            }
-        });
-
-        engineerMinusButton = findViewById(R.id.engineer_minus);
-        engineerMinusButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                player.decrementEngineerSkillPoints();
-                pilotEngineerTextView.setText("" + player.getEngineerSkillPoints());
-                counterTextView.setText("" + player.getRemainingCount());
-            }
-        });
-
-        ///////////////////////////////////////////////////////////////////////////////////////
-        //Ok
-        ///////////////////////////////////////////////////////////////////////////////////////
-
-        okButton = findViewById(R.id.ok_button);
-        okButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (myName.getText().length() == 0) {
-                    toastTextView.setText("PLEASE ENTER NAME");
-                } else if (player.getRemainingCount() != 0) {
-                    toastTextView.setText("PLEASE ALLOCATE ALL SKILL POINTS");
-                } else {
-                    player.setName(myName.getText().toString());
-                    toastTextView.setText("PLAYER SUCCESSFULLY CREATED");
-                    //Log.e("main", player.toString());
-                    Intent intent = new Intent(CreatePlayerActivity.this, MainActivity.class);
-                    intent.putExtra("Player", player);
-                    startActivity(intent);
-                }
-            }
-        });
-
-        ///////////////////////////////////////////////////////////////////////////////////////
-        //Exit
-        ///////////////////////////////////////////////////////////////////////////////////////
-
-        exitButton = findViewById(R.id.exit_button);
-        exitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.e("main", "Will Exit Game");
-                finish();
-                System.exit(0);
-            }
-        });
-
-
-
 	}
+
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //Pilot
+    ///////////////////////////////////////////////////////////////////////////////////////
+
+    public void onClickPilotPlus(View v) {
+        player.incrementPilotSkillPoints();
+        pilotCounterTextView.setText("" + player.getPilotSkillPoints());
+        counterTextView.setText("" + player.getRemainingCount());
+    }
+
+    public void onClickPilotMinus(View v) {
+        player.decrementPilotSkillPoints();
+        pilotCounterTextView.setText("" + player.getPilotSkillPoints());
+        counterTextView.setText("" + player.getRemainingCount());
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //Fighter
+    ///////////////////////////////////////////////////////////////////////////////////////
+
+    public void onClickFighterPlus(View v) {
+        player.incrementFighterSkillPoints();
+        pilotFighterTextView.setText("" + player.getFighterSkillPoints());
+        counterTextView.setText("" + player.getRemainingCount());
+    }
+
+    public void onClickFighterMinus(View v) {
+        player.decrementFighterSkillPoints();
+        pilotFighterTextView.setText("" + player.getFighterSkillPoints());
+        counterTextView.setText("" + player.getRemainingCount());
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //Trader
+    ///////////////////////////////////////////////////////////////////////////////////////
+
+    public void onClickTraderPlus(View v) {
+        player.incrementTraderSkillPoints();
+        pilotTraderTextView.setText("" + player.getTraderSkillPoints());
+        counterTextView.setText("" + player.getRemainingCount());
+    }
+
+    public void onClickTraderMinus(View v) {
+        player.decrementTraderSkillPoints();
+        pilotTraderTextView.setText("" + player.getTraderSkillPoints());
+        counterTextView.setText("" + player.getRemainingCount());
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //Engineer
+    ///////////////////////////////////////////////////////////////////////////////////////
+
+    public void onClickEngineerPlus(View v) {
+        player.incrementEngineerSkillPoints();
+        pilotEngineerTextView.setText("" + player.getEngineerSkillPoints());
+        counterTextView.setText("" + player.getRemainingCount());
+    }
+
+    public void onClickEngineerMinus(View v) {
+        player.decrementEngineerSkillPoints();
+        pilotEngineerTextView.setText("" + player.getEngineerSkillPoints());
+        counterTextView.setText("" + player.getRemainingCount());
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //Ok
+    ///////////////////////////////////////////////////////////////////////////////////////
+
+    public void onClickOK(View v) {
+        if (myName.getText().length() == 0) {
+            toastTextView.setText("PLEASE ENTER NAME");
+            Log.e("main", "GOT HERE");
+        } else if (player.getRemainingCount() != 0) {
+            toastTextView.setText("PLEASE ALLOCATE ALL SKILL POINTS");
+            Log.e("main", "GOT HERE");
+        } else {
+            player.setName(myName.getText().toString());
+            toastTextView.setText("PLAYER SUCCESSFULLY CREATED");
+            Log.e("main", "GOT HERE");
+            Intent intent = new Intent(CreatePlayerActivity.this, MainActivity.class);
+            intent.putExtra("Player", player);
+            startActivity(intent);
+        }
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //Exit
+    ///////////////////////////////////////////////////////////////////////////////////////
+
+    public void onClickExit(View v) {
+        Log.e("main", "Will Exit Game");
+        finish();
+        System.exit(0);
+    }
 
 }

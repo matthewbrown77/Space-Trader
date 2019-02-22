@@ -133,7 +133,8 @@
             android:text="OK"
             android:textColor="#ffffff"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/engineer_minus" />
+            app:layout_constraintTop_toBottomOf="@+id/engineer_minus"
+            android:onClick="onClickOK"/>
 
         <Button
             android:id="@+id/exit_button"
@@ -145,7 +146,8 @@
             android:text="EXIT"
             android:textColor="#ffffff"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/engineer_minus" />
+            app:layout_constraintTop_toBottomOf="@+id/engineer_minus"
+            android:onClick="onClickExit"/>
 
         <EditText
             android:id="@+id/editText"
@@ -184,7 +186,8 @@
             android:text="+"
             android:textColor="#ffffff"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:onClick="onClickPilotPlus"/>
 
         <Button
             android:id="@+id/pilot_minus"
@@ -196,7 +199,8 @@
             android:text="-"
             android:textColor="#ffffff"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:onClick="onClickPilotMinus"/>
 
         <Button
             android:id="@+id/fighter_plus"
@@ -208,7 +212,8 @@
             android:text="+"
             android:textColor="#ffffff"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pilot_plus" />
+            app:layout_constraintTop_toBottomOf="@+id/pilot_plus"
+            android:onClick="onClickFighterPlus"/>
 
         <Button
             android:id="@+id/fighter_minus"
@@ -220,7 +225,8 @@
             android:text="-"
             android:textColor="#ffffff"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pilot_minus" />
+            app:layout_constraintTop_toBottomOf="@+id/pilot_minus"
+            android:onClick="onClickFighterMinus"/>
 
         <Button
             android:id="@+id/trader_plus"
@@ -232,7 +238,8 @@
             android:text="+"
             android:textColor="#ffffff"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/fighter_plus" />
+            app:layout_constraintTop_toBottomOf="@+id/fighter_plus"
+            android:onClick="onClickTraderPlus"/>
 
         <Button
             android:id="@+id/trader_minus"
@@ -244,7 +251,8 @@
             android:text="-"
             android:textColor="#ffffff"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/fighter_minus" />
+            app:layout_constraintTop_toBottomOf="@+id/fighter_minus"
+            android:onClick="onClickTraderMinus"/>
 
         <Button
             android:id="@+id/engineer_minus"
@@ -256,7 +264,8 @@
             android:text="-"
             android:textColor="#ffffff"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/trader_minus" />
+            app:layout_constraintTop_toBottomOf="@+id/trader_minus"
+            android:onClick="onClickEngineerMinus"/>
 
         <Button
             android:id="@+id/engineer_plus"
@@ -268,7 +277,8 @@
             android:text="+"
             android:textColor="#ffffff"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/trader_plus" />
+            app:layout_constraintTop_toBottomOf="@+id/trader_plus"
+            android:onClick="onClickEngineerPlus"/>
 
         <TextView
             android:id="@+id/pilot_counter"

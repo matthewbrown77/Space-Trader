@@ -1,11 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/scrollView2"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
     <android.support.constraint.ConstraintLayout
         tools:context=".view.MainActivity"
         android:layout_height="match_parent"
@@ -29,18 +22,18 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/health_counter" />
 
-        <TextView
-            android:id="@+id/text_pilot"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="96dp"
-            android:fontFamily="@font/pixeled"
-            android:text="Pilot: "
-            android:textColor="#000000"
-            android:textSize="10sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/text_pilot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="72dp"
+        android:fontFamily="@font/pixeled"
+        android:text="Pilot: "
+        android:textColor="#000000"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/text_fighter"
@@ -81,19 +74,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_trader" />
 
-        <TextView
-            android:id="@+id/pilot_counter"
-            android:layout_width="30dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="48dp"
-            android:layout_marginTop="96dp"
-            android:fontFamily="@font/pixeled"
-            android:text="0"
-            android:textAlignment="center"
-            android:textColor="#000000"
-            android:textSize="10sp"
-            app:layout_constraintStart_toEndOf="@+id/text_pilot"
-            app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/pilot_counter"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="72dp"
+        android:fontFamily="@font/pixeled"
+        android:text="0"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="10sp"
+        app:layout_constraintStart_toEndOf="@+id/text_pilot"
+        app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/fighter_counter"
@@ -137,19 +130,19 @@
             app:layout_constraintStart_toEndOf="@+id/text_engineer"
             app:layout_constraintTop_toBottomOf="@+id/trader_counter" />
 
-        <TextView
-            android:id="@+id/techlvl_counter"
-            android:layout_width="30dp"
-            android:layout_height="29dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="40dp"
-            android:fontFamily="@font/pixeled"
-            android:text="0"
-            android:textAlignment="center"
-            android:textColor="#000000"
-            android:textSize="8sp"
-            app:layout_constraintStart_toEndOf="@+id/text_techlevel_title"
-            app:layout_constraintTop_toBottomOf="@+id/text_location_title" />
+    <TextView
+        android:id="@+id/techlvl_counter"
+        android:layout_width="30dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/pixeled"
+        android:text="0"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="8sp"
+        app:layout_constraintStart_toEndOf="@+id/text_techlevel_title"
+        app:layout_constraintTop_toBottomOf="@+id/text_location_title" />
 
         <TextView
             android:id="@+id/text_commander_name"
@@ -188,40 +181,40 @@
             app:layout_constraintStart_toEndOf="@+id/text_credits_title"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/ship_image"
-            android:layout_width="176dp"
-            android:layout_height="138dp"
-            android:layout_marginTop="128dp"
-            android:layout_marginEnd="28dp"
-            android:background="@drawable/back"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/gnat" />
+    <ImageView
+        android:id="@+id/ship_image"
+        android:layout_width="176dp"
+        android:layout_height="138dp"
+        android:layout_marginTop="104dp"
+        android:layout_marginEnd="28dp"
+        android:background="@drawable/back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/gnat" />
 
-        <TextView
-            android:id="@+id/text_ship_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="84dp"
-            android:layout_marginEnd="12dp"
-            android:fontFamily="@font/pixeled"
-            android:text="Ship: "
-            android:textSize="10sp"
-            app:layout_constraintEnd_toStartOf="@+id/text_ship_type"
-            app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/text_ship_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="12dp"
+        android:fontFamily="@font/pixeled"
+        android:text="Ship: "
+        android:textSize="10sp"
+        app:layout_constraintEnd_toStartOf="@+id/text_ship_type"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/text_ship_type"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="84dp"
-            android:layout_marginEnd="56dp"
-            android:fontFamily="@font/pixeled"
-            android:text="placeholder"
-            android:textSize="10sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/text_ship_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="52dp"
+        android:fontFamily="@font/pixeled"
+        android:text="placeholder"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/text_health_title"
@@ -247,64 +240,64 @@
             app:layout_constraintEnd_toStartOf="@+id/weaponlvl_counter"
             app:layout_constraintTop_toBottomOf="@+id/text_health_title" />
 
-        <TextView
-            android:id="@+id/text_location_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="384dp"
-            android:fontFamily="@font/pixeled"
-            android:text="Current Location: "
-            android:textSize="10sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/text_location_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="364dp"
+        android:fontFamily="@font/pixeled"
+        android:text="Current Location: "
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/planet_image"
-            android:layout_width="175dp"
-            android:layout_height="136dp"
-            android:layout_marginTop="156dp"
-            android:layout_marginEnd="28dp"
-            android:background="@drawable/back"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ship_image"
-            tools:srcCompat="@drawable/planet_1" />
+    <ImageView
+        android:id="@+id/planet_image"
+        android:layout_width="161dp"
+        android:layout_height="128dp"
+        android:layout_marginTop="176dp"
+        android:layout_marginEnd="28dp"
+        android:background="@drawable/back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ship_image"
+        tools:srcCompat="@drawable/planet_1" />
 
-        <TextView
-            android:id="@+id/text_techlevel_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="40dp"
-            android:fontFamily="@font/pixeled"
-            android:text="Tech Level: "
-            android:textSize="8sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_location_title" />
+    <TextView
+        android:id="@+id/text_techlevel_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="35dp"
+        android:fontFamily="@font/pixeled"
+        android:text="Tech Level: "
+        android:textSize="8sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_location_title" />
 
-        <TextView
-            android:id="@+id/text_government_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="40dp"
-            android:fontFamily="@font/pixeled"
-            android:text="Government:"
-            android:textSize="8sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_techlevel_title" />
+    <TextView
+        android:id="@+id/text_government_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="35dp"
+        android:fontFamily="@font/pixeled"
+        android:text="Government:"
+        android:textSize="8sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_techlevel_title" />
 
-        <TextView
-            android:id="@+id/text_resourcetype_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="40dp"
-            android:fontFamily="@font/pixeled"
-            android:text="Resource Type:"
-            android:textSize="8sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_government_title" />
+    <TextView
+        android:id="@+id/text_resourcetype_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="35dp"
+        android:fontFamily="@font/pixeled"
+        android:text="Resource Type:"
+        android:textSize="8sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_government_title" />
 
         <TextView
             android:layout_height="wrap_content"
@@ -340,41 +333,40 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ship_image" />
 
-        <TextView
-            android:id="@+id/location_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="26dp"
-            android:layout_marginEnd="152dp"
-            android:fontFamily="@font/pixeled"
-            android:text="Location"
-            android:textSize="10sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_weapon_title" />
+    <TextView
+        android:id="@+id/location_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="148dp"
+        android:fontFamily="@font/pixeled"
+        android:text="Location"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_weapon_title" />
 
-        <TextView
-            android:id="@+id/resource_type"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginBottom="61dp"
-            android:fontFamily="@font/pixeled"
-            android:text="placeholder"
-            android:textSize="8sp"
-            app:layout_constraintBottom_toTopOf="@+id/navigation"
-            app:layout_constraintStart_toEndOf="@+id/text_resourcetype_title" />
+    <TextView
+        android:id="@+id/resource_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginBottom="96dp"
+        android:fontFamily="@font/pixeled"
+        android:text="placeholder"
+        android:textSize="8sp"
+        app:layout_constraintBottom_toTopOf="@+id/navigation"
+        app:layout_constraintStart_toEndOf="@+id/text_resourcetype_title" />
 
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="106dp"
-            android:fontFamily="@font/pixeled"
-            android:text="placeholder"
-            android:textSize="8sp"
-            app:layout_constraintStart_toEndOf="@+id/text_government_title"
-            app:layout_constraintTop_toBottomOf="@+id/text_location_title" />
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="96dp"
+        android:fontFamily="@font/pixeled"
+        android:text="placeholder"
+        android:textSize="8sp"
+        app:layout_constraintStart_toEndOf="@+id/text_government_title"
+        app:layout_constraintTop_toBottomOf="@+id/text_location_title" />
 
-    </android.support.constraint.ConstraintLayout>
-</ScrollView>
+</android.support.constraint.ConstraintLayout>

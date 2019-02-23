@@ -1,5 +1,7 @@
 package com.example.spacetrader.entity;
 
+import android.util.Log;
+
 /**
  * Game class to store all information regarding the gameplay.
  *
@@ -12,7 +14,12 @@ public class Game {
     public Game (Player player) {
         this.player = player;
         this.universe = new Universe();
+        Log.d("main", universe.toString());//will remove later.
     }
+
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //Player Methods
+    ///////////////////////////////////////////////////////////////////////////////////////
 
     public String getPlayerShipName() {
         return player.getShipName();
@@ -29,6 +36,10 @@ public class Game {
     public int getPlayerCredits() {
         return player.getCredits();
     }
+
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //Class methods
+    ///////////////////////////////////////////////////////////////////////////////////////
 
     public String toString() {
         return "GAME: " + player.toString();

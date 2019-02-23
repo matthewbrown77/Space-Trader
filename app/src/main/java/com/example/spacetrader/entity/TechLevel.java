@@ -14,4 +14,9 @@ public enum TechLevel {
         this.level = level;
     }
 
+    @Override
+    public String toString() {
+        return name;
+    }
+
 }

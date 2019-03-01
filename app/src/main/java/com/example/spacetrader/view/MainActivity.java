@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 	private TextView mTextMessage;
 	private Game game;
 
+	/*
 	private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
 			= new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
 			return false;
 		}
 	};
+	*/
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -57,8 +59,8 @@ public class MainActivity extends AppCompatActivity {
 		game = new Game((Player)player); //adds the player to the game.
 
 		mTextMessage = (TextView) findViewById(R.id.message);
-		BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-		navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+		//BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+		//navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 		update();
 	}
 

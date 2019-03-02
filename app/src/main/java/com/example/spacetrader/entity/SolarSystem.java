@@ -1,6 +1,8 @@
 package com.example.spacetrader.entity;
 
-public class SolarSystem {
+import java.io.Serializable;
+
+public class SolarSystem implements Serializable {
     private String name;
     private Coordinate coordinate;
     private Planet[] planets;

@@ -98,8 +98,9 @@ public class MainActivity extends AppCompatActivity {
 	}
 
 	public void onClickTrading(View v) {
-		Intent intent = new Intent(MainActivity.this, TravelActivity.class);
-		startActivity(intent); //goes to Inventory.
+		Intent intent = new Intent(MainActivity.this, TradingActivity.class);
+		intent.putExtra("Game", game);
+		startActivity(intent); //goes to Trading Activityu.
 	}
 
 }

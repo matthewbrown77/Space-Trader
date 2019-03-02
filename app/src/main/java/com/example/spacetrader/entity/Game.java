@@ -2,11 +2,13 @@ package com.example.spacetrader.entity;
 
 import android.util.Log;
 
+import java.io.Serializable;
+
 /**
  * Game class to store all information regarding the gameplay.
  *
  */
-public class Game {
+public class Game implements Serializable {
 
     private Player player;
     private Universe universe;

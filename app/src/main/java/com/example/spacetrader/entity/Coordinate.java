@@ -1,8 +1,9 @@
 package com.example.spacetrader.entity;
 
+import java.io.Serializable;
 import java.util.HashSet;
 
-public class Coordinate {
+public class Coordinate implements Serializable {
 
     public final static int MIN_X = -100;
     public final static int MAX_X = 100;

@@ -87,8 +87,18 @@ public class MainActivity extends AppCompatActivity {
 	//Navigation Buttons
 	///////////////////////////////////////////////////////////////////////////////////////
 
+    public void onClickTravel(View v) {
+        Intent intent = new Intent(MainActivity.this, TravelActivity.class);
+        startActivity(intent); //goes to Inventory.
+    }
+
 	public void onClickInventory(View v) {
 		Intent intent = new Intent(MainActivity.this, InventoryActivity.class);
+		startActivity(intent); //goes to Inventory.
+	}
+
+	public void onClickTrading(View v) {
+		Intent intent = new Intent(MainActivity.this, TravelActivity.class);
 		startActivity(intent); //goes to Inventory.
 	}
 

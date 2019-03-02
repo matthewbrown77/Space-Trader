@@ -69,6 +69,10 @@ public class Game implements Serializable {
         return currentPlanet.getResourcePrice(resource);
     }
 
+    public int getResourceAmount(Resource resource) {
+        return currentPlanet.getResourceAmount(resource);
+    }
+
     ///////////////////////////////////////////////////////////////////////////////////////
     //Ship Inventory
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -78,14 +82,19 @@ public class Game implements Serializable {
     }
 
     public void addCargo(Resource cargo) {
-        if (resourceAvailableToBuy(cargo)) {
-            player.addCargo(cargo, cargo.getPrice(currentPlanet.getTechLevel(), currentPlanet.getResourceType()));
+        if (resourceAvailableToBuy(cargo) && currentPlanet.getResourceAmount(cargo) > 0) {
+            if (player.addCargo(cargo, cargo.getPrice(currentPlanet.getTechLevel(), currentPlanet.getResourceType()))){
+                currentPlanet.decrementResourceAmount(cargo);
+            }
         }
     }
 
     public void removeCargo(Resource cargo) {
         if (resourceAvailableToSell(cargo)) {
-            player.removeCargo(cargo, cargo.getPrice(currentPlanet.getTechLevel(), currentPlanet.getResourceType()));
+            if (player.removeCargo(cargo, cargo.getPrice(currentPlanet.getTechLevel(), currentPlanet.getResourceType()))) {
+                currentPlanet.incrementResourceAmount(cargo);
+            }
+
         }
     }
 

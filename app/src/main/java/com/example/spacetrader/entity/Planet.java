@@ -38,6 +38,18 @@ public class Planet implements Serializable {
         return market.getResourcePrice(resource);
     }
 
+    public int getResourceAmount(Resource resource) {
+        return market.getResourceAmount(resource);
+    }
+
+    public void incrementResourceAmount(Resource resource) {
+        market.incrementResourceAmount(resource);
+    }
+
+    public void decrementResourceAmount(Resource resource) {
+        market.decrementResourceAmount(resource);
+    }
+
     ///////////////////////////////////////////////////////////////////////////////////////
     //Planet methods
     ///////////////////////////////////////////////////////////////////////////////////////

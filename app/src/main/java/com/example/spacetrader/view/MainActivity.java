@@ -100,7 +100,8 @@ public class MainActivity extends AppCompatActivity {
 	public void onClickTrading(View v) {
 		Intent intent = new Intent(MainActivity.this, TradingActivity.class);
 		intent.putExtra("Game", game);
-		startActivity(intent); //goes to Trading Activityu.
+		startActivity(intent); //goes to Trading Activity.
+		Log.e("main", "Going to trading");
 	}
 
 }

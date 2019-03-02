@@ -43,8 +43,8 @@ public class Game implements Serializable {
     //Ship Inventory
     ///////////////////////////////////////////////////////////////////////////////////////
 
-    public Resource[] getCargo() {
-        return player.getCargo();
+    public int getCargoCount(Resource resource) {
+        return player.getCargoCount(resource);
     }
 
     public void addCargo(Resource cargo) {
@@ -53,6 +53,14 @@ public class Game implements Serializable {
 
     public void removeCargo(Resource cargo) {
         player.removeCargo(cargo);
+    }
+
+    public int getMaxCargo() {
+        return player.getMaxCargo();
+    }
+
+    public int getCurrentCargo() {
+        return player.getCurrentCargo();
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////

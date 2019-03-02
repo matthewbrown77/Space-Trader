@@ -23,25 +23,74 @@ public class Player implements Serializable {
         this.ship = new Ship(ShipType.GNAT);
     }
 
-    public int[] getSkillPointsArray() {
-        int []skillPoints = {pilotSkillPoints, fighterSkillPoints, traderSkillPoints, engineerSkillPoints};
-        return skillPoints;
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //Manipulating Player Cargo
+    ///////////////////////////////////////////////////////////////////////////////////////
+
+    public int getCargoCount(Resource resource) {
+        return ship.getCargoCount(resource);
     }
 
-    public Resource[] getCargo() {
-        return ship.getCargo();
+    /**
+     * Method adds requested resource to cargo load, and updates credits if successful
+     * @param resource to be added
+     * @return true if the add was successful, false otherwise
+     */
+    public boolean addCargo(Resource resource) {
+        if (resource.getPrice() > credits) {
+            return false;
+        } else if (ship.addCargo(resource)){
+            credits -= resource.getPrice();
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    public void addCargo(Resource resource) {
-        ship.addCargo(resource);
+    /**
+     * Method removes requested resource from cargo load, and updates credits if successful
+     * @param resource to be removed
+     * @return true if the remove was successful, false otherwise
+     */
+    public boolean removeCargo(Resource resource) {
+        if (ship.removeCargo(resource)) {
+            credits += resource.getPrice();
+            return true;
+        }
+        return false;
     }
 
-    public void removeCargo(Resource resource) {
-        ship.removeCargo(resource);
+    public int getMaxCargo() {
+        return ship.getMaxCargo();
     }
+
+    public int getCurrentCargo() {
+        return ship.getCurrentCargo();
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //Player Setters
+    ///////////////////////////////////////////////////////////////////////////////////////
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //Player Getters
+    ///////////////////////////////////////////////////////////////////////////////////////
+
+    public int getPilotSkillPoints() {return pilotSkillPoints;}
+
+    public int getFighterSkillPoints() {return fighterSkillPoints;}
+
+    public int getTraderSkillPoints() {return traderSkillPoints;}
+
+    public int getEngineerSkillPoints() {return engineerSkillPoints;}
+
+    public int[] getSkillPointsArray() {
+        int []skillPoints = {pilotSkillPoints, fighterSkillPoints, traderSkillPoints, engineerSkillPoints};
+        return skillPoints;
     }
 
     public String getName() {
@@ -55,6 +104,10 @@ public class Player implements Serializable {
     public String getShipName() {
         return ship.toString();
     }
+
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //Increment, Decrement, and getter methods for Player Creation
+    ///////////////////////////////////////////////////////////////////////////////////////
 
     public void incrementPilotSkillPoints() {
         if (getSkillSum() < skillPoints) {
@@ -106,10 +159,9 @@ public class Player implements Serializable {
         return skillPoints - getSkillSum();
     }
 
-    public int getPilotSkillPoints() {return pilotSkillPoints;}
-    public int getFighterSkillPoints() {return fighterSkillPoints;}
-    public int getTraderSkillPoints() {return traderSkillPoints;}
-    public int getEngineerSkillPoints() {return engineerSkillPoints;}
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //toString Method
+    ///////////////////////////////////////////////////////////////////////////////////////
 
     public String toString() {
         return "Player name: " + this.name + "\n"

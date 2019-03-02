@@ -39,6 +39,6 @@ public enum Resource {
     }
 
     public int getPrice() {
-        return -1;
+        return basePrice;
     }
 }

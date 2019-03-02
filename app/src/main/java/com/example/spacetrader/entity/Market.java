@@ -21,4 +21,8 @@ public class Market implements Serializable {
     public boolean resourceAvailableToSell(Resource resource) {
         return techLevel.getLevel() >= resource.getMinTechLevelToUse();
     }
+
+    public int getResourcePrice(Resource resource) {
+        return resource.getPrice(techLevel, resourceType);
+    }
 }

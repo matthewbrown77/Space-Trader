@@ -46,7 +46,15 @@ public enum Resource {
         return minTechLevelToUse;
     }
 
-    public int getPrice() {
-        return basePrice;
+    public int getPrice(TechLevel techLevel, ResourceType resourceType) {
+        int price = basePrice;
+        price += priceIncreasePerLevel * techLevel.getLevel();
+        if (cheapCondition != null && cheapCondition.equals(resourceType)) {
+            price /= 4;
+        }
+        if (expensiveCondition != null && expensiveCondition.equals(resourceType)) {
+            price *= 4;
+        }
+        return price;
     }
 }

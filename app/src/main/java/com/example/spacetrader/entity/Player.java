@@ -12,7 +12,8 @@ public class Player implements Serializable {
     private int traderSkillPoints;
     private int engineerSkillPoints;
     private int credits;
-    private Ship ship; //will implement spaceship class in future sprint
+    private Ship ship;
+    private Planet currentPlanet;
 
     public Player() {
         this.pilotSkillPoints = 0;
@@ -36,11 +37,11 @@ public class Player implements Serializable {
      * @param resource to be added
      * @return true if the add was successful, false otherwise
      */
-    public boolean addCargo(Resource resource) {
-        if (resource.getPrice() > credits) {
+    public boolean addCargo(Resource resource, int price) {
+        if (price > credits) {
             return false;
         } else if (ship.addCargo(resource)){
-            credits -= resource.getPrice();
+            credits -= price;
             return true;
         } else {
             return false;
@@ -52,9 +53,9 @@ public class Player implements Serializable {
      * @param resource to be removed
      * @return true if the remove was successful, false otherwise
      */
-    public boolean removeCargo(Resource resource) {
+    public boolean removeCargo(Resource resource, int price) {
         if (ship.removeCargo(resource)) {
-            credits += resource.getPrice();
+            credits += price;
             return true;
         }
         return false;

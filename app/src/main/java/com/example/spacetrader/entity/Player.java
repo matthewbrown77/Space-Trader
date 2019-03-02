@@ -28,6 +28,14 @@ public class Player implements Serializable {
         return skillPoints;
     }
 
+    public Resource[] getCargo() {
+        return ship.getCargo();
+    }
+
+    public void addCargo(Resource resource) {
+        ship.addCargo(resource);
+    }
+
     public void setName(String name) {
         this.name = name;
     }

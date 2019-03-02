@@ -377,7 +377,8 @@
         android:text="INVENTORY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/trading_button"
-        app:layout_constraintStart_toEndOf="@+id/travel_button" />
+        app:layout_constraintStart_toEndOf="@+id/travel_button"
+        android:onClick="onClickInventory"/>
 
     <Button
         android:id="@+id/trading_button"

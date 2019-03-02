@@ -83,4 +83,13 @@ public class MainActivity extends AppCompatActivity {
 		shipNameTextView.setText(game.getPlayerShipName());
 	}
 
+	///////////////////////////////////////////////////////////////////////////////////////
+	//Navigation Buttons
+	///////////////////////////////////////////////////////////////////////////////////////
+
+	public void onClickInventory(View v) {
+		Intent intent = new Intent(MainActivity.this, InventoryActivity.class);
+		startActivity(intent); //goes to Inventory.
+	}
+
 }

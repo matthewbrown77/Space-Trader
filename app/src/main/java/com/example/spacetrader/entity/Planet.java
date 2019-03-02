@@ -8,6 +8,7 @@ public class Planet implements Serializable {
     private TechLevel techLevel;
     private ResourceType resourceType;
     private Government government;
+    private Market market;
 
     /**
      * Planet constructor
@@ -18,6 +19,7 @@ public class Planet implements Serializable {
         this.techLevel = TechLevel.values()[(int) (Math.random() * TechLevel.values().length)];
         this.resourceType = ResourceType.values()[(int) (Math.random() * ResourceType.values().length)];
         this.government = Government.values()[(int) (Math.random() * Government.values().length)];
+        this.market = new Market(name, techLevel, resourceType);
     }
 
     /**

@@ -38,6 +38,14 @@ public enum Resource {
         this.maxPrice = maxPrice;
     }
 
+    public int getMinTechLevelToProduce() {
+        return minTechLevelToProduce;
+    }
+
+    public int getMinTechLevelToUse() {
+        return minTechLevelToUse;
+    }
+
     public int getPrice() {
         return basePrice;
     }

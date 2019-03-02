@@ -12,11 +12,13 @@ public class Game implements Serializable {
 
     private Player player;
     private Universe universe;
+    private Planet currentPlanet;
 
     public Game (Player player) {
         this.player = player;
         this.universe = new Universe();
         Log.d("main", universe.toString());//will remove later.
+        this.currentPlanet = new Planet();//will remove later. Testing marketplace.
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////

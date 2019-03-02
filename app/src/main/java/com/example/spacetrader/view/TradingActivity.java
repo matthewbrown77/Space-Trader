@@ -46,7 +46,7 @@ public class TradingActivity extends AppCompatActivity {
         sellMachinesButton = findViewById(R.id.machines_sell);
         sellNarcoticsButton = findViewById(R.id.narcotics_sell);
         sellRobotsButton = findViewById(R.id.robots_sell);
-        updateSellButtonText();
+        updateText();
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -55,59 +55,59 @@ public class TradingActivity extends AppCompatActivity {
 
     public void onClickBuyWater(View v) {
         game.addCargo(Resource.WATER);
-        updateSellButtonText();
+        updateText();
     }
 
     public void onClickBuyFurs(View v) {
         game.addCargo(Resource.FURS);
-        updateSellButtonText();
+        updateText();
     }
 
     public void onClickBuyFood(View v) {
         game.addCargo(Resource.FOOD);
-        updateSellButtonText();
+        updateText();
     }
 
     public void onClickBuyOre(View v) {
         game.addCargo(Resource.ORE);
-        updateSellButtonText();
+        updateText();
     }
 
     public void onClickBuyGames(View v) {
         game.addCargo(Resource.GAMES);
-        updateSellButtonText();
+        updateText();
     }
 
     public void onClickBuyFirearms(View v) {
         game.addCargo(Resource.FIREARMS);
-        updateSellButtonText();
+        updateText();
     }
 
     public void onClickBuyMedicine(View v) {
         game.addCargo(Resource.MEDICINE);
-        updateSellButtonText();
+        updateText();
     }
 
     public void onClickBuyMachines(View v) {
         game.addCargo(Resource.MACHINES);
-        updateSellButtonText();
+        updateText();
     }
 
     public void onClickBuyNarcotics(View v) {
         game.addCargo(Resource.NARCOTICS);
-        updateSellButtonText();
+        updateText();
     }
 
     public void onClickBuyRobots(View v) {
         game.addCargo(Resource.ROBOTS);
-        updateSellButtonText();
+        updateText();
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////
     //Update Text for Sell Buttons
     ///////////////////////////////////////////////////////////////////////////////////////
 
-    public void updateSellButtonText() {
+    public void updateText() {
         sellWaterButton.setText("Sell (" + game.getCargoCount(Resource.WATER) + ")");
         sellFursButton.setText("Sell (" + game.getCargoCount(Resource.FURS) + ")");
         sellFoodButton.setText("Sell (" + game.getCargoCount(Resource.FOOD) + ")");
@@ -129,52 +129,52 @@ public class TradingActivity extends AppCompatActivity {
 
     public void onClickSellWater(View v) {
         game.removeCargo(Resource.WATER);
-        updateSellButtonText();
+        updateText();
     }
 
     public void onClickSellFurs(View v) {
         game.removeCargo(Resource.FURS);
-        updateSellButtonText();
+        updateText();
     }
 
     public void onClickSellFood(View v) {
         game.removeCargo(Resource.FOOD);
-        updateSellButtonText();
+        updateText();
     }
 
     public void onClickSellOre(View v) {
         game.removeCargo(Resource.ORE);
-        updateSellButtonText();
+        updateText();
     }
 
     public void onClickSellGames(View v) {
         game.removeCargo(Resource.GAMES);
-        updateSellButtonText();
+        updateText();
     }
 
     public void onClickSellFirearms(View v) {
         game.removeCargo(Resource.FIREARMS);
-        updateSellButtonText();
+        updateText();
     }
 
     public void onClickSellMedicine(View v) {
         game.removeCargo(Resource.MEDICINE);
-        updateSellButtonText();
+        updateText();
     }
 
     public void onClickSellMachines(View v) {
         game.removeCargo(Resource.MACHINES);
-        updateSellButtonText();
+        updateText();
     }
 
     public void onClickSellNarcotics(View v) {
         game.removeCargo(Resource.NARCOTICS);
-        updateSellButtonText();
+        updateText();
     }
 
     public void onClickSellRobots(View v) {
         game.removeCargo(Resource.ROBOTS);
-        updateSellButtonText();
+        updateText();
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////

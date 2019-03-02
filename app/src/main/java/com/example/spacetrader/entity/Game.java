@@ -42,6 +42,30 @@ public class Game implements Serializable {
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////
+    //Market
+    ///////////////////////////////////////////////////////////////////////////////////////
+
+    public boolean resourceAvailableToBuy(Resource resource) {
+        return currentPlanet.resourceAvailableToBuy(resource);
+    }
+
+    public boolean resourceAvailableToSell(Resource resource) {
+        return currentPlanet.resourceAvailableToSell(resource);
+    }
+
+    public String getCurrentPlanetName() {
+        return currentPlanet.getName();
+    }
+
+    public String getCurrentPlanetResourceType(){
+        return currentPlanet.getResourceType().toString();
+    }
+
+    public String getCurrentPlanetTechLevel() {
+        return currentPlanet.getTechLevel().toString();
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////
     //Ship Inventory
     ///////////////////////////////////////////////////////////////////////////////////////
 
@@ -50,11 +74,15 @@ public class Game implements Serializable {
     }
 
     public void addCargo(Resource cargo) {
-        player.addCargo(cargo);
+        if (resourceAvailableToBuy(cargo)) {
+            player.addCargo(cargo);
+        }
     }
 
     public void removeCargo(Resource cargo) {
-        player.removeCargo(cargo);
+        if (resourceAvailableToSell(cargo)){
+            player.removeCargo(cargo);
+        }
     }
 
     public int getMaxCargo() {

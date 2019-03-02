@@ -16,8 +16,23 @@ import java.io.Serializable;
 public class TradingActivity extends AppCompatActivity {
 
     private Game game;
+    private TextView marketNameTextView;
     private TextView creditsTextView;
     private TextView cargoTextView;
+    private TextView resourceTypeTextView;
+    private TextView techLevelTextView;
+
+    private Button buyWaterButton;
+    private Button buyFursButton;
+    private Button buyFoodButton;
+    private Button buyOreButton;
+    private Button buyGamesButton;
+    private Button buyFirearmsButton;
+    private Button buyMedicineButton;
+    private Button buyMachinesButton;
+    private Button buyNarcoticsButton;
+    private Button buyRobotsButton;
+
     private Button sellWaterButton;
     private Button sellFursButton;
     private Button sellFoodButton;
@@ -34,8 +49,12 @@ public class TradingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trading);
         game = (Game)getIntent().getSerializableExtra("Game");//gets game from main Activity
+        marketNameTextView = findViewById(R.id.location_title);
         creditsTextView = findViewById(R.id.trading_credits);
         cargoTextView = findViewById(R.id.trading_cargo);
+        resourceTypeTextView = findViewById(R.id.resource_type_title);
+        techLevelTextView = findViewById(R.id.tech_level_title);
+
         sellWaterButton = findViewById(R.id.water_sell);
         sellFursButton = findViewById(R.id.furs_sell);
         sellFoodButton = findViewById(R.id.food_sell);
@@ -46,6 +65,18 @@ public class TradingActivity extends AppCompatActivity {
         sellMachinesButton = findViewById(R.id.machines_sell);
         sellNarcoticsButton = findViewById(R.id.narcotics_sell);
         sellRobotsButton = findViewById(R.id.robots_sell);
+
+        buyWaterButton = findViewById(R.id.water_buy);
+        buyFursButton = findViewById(R.id.furs_buy);
+        buyFoodButton = findViewById(R.id.food_buy);
+        buyOreButton = findViewById(R.id.ore_buy);
+        buyGamesButton = findViewById(R.id.game_buy);
+        buyFirearmsButton = findViewById(R.id.firearms_buy);
+        buyMedicineButton = findViewById(R.id.medicine_buy);
+        buyMachinesButton = findViewById(R.id.machines_buy);
+        buyNarcoticsButton = findViewById(R.id.narcotics_buy);
+        buyRobotsButton = findViewById(R.id.robots_buy);
+
         updateText();
     }
 
@@ -108,18 +139,42 @@ public class TradingActivity extends AppCompatActivity {
     ///////////////////////////////////////////////////////////////////////////////////////
 
     public void updateText() {
-        sellWaterButton.setText("Sell (" + game.getCargoCount(Resource.WATER) + ")");
-        sellFursButton.setText("Sell (" + game.getCargoCount(Resource.FURS) + ")");
-        sellFoodButton.setText("Sell (" + game.getCargoCount(Resource.FOOD) + ")");
-        sellOreButton.setText("Sell (" + game.getCargoCount(Resource.ORE) + ")");
-        sellGamesButton.setText("Sell (" + game.getCargoCount(Resource.GAMES) + ")");
-        sellFirearmsButton.setText("Sell (" + game.getCargoCount(Resource.FIREARMS) + ")");
-        sellMedicineButton.setText("Sell (" + game.getCargoCount(Resource.MEDICINE) + ")");
-        sellMachinesButton.setText("Sell (" + game.getCargoCount(Resource.MACHINES) + ")");
-        sellNarcoticsButton.setText("Sell (" + game.getCargoCount(Resource.WATER) + ")");
-        sellRobotsButton.setText("Sell (" + game.getCargoCount(Resource.WATER) + ")");
+        buyWaterButton.setText(game.resourceAvailableToBuy(Resource.WATER) ? "Buy" : "N/A");
+        sellWaterButton.setText(game.resourceAvailableToSell(Resource.WATER) ? "Sell (" + game.getCargoCount(Resource.WATER) + ")" : "N/A");
+
+        buyFursButton.setText(game.resourceAvailableToBuy(Resource.FURS) ? "Buy" : "N/A");
+        sellFursButton.setText(game.resourceAvailableToSell(Resource.FURS) ? "Sell (" + game.getCargoCount(Resource.FURS) + ")" : "N/A");
+
+        buyFoodButton.setText(game.resourceAvailableToBuy(Resource.FOOD) ? "Buy" : "N/A");
+        sellFoodButton.setText(game.resourceAvailableToSell(Resource.FOOD) ? "Sell (" + game.getCargoCount(Resource.FOOD) + ")" : "N/A");
+
+        buyOreButton.setText(game.resourceAvailableToBuy(Resource.ORE) ? "Buy" : "N/A");
+        sellOreButton.setText(game.resourceAvailableToSell(Resource.ORE) ? "Sell (" + game.getCargoCount(Resource.ORE) + ")" : "N/A");
+
+        buyGamesButton.setText(game.resourceAvailableToBuy(Resource.GAMES) ? "Buy" : "N/A");
+        sellGamesButton.setText(game.resourceAvailableToSell(Resource.GAMES) ? "Sell (" + game.getCargoCount(Resource.GAMES) + ")" : "N/A");
+
+        buyFirearmsButton.setText(game.resourceAvailableToBuy(Resource.FIREARMS) ? "Buy" : "N/A");
+        sellFirearmsButton.setText(game.resourceAvailableToSell(Resource.FIREARMS) ? "Sell (" + game.getCargoCount(Resource.FIREARMS) + ")" : "N/A");
+
+        buyMedicineButton.setText(game.resourceAvailableToBuy(Resource.MEDICINE) ? "Buy" : "N/A");
+        sellMedicineButton.setText(game.resourceAvailableToSell(Resource.MEDICINE) ? "Sell (" + game.getCargoCount(Resource.MEDICINE) + ")" : "N/A");
+
+        buyMachinesButton.setText(game.resourceAvailableToBuy(Resource.MACHINES) ? "Buy" : "N/A");
+        sellMachinesButton.setText(game.resourceAvailableToSell(Resource.MACHINES) ? "Sell (" + game.getCargoCount(Resource.MACHINES) + ")" : "N/A");
+
+        buyNarcoticsButton.setText(game.resourceAvailableToBuy(Resource.NARCOTICS) ? "Buy" : "N/A");
+        sellNarcoticsButton.setText(game.resourceAvailableToSell(Resource.NARCOTICS) ? "Sell (" + game.getCargoCount(Resource.NARCOTICS) + ")" : "N/A");
+
+        buyRobotsButton.setText(game.resourceAvailableToBuy(Resource.ROBOTS) ? "Buy" : "N/A");
+        sellRobotsButton.setText(game.resourceAvailableToSell(Resource.ROBOTS) ? "Sell (" + game.getCargoCount(Resource.ROBOTS) + ")" : "N/A");
+
         cargoTextView.setText("Cargo: " + game.getCurrentCargo() + " / " + game.getMaxCargo());
         creditsTextView.setText("Credits: " + game.getPlayerCredits());
+
+        techLevelTextView.setText("TL: " + game.getCurrentPlanetTechLevel());
+        resourceTypeTextView.setText("RT: " + game.getCurrentPlanetResourceType());
+        marketNameTextView.setText("Market: " + game.getCurrentPlanetName());
     }
 
 

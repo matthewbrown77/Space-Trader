@@ -15,10 +15,10 @@ public class Market implements Serializable {
     }
 
     public boolean resourceAvailableToBuy(Resource resource) {
-        return resource.getMinTechLevelToProduce() >= techLevel.getLevel();
+        return techLevel.getLevel() >= resource.getMinTechLevelToProduce();
     }
 
     public boolean resourceAvailableToSell(Resource resource) {
-        return resource.getMinTechLevelToUse() >= techLevel.getLevel();
+        return techLevel.getLevel() >= resource.getMinTechLevelToUse();
     }
 }

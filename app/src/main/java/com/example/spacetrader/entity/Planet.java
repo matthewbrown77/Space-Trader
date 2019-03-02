@@ -22,6 +22,34 @@ public class Planet implements Serializable {
         this.market = new Market(name, techLevel, resourceType);
     }
 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //MarketPlace Methods
+    ///////////////////////////////////////////////////////////////////////////////////////
+
+    public boolean resourceAvailableToBuy(Resource resource) {
+        return market.resourceAvailableToBuy(resource);
+    }
+
+    public boolean resourceAvailableToSell(Resource resource) {
+        return market.resourceAvailableToSell(resource);
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //Planet methods
+    ///////////////////////////////////////////////////////////////////////////////////////
+
+    public String getName() {
+        return this.name;
+    }
+
+    public ResourceType getResourceType() {
+        return this.resourceType;
+    }
+
+    public TechLevel getTechLevel() {
+        return this.techLevel;
+    }
+
     /**
      * Generates a random name or random string of numbers and letters.
      * @return

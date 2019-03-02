@@ -23,7 +23,7 @@ public class TradingActivity extends AppCompatActivity {
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////
-    //Buy / Sell Buttons
+    //Buy Buttons
     ///////////////////////////////////////////////////////////////////////////////////////
 
     public void onClickBuyWater(View v) {
@@ -64,6 +64,50 @@ public class TradingActivity extends AppCompatActivity {
 
     public void onClickBuyRobots(View v) {
         game.addCargo(Resource.ROBOTS);
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //Sell Buttons
+    ///////////////////////////////////////////////////////////////////////////////////////
+
+    public void onClickSellWater(View v) {
+        game.removeCargo(Resource.WATER);
+    }
+
+    public void onClickSellFurs(View v) {
+        game.removeCargo(Resource.FURS);
+    }
+
+    public void onClickSellFood(View v) {
+        game.removeCargo(Resource.FOOD);
+    }
+
+    public void onClickSellOre(View v) {
+        game.removeCargo(Resource.ORE);
+    }
+
+    public void onClickSellGames(View v) {
+        game.removeCargo(Resource.GAMES);
+    }
+
+    public void onClickSellFirearms(View v) {
+        game.removeCargo(Resource.FIREARMS);
+    }
+
+    public void onClickSellMedicine(View v) {
+        game.removeCargo(Resource.MEDICINE);
+    }
+
+    public void onClickSellMachines(View v) {
+        game.removeCargo(Resource.MACHINES);
+    }
+
+    public void onClickSellNarcotics(View v) {
+        game.removeCargo(Resource.NARCOTICS);
+    }
+
+    public void onClickSellRobots(View v) {
+        game.removeCargo(Resource.ROBOTS);
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////

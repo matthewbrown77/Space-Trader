@@ -22,6 +22,10 @@ public class Ship implements Serializable{
         Log.e("main", "Will add cargo");
     }
 
+    public void removeCargo(Resource resource) {
+        Log.e("main", "Will remove cargo");
+    }
+
     public String toString() {
         return type.toString();
     }

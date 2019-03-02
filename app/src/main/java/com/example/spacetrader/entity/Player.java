@@ -36,6 +36,10 @@ public class Player implements Serializable {
         ship.addCargo(resource);
     }
 
+    public void removeCargo(Resource resource) {
+        ship.removeCargo(resource);
+    }
+
     public void setName(String name) {
         this.name = name;
     }

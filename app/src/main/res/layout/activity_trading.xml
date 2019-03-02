@@ -376,7 +376,8 @@
         android:text="Sell"
         android:textSize="7sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cargo" />
+        app:layout_constraintTop_toBottomOf="@+id/cargo"
+        android:onClick="onClickSellWater"/>
 
     <Button
         android:id="@+id/robots_sell"
@@ -388,7 +389,8 @@
         android:text="Sell"
         android:textSize="7sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/narcotics_sell" />
+        app:layout_constraintTop_toBottomOf="@+id/narcotics_sell"
+        android:onClick="onClickSellRobots"/>
 
     <Button
         android:id="@+id/narcotics_sell"
@@ -400,7 +402,8 @@
         android:text="Sell"
         android:textSize="7sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/machines_sell" />
+        app:layout_constraintTop_toBottomOf="@+id/machines_sell"
+        android:onClick="onClickSellNarcotics"/>
 
     <Button
         android:id="@+id/machines_sell"
@@ -412,7 +415,8 @@
         android:text="Sell"
         android:textSize="7sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/medicine_sell" />
+        app:layout_constraintTop_toBottomOf="@+id/medicine_sell"
+        android:onClick="onClickSellMachines"/>
 
     <Button
         android:id="@+id/medicine_sell"
@@ -424,7 +428,8 @@
         android:text="Sell"
         android:textSize="7sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/firearms_sell" />
+        app:layout_constraintTop_toBottomOf="@+id/firearms_sell"
+        android:onClick="onClickSellMedicine"/>
 
     <Button
         android:id="@+id/firearms_sell"
@@ -436,7 +441,8 @@
         android:text="Sell"
         android:textSize="7sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/game_sell" />
+        app:layout_constraintTop_toBottomOf="@+id/game_sell"
+        android:onClick="onClickSellFirearms"/>
 
     <Button
         android:id="@+id/game_sell"
@@ -448,7 +454,8 @@
         android:text="Sell"
         android:textSize="7sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ore_sell" />
+        app:layout_constraintTop_toBottomOf="@+id/ore_sell"
+        android:onClick="onClickSellGames"/>
 
     <Button
         android:id="@+id/ore_sell"
@@ -460,7 +467,8 @@
         android:text="Sell"
         android:textSize="7sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/food_sell" />
+        app:layout_constraintTop_toBottomOf="@+id/food_sell"
+        android:onClick="onClickSellOre"/>
 
     <Button
         android:id="@+id/furs_sell"
@@ -472,7 +480,8 @@
         android:text="Sell"
         android:textSize="7sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/water_sell" />
+        app:layout_constraintTop_toBottomOf="@+id/water_sell"
+        android:onClick="onClickSellFurs"/>
 
     <Button
         android:id="@+id/food_sell"
@@ -484,5 +493,6 @@
         android:text="Sell"
         android:textSize="7sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/furs_sell" />
+        app:layout_constraintTop_toBottomOf="@+id/furs_sell"
+        android:onClick="onClickSellFood"/>
 </android.support.constraint.ConstraintLayout>

@@ -1,14 +1,12 @@
 package com.example.spacetrader.entity;
 
-import java.io.Serializable;
-
 /**
  * The SolarSystem class represents a solar system in the Universe. Each solarSystem
  * has a collection of planets predetermined during game creation. Each solarSystem
  * has a distinct coordinate in the universe. Once a player is at a solarSystem, they
  * can travel to any of its planets.
  */
-public class SolarSystem implements Serializable {
+public class SolarSystem{
     private String name;
     private Coordinate coordinate;
     private Planet[] planets;

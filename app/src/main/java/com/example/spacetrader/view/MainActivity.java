@@ -55,8 +55,8 @@ public class MainActivity extends AppCompatActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		Serializable player = getIntent().getSerializableExtra("Player");//gets player from CreatePlayerActivity
-		game = new Game((Player)player); //adds the player to the game.
+		//Serializable player = getIntent().getSerializableExtra("Player");//gets player from CreatePlayerActivity
+		game = Game.getInstance();
 
 		mTextMessage = (TextView) findViewById(R.id.message);
 		//BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
 
 	public void onClickTrading(View v) {
 		Intent intent = new Intent(MainActivity.this, TradingActivity.class);
-		intent.putExtra("Game", game);
+		//intent.putExtra("Game", game);
 		startActivity(intent); //goes to Trading Activity.
 		Log.e("main", "Going to trading");
 	}

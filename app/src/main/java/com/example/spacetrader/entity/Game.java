@@ -2,13 +2,12 @@ package com.example.spacetrader.entity;
 
 import android.util.Log;
 
-import java.io.Serializable;
+public class Game {
 
-/**
- * Game class to store all information regarding the game play.
- *
- */
-public class Game implements Serializable {
+    private static Game instance = new Game();
+    public static Game getInstance() {
+        return instance;
+    }
 
     private Player player;
     private Universe universe;
@@ -16,10 +15,9 @@ public class Game implements Serializable {
 
     /**
      * Constructor for the game class. Creates a new universe.
-     * @param player
      */
-    public Game (Player player) {
-        this.player = player;
+    public Game () {
+        this.player = new Player();
         this.universe = new Universe();
         Log.d("main", universe.toString());//will remove later.
         this.currentPlanet = new Planet();//will remove later. Testing marketplace.
@@ -28,6 +26,14 @@ public class Game implements Serializable {
     ///////////////////////////////////////////////////////////////////////////////////////
     //Player Methods
     ///////////////////////////////////////////////////////////////////////////////////////
+
+    /**
+     * Sets the player in the game. Used in createPlayer Activity.
+     * @param player
+     */
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
 
     /**
      * Gets name of the ship

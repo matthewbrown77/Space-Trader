@@ -59,7 +59,8 @@ public class TradingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trading);
-        game = (Game)getIntent().getSerializableExtra("Game");//gets game from main Activity
+        //game = (Game)getIntent().getSerializableExtra("Game");//gets game from main Activity
+        game = Game.getInstance();
         marketNameTextView = findViewById(R.id.location_title);
         creditsTextView = findViewById(R.id.trading_credits);
         cargoTextView = findViewById(R.id.trading_cargo);

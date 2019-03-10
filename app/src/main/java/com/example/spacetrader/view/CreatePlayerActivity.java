@@ -11,6 +11,7 @@ import android.widget.Spinner;
 import android.widget.ArrayAdapter;
 
 import com.example.spacetrader.R;
+import com.example.spacetrader.entity.Game;
 import com.example.spacetrader.entity.Player;
 
 public class CreatePlayerActivity extends AppCompatActivity {
@@ -130,8 +131,10 @@ public class CreatePlayerActivity extends AppCompatActivity {
         } else {
             player.setName(myName.getText().toString());
             toastTextView.setText("PLAYER SUCCESSFULLY CREATED");
+            Game game = Game.getInstance();
+            game.setPlayer(player);
             Intent intent = new Intent(CreatePlayerActivity.this, MainActivity.class);
-            intent.putExtra("Player", player);
+            //intent.putExtra("Player", player);
             startActivity(intent); //goes to MainActivity.
         }
     }

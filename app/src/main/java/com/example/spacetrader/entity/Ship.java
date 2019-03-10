@@ -2,15 +2,13 @@ package com.example.spacetrader.entity;
 import android.util.Log;
 import java.util.HashMap;
 
-import java.io.Serializable;
-
 /**
  * The ship class represents a ship that the player uses to travel from
  * solar system to solar system. Every ship has a cargo hold that holds
  * resources. Each ship also has a ShipType that specifies its name and
  * how much cargo it can hold.
  */
-public class Ship implements Serializable{
+public class Ship {
 
     private int cargoAmount;
     private HashMap<Resource, Integer> cargoHold;

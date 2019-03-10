@@ -5,7 +5,7 @@ import android.util.Log;
 import java.io.Serializable;
 
 /**
- * Game class to store all information regarding the gameplay.
+ * Game class to store all information regarding the game play.
  *
  */
 public class Game implements Serializable {
@@ -14,6 +14,10 @@ public class Game implements Serializable {
     private Universe universe;
     private Planet currentPlanet;
 
+    /**
+     * Constructor for the game class. Creates a new universe.
+     * @param player
+     */
     public Game (Player player) {
         this.player = player;
         this.universe = new Universe();
@@ -25,18 +29,35 @@ public class Game implements Serializable {
     //Player Methods
     ///////////////////////////////////////////////////////////////////////////////////////
 
+    /**
+     * Gets name of the ship
+     * @return String name
+     */
     public String getPlayerShipName() {
         return player.getShipName();
     }
 
+    /**
+     * Gets array with designated points for each skill in each respective index
+     * [0] = pilot, [1] = fighter, [2] = trader, [3] = engineer
+     * @return int skillPoints Array
+     */
     public int [] getPlayerSkillPointsArray() {
         return player.getSkillPointsArray();
     }
 
+    /**
+     * Gets the player's name
+     * @return String name
+     */
     public String getPlayerName() {
         return player.getName();
     }
 
+    /**
+     * Gets the player's credits
+     * @return int player's credits
+     */
     public int getPlayerCredits() {
         return player.getCredits();
     }
@@ -45,30 +66,76 @@ public class Game implements Serializable {
     //Market
     ///////////////////////////////////////////////////////////////////////////////////////
 
+    /**
+     * Checks if the resource can be bought at the current location given the planet's
+     * techLevel and resourceType. Note that even if a resource can be bought, it does
+     * not necessarily mean it is available to purchase.
+     * @param resource
+     * @return true if resource can be bought, false otherwise
+     */
+    public boolean allowedToBuy(Resource resource) {
+        return currentPlanet.allowedToBuy(resource);
+    }
+
+    /**
+     * Checks if the specified resource is available on the planet (i.e. amount > 0)
+     * @param resource
+     * @return true if resource can be bought, false otherwise
+     */
     public boolean resourceAvailableToBuy(Resource resource) {
         return currentPlanet.resourceAvailableToBuy(resource);
     }
 
-    public boolean resourceAvailableToSell(Resource resource) {
-        return currentPlanet.resourceAvailableToSell(resource);
+    /**
+     * Checks if the resource can be sold at the current location given the planet's
+     * techLevel and resourceType. Note that even if a resource can be sold, it does
+     * not necessarily mean it is available to sell (i.e. the player does not have
+     * the resource).
+     * @param resource
+     * @return true if resource can be sold, false otherwise
+     */
+    public boolean allowedToSell(Resource resource) {
+        return currentPlanet.allowedToSell(resource);
     }
 
+    /**
+     * Gets current location
+     * @return current planet's name
+     */
     public String getCurrentPlanetName() {
         return currentPlanet.getName();
     }
 
+    /**
+     * Gets the current location's resourceType
+     * @return String representation of the resourceType
+     */
     public String getCurrentPlanetResourceType(){
         return currentPlanet.getResourceType().toString();
     }
 
+    /**
+     * Gets the current location's techLevel
+     * @return String representation of the techLevel
+     */
     public String getCurrentPlanetTechLevel() {
         return currentPlanet.getTechLevel().toString();
     }
 
+    /**
+     * Gets the price for the resource at the current planet's market
+     * @param resource
+     * @return int price of the good. -1 if the resource is not available to buy or sell.
+     */
     public int getResourcePrice(Resource resource) {
         return currentPlanet.getResourcePrice(resource);
     }
 
+    /**
+     * Gets the amount of the specified resource at the current location
+     * @param resource
+     * @return int resource amount
+     */
     public int getResourceAmount(Resource resource) {
         return currentPlanet.getResourceAmount(resource);
     }
@@ -77,31 +144,56 @@ public class Game implements Serializable {
     //Ship Inventory
     ///////////////////////////////////////////////////////////////////////////////////////
 
+    /**
+     * Gets the amount of cargo that the player's ship current holds
+     * @param resource
+     * @return int cargo amount
+     */
     public int getCargoCount(Resource resource) {
         return player.getCargoCount(resource);
     }
 
-    public void addCargo(Resource cargo) {
-        if (resourceAvailableToBuy(cargo) && currentPlanet.getResourceAmount(cargo) > 0) {
-            if (player.addCargo(cargo, cargo.getPrice(currentPlanet.getTechLevel(), currentPlanet.getResourceType()))){
-                currentPlanet.decrementResourceAmount(cargo);
-            }
+    /**
+     * Adds the specified resource to the player's cargo hold.
+     * @param resource
+     */
+    public void addCargo(Resource resource) {
+        if (!allowedToSell(resource)) {
+            Log.e("main", "Game Class: Failed to add " + resource + " since it is not allowed to " +
+                    "be bought at the market");
+        } else if (!resourceAvailableToBuy(resource)) {
+            Log.e("main", "Game Class: Failed to add " + resource + " since it is not available " +
+                    "at the market");
+        } else if (player.addCargo(resource, resource.getPrice(currentPlanet.getTechLevel(), currentPlanet.getResourceType()))){
+            currentPlanet.decrementResourceAmount(resource);
         }
     }
 
-    public void removeCargo(Resource cargo) {
-        if (resourceAvailableToSell(cargo)) {
-            if (player.removeCargo(cargo, cargo.getPrice(currentPlanet.getTechLevel(), currentPlanet.getResourceType()))) {
-                currentPlanet.incrementResourceAmount(cargo);
-            }
-
+    /**
+     * Removes the specified cargo from the ship's cargo.
+     * @param resource
+     */
+    public void removeCargo(Resource resource) {
+        if (!allowedToSell(resource)) {
+            Log.e("main", "Game Class: Failed to remove " + resource + " since it is not allowed to " +
+                    "be sold at the market");
+        } else if (player.removeCargo(resource, resource.getPrice(currentPlanet.getTechLevel(), currentPlanet.getResourceType()))) {
+            currentPlanet.incrementResourceAmount(resource);
         }
     }
 
+    /**
+     * Gets the max cargo amount that the player's ship can hold
+     * @return max cargo
+     */
     public int getMaxCargo() {
         return player.getMaxCargo();
     }
 
+    /**
+     * Gets current cargo amount on the player's ship
+     * @return current cargo
+     */
     public int getCurrentCargo() {
         return player.getCurrentCargo();
     }
@@ -110,6 +202,7 @@ public class Game implements Serializable {
     //Class methods
     ///////////////////////////////////////////////////////////////////////////////////////
 
+    @Override
     public String toString() {
         return "GAME: " + player.toString();
     }

@@ -1,5 +1,9 @@
 package com.example.spacetrader.entity;
 
+/**
+ * The ResourceType enum represents the environment of a planet. Each type determines
+ * the amount and types of goods that can be sold at the planet and their prices.
+ */
 public enum ResourceType {
     NO_SPECIAL_RESOURCES("No Special Resources"), MINERAL_RICH("Mineral Rich"),
     MINERAL_POOR("Mineral Poor"), DESERT("Desert"), LOTS_OF_WATER("Lots of Water"),

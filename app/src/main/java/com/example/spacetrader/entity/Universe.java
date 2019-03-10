@@ -15,7 +15,7 @@ public class Universe implements Serializable {
     private List<SolarSystem> solarSystems;
 
     /**
-     * List of solarSystem coordinates
+     * List of solarSystem coordinates. Used to prevent repeats.
      */
     private static HashSet<Coordinate> solarSystemCoordinates = new HashSet<>();
 

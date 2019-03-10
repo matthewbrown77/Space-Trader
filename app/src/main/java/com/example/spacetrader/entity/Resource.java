@@ -1,5 +1,10 @@
 package com.example.spacetrader.entity;
 
+import android.util.Log;
+
+/**
+ * The resource enum represents a specific type of item that the player can trade.
+ */
 public enum Resource {
     WATER("Water",0,0,30,3,4,ResourceType.LOTS_OF_WATER, ResourceType.DESERT, 30, 50),
     FURS("Furs",0,0,250,10,10,ResourceType.RICH_FAUNA, ResourceType.LIFELESS, 230, 280),
@@ -38,15 +43,36 @@ public enum Resource {
         this.maxPrice = maxPrice;
     }
 
+    /**
+     * Gets the minimum techLevel necessary to produce the item.
+     * Note that this may be different than the min techLevel to use.
+     * @return techLevel
+     */
     public int getMinTechLevelToProduce() {
         return minTechLevelToProduce;
     }
 
+    /**
+     * Gets the minimum techLevel necessary to use (purchase) the item.
+     * Note that this may be different than the min techLevel to produce.
+     * @return techLevel
+     */
     public int getMinTechLevelToUse() {
         return minTechLevelToUse;
     }
 
+    /**
+     * Generates the price for the resource given the techLevel and resourceType
+     * @param techLevel of the current Planet
+     * @param resourceType of the current Planet
+     * @return int price of the good. -1 if the resource is not available to buy or sell.
+     */
     public int getPrice(TechLevel techLevel, ResourceType resourceType) {
+        if (techLevel.getLevel() < minTechLevelToProduce && techLevel.getLevel() < minTechLevelToUse) {
+            Log.e("main", "Resource Class: Failed to retrieve the price of " + name
+                    + " since it is not available at the current location.");
+            return -1;
+        }
         int price = basePrice;
         price += priceIncreasePerLevel * techLevel.getLevel();
         if (cheapCondition != null && cheapCondition.equals(resourceType)) {
@@ -56,5 +82,10 @@ public enum Resource {
             price *= 4;
         }
         return price;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }

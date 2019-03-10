@@ -1,63 +1,98 @@
 package com.example.spacetrader.entity;
 import android.util.Log;
+import java.util.HashMap;
 
 import java.io.Serializable;
 
+/**
+ * The ship class represents a ship that the player uses to travel from
+ * solar system to solar system. Every ship has a cargo hold that holds
+ * resources. Each ship also has a ShipType that specifies its name and
+ * how much cargo it can hold.
+ */
 public class Ship implements Serializable{
 
-    private Resource[] cargo;
-    private int cargoLoad;
-
+    private int cargoAmount;
+    private HashMap<Resource, Integer> cargoHold;
     private ShipType type;
 
+    /**
+     * Creates a ship of the specified type.
+     * @param type of ship
+     */
     public Ship(ShipType type) {
         this.type = type;
-        this.cargo = new Resource[type.getCargoSize()];
-        this.cargoLoad = 0;
+        this.cargoHold = new HashMap<>();
+        this.cargoAmount = 0;
     }
 
+    /**
+     * Gets the amount of the specified resource currently in the ship's cargo hold
+     * @param resource
+     * @return amount of that resource in the ship's cargo hold
+     */
     public int getCargoCount(Resource resource) {
-        int count = 0;
-        for (int i = 0; i < cargo.length; i++) {
-            if (cargo[i] != null && cargo[i].equals(resource)) {
-                count++;
-            }
+        if (!cargoHold.containsKey(resource)) {
+            return 0;
+        } else {
+            return cargoHold.get(resource);
         }
-        return count;
     }
 
+    /**
+     * Adds the specified resource to the cargo load if there is space.
+     * @param resource to be added.
+     * @return true if the operation is successful, false otherwise.
+     */
     public boolean addCargo(Resource resource) {
-        for (int i = 0; i < cargo.length; i++) {
-            if (cargo[i] == null) {
-                cargo[i] = resource;
-                Log.e("main", "Will add cargo");
-                cargoLoad++;
-                return true;
-            }
+        if (cargoAmount >= type.getCargoSize()) {
+            Log.e("main", "Ship Class: Failed to add " + resource + " since cargo hold is full");
+            return false;
         }
-        Log.e("main", "Cargo is full");
-        return false;
+        if (cargoHold.containsKey(resource)) {
+            cargoHold.put(resource, cargoHold.get(resource) + 1);
+        } else {
+            cargoHold.put(resource, 1);
+        }
+        cargoAmount++;
+        return true;
     }
 
+    /**
+     * Removes the specified resource from the cargo load if it exists.
+     * @param resource to be removed.
+     * @return true if the operation is successful, false otherwise.
+     */
     public boolean removeCargo(Resource resource) {
-        for (int i = 0; i < cargo.length; i++) {
-            if (cargo[i] != null && cargo[i].equals(resource)) {
-                Log.e("main", "Will remove cargo");
-                cargo[i] = null;
-                cargoLoad--;
-                return true;
-            }
+        if (!cargoHold.containsKey(resource)) {
+            Log.e("main", "Ship Class: Failed to remove " + resource
+                    + " since it does not exist in the cargo hold");
+            return false;
         }
-        Log.e("main", "Item does not exist in cargo hold");
-        return false;
+        if (cargoHold.get(resource) > 1) {
+            cargoHold.put(resource, cargoHold.get(resource) - 1);
+        } else {
+            cargoHold.remove(resource);
+        }
+        cargoAmount--;
+        return true;
+
     }
 
+    /**
+     * Gets the max amount of cargo the ship can hold
+     * @return max amount of resources that the ship can hold
+     */
     public int getMaxCargo() {
         return type.getCargoSize();
     }
 
+    /**
+     * Gets current cargo amount of the ship
+     * @return the amount of resources contained on the ship
+     */
     public int getCurrentCargo() {
-        return cargoLoad;
+        return cargoAmount;
     }
 
     public String toString() {

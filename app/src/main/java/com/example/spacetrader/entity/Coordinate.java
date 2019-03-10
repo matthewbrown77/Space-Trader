@@ -1,8 +1,10 @@
 package com.example.spacetrader.entity;
 
 import java.io.Serializable;
-import java.util.HashSet;
 
+/**
+ * Coordinate class represents an X,Y location in the Universe.
+ */
 public class Coordinate implements Serializable {
 
     public final static int MIN_X = -100;
@@ -15,10 +17,8 @@ public class Coordinate implements Serializable {
 
     /**
      * Constructor for the coordinate
-     * If desired coordinate is out of bounds, a coordinate will be
+     * If the desired coordinate is out of bounds, a coordinate will be
      * created to the closest point in bounds.
-     * If the desired coordinate already exists, a random coordinate
-     * will be generated
      * @param x X Coordinate
      * @param y Y Coordinate
      */

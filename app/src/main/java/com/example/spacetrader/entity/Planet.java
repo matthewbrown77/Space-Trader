@@ -2,6 +2,11 @@ package com.example.spacetrader.entity;
 
 import java.io.Serializable;
 
+/**
+ * The Planet class represents a planet that the player can travel to.
+ * Every planet has a name, techLevel, resourceType, government, and market
+ *
+ */
 public class Planet implements Serializable {
 
     private String name;
@@ -19,33 +24,75 @@ public class Planet implements Serializable {
         this.techLevel = TechLevel.values()[(int) (Math.random() * TechLevel.values().length)];
         this.resourceType = ResourceType.values()[(int) (Math.random() * ResourceType.values().length)];
         this.government = Government.values()[(int) (Math.random() * Government.values().length)];
-        this.market = new Market(name, techLevel, resourceType);
+        this.market = new Market(this);
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////
     //MarketPlace Methods
     ///////////////////////////////////////////////////////////////////////////////////////
 
+    /**
+     * Checks if the resource is available at the planet's market (i.e. amount > 0)
+     * @param resource
+     * @return true if resource is available, false otherwise
+     */
     public boolean resourceAvailableToBuy(Resource resource) {
         return market.resourceAvailableToBuy(resource);
     }
 
-    public boolean resourceAvailableToSell(Resource resource) {
-        return market.resourceAvailableToSell(resource);
+    /**
+     * Checks if the resource can be bought at the current location given the planet's
+     * techLevel and resourceType. Note that even if a resource can be bought, it does
+     * not necessarily mean it is available to purchase.
+     * @param resource
+     * @return true if resource can be bought, false otherwise
+     */
+    public boolean allowedToBuy(Resource resource) {
+        return market.allowedToBuy(resource);
     }
 
+    /**
+     * Checks if the resource can be sold at the current location given the planet's
+     * techLevel and resourceType. Note that even if a resource can be sold, it does
+     * not necessarily mean it is available to sell (i.e. the player does not have
+     * the resource).
+     * @param resource
+     * @return true if resource can be sold, false otherwise
+     */
+    public boolean allowedToSell(Resource resource) {
+        return market.allowedToSell(resource);
+    }
+
+    /**
+     * Gets the price for the resource at the current planet's market
+     * @param resource
+     * @return int price of the good. -1 if the resource is not available to buy or sell.
+     */
     public int getResourcePrice(Resource resource) {
         return market.getResourcePrice(resource);
     }
 
+    /**
+     * Gets the amount of the specified resource at the planet
+     * @param resource
+     * @return int resource amount
+     */
     public int getResourceAmount(Resource resource) {
         return market.getResourceAmount(resource);
     }
 
+    /**
+     * Increments the amount of the specified resource at the planet's market
+     * @param resource
+     */
     public void incrementResourceAmount(Resource resource) {
         market.incrementResourceAmount(resource);
     }
 
+    /**
+     * Decrements the amount of the specified resource at the planet's market
+     * @param resource
+     */
     public void decrementResourceAmount(Resource resource) {
         market.decrementResourceAmount(resource);
     }
@@ -54,21 +101,33 @@ public class Planet implements Serializable {
     //Planet methods
     ///////////////////////////////////////////////////////////////////////////////////////
 
+    /**
+     * Gets the name of the planet
+     * @return String name
+     */
     public String getName() {
         return this.name;
     }
 
+    /**
+     * Gets the resourceType of the planet
+     * @return ResourceType
+     */
     public ResourceType getResourceType() {
         return this.resourceType;
     }
 
+    /**
+     * Gets the techLevel of the planet
+     * @return techLevel
+     */
     public TechLevel getTechLevel() {
         return this.techLevel;
     }
 
     /**
-     * Generates a random name or random string of numbers and letters.
-     * @return
+     * Generates a random name for a planet or random string of numbers and letters.
+     * @return random name for the planet
      */
     private String generateRandomName() {
         int randomInt = (int)(Math.random() * planetNames.length);
@@ -78,6 +137,15 @@ public class Planet implements Serializable {
         return randomName;
     }
 
+    @Override
+    public String toString() {
+        return "Planet: " + name + ", TechLeveL: " + techLevel.toString() + ", ResourceType: "
+                + resourceType.toString() + ", Government: " + government.toString();
+    }
+
+    /**
+     * List of planet names.
+     */
     private static String planetNames[] =
             {"Acotera", "Ademia", "Ahines", "Aliatis", "Alvuter", "Anides", "Astrurn", "Atis",
             "Atune", "Babbara", "Bacrars", "Baethea", "Balnitania", "Bendulea", "Benrarth",
@@ -126,11 +194,5 @@ public class Planet implements Serializable {
             "Xograo", "Xoitune", "Xoliugawa", "Xophestea", "Xutov", "Yagnomia", "Yameron",
             "Yecciea", "Yeccov", "Yenvion", "Yonzienus", "Yuenerth", "Zanonus", "Zegnuruta",
             "Zevulia", "Zienope", "Zilater", "Zippe", "Zithea", "Zithenus", "Zitune", "Zucury"};
-
-    @Override
-    public String toString() {
-        return "Planet: " + name + ", TechLeveL: " + techLevel.toString() + ", ResourceType: "
-                + resourceType.toString() + ", Government: " + government.toString();
-    }
 
 }

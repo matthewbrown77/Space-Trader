@@ -1,69 +1,122 @@
 package com.example.spacetrader.entity;
 
-import java.io.Serializable;
+import android.util.Log;
 
+import java.io.Serializable;
+import java.util.HashMap;
+
+/**
+ * The Market class controls all trading activities and resource amounts
+ * on a given planet. Only one market can exist per planet. A market is dynamic
+ * and can change after a player trades or conditions on the planet change.
+ */
 public class Market implements Serializable {
 
     private String name;
     private TechLevel techLevel;
     private ResourceType resourceType;
-    private int[] resourceAmounts;
+    private Planet planet;
+    private HashMap<Resource, Integer> resourceAmounts;
 
-    public Market(String name, TechLevel techLevel, ResourceType resourceType) {
-        this.name = name;
-        this.techLevel = techLevel;
-        this.resourceType = resourceType;
-        resourceAmounts = new int [Resource.values().length];
-        for (int i = 0; i < resourceAmounts.length; i++) {
-            resourceAmounts[i] = (int)(Math.random() * 10 + 3);
+    /**
+     * Constructor for the market. Uses planet's techLevel, resourceType, and name
+     * to generate a new market with resources.
+     * @param planet location of the market.
+     */
+    public Market(Planet planet) {
+        this.name = planet.getName();
+        this.techLevel = planet.getTechLevel();
+        this.resourceType = planet.getResourceType();
+        this.resourceAmounts = new HashMap<>();
+        for (Resource res: Resource.values()) {
+            if (allowedToBuy(res)) {
+                resourceAmounts.put(res, (int)(Math.random() * 10 + 3));
+            }
         }
     }
 
+    /**
+     * Checks if the resource is available at the current market (i.e. amount > 0)
+     * @param resource
+     * @return true if resource is available, false otherwise
+     */
     public boolean resourceAvailableToBuy(Resource resource) {
+        return resourceAmounts.containsKey(resource) && resourceAmounts.get(resource) > 0;
+    }
+
+    /**
+     * Checks if the resource can be bought at the current market
+     * Note that even if a resource can be bought, it does not necessarily mean it is available
+     * @param resource
+     * @return true if resource can be bought, false otherwise
+     */
+    public boolean allowedToBuy(Resource resource) {
         return techLevel.getLevel() >= resource.getMinTechLevelToProduce();
     }
 
-    public boolean resourceAvailableToSell(Resource resource) {
+    /**
+     * Checks if the resource can be sold at the current market. Note that even if a resource
+     * can be sold, it does not necessarily mean it is available to sell (i.e. the player does
+     * not have the resource).
+     * @param resource
+     * @return true if resource can be sold, false otherwise
+     */
+    public boolean allowedToSell(Resource resource) {
         return techLevel.getLevel() >= resource.getMinTechLevelToUse();
     }
 
+    /**
+     * Gets the price for the resource in the market
+     * @param resource
+     * @return int price of the good. -1 if the resource is not available to buy or sell.
+     */
     public int getResourcePrice(Resource resource) {
         return resource.getPrice(techLevel, resourceType);
     }
 
+    /**
+     * Gets the current resource amount on the planet
+     * @param resource
+     * @return int resource amount. -1 if resource cannot exist on the planet.
+     */
     public int getResourceAmount(Resource resource) {
-        int index = -1;
-        Resource[] resources = Resource.values();
-        for(int i = 0; i < resources.length; i++) {
-            if (resources[i].equals(resource)) {
-                index = i;
-                break;
-            }
+        if (!resourceAmounts.containsKey(resource)) {
+            Log.e("main", "Market Class: Failed to get " + resource + " amount since it is not " +
+                    "available on this planet");
+            return -1;
         }
-        return resourceAmounts[index];
+        return resourceAmounts.get(resource);
     }
 
+    /**
+     * Increments the specified resource amount by 1. Does nothing if the resource cannot
+     * exist on the planet.
+     * @param resource to be decremented
+     */
     public void incrementResourceAmount(Resource resource) {
-        int index = -1;
-        Resource[] resources = Resource.values();
-        for(int i = 0; i < resources.length; i++) {
-            if (resources[i].equals(resource)) {
-                index = i;
-                break;
-            }
+        if (resourceAmounts.containsKey(resource)) {
+            resourceAmounts.put(resource, resourceAmounts.get(resource) + 1);
+        } else {
+            Log.e("main", "Market Class: Failed to increment " + resource + " at " +
+                    "the market since it cannot be bought on this planet");
         }
-        resourceAmounts[index]++;
     }
 
+    /**
+     * Decrements the specified resource amount by 1. Does nothing if the resource cannot
+     * exist on the planet or is already 0.
+     * @param resource to be decremented
+     */
     public void decrementResourceAmount(Resource resource) {
-        int index = -1;
-        Resource[] resources = Resource.values();
-        for(int i = 0; i < resources.length; i++) {
-            if (resources[i].equals(resource)) {
-                index = i;
-                break;
-            }
+        if (!resourceAmounts.containsKey(resource)) {
+            Log.e("main", "Planet Class: Failed to remove " + resource
+                    + " since it does cannot be bought on the planet");
         }
-        resourceAmounts[index]--;
+        if (resourceAmounts.get(resource) >= 1) {
+            resourceAmounts.put(resource, resourceAmounts.get(resource) - 1);
+        } else {
+            Log.e("main", "Planet Class: Failed to remove " + resource
+                    + " from market since there is none left on the planet");
+        }
     }
 }

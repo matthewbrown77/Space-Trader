@@ -1,5 +1,8 @@
 package com.example.spacetrader.entity;
 
+/**
+ * The Government enum represents the government type of a planet.
+ */
 public enum Government {
     ANARCHY("Anarchy"), CAPITALIST("Capitalist"), COMMUNIST("Communist"),
     CONFEDERACY("Confederacy"), CORPORATE("Corporate"), CYBERNETIC("Cybernetic"),

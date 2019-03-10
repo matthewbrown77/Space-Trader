@@ -1,7 +1,12 @@
 package com.example.spacetrader.entity;
 
 import java.io.Serializable;
+import android.util.Log;
 
+/**
+ * The Player class represents the player in the game. It contains information about
+ * their name, skill points, ship, and methods to get its cargo.
+ */
 public class Player implements Serializable {
 
     public final int skillPoints = 16;
@@ -13,8 +18,10 @@ public class Player implements Serializable {
     private int engineerSkillPoints;
     private int credits;
     private Ship ship;
-    private Planet currentPlanet;
 
+    /**
+     * Constructor for a player. Sets skill points to 0, ship to GNAT, and credits to 1000
+     */
     public Player() {
         this.pilotSkillPoints = 0;
         this.fighterSkillPoints = 0;
@@ -28,6 +35,11 @@ public class Player implements Serializable {
     //Manipulating Player Cargo
     ///////////////////////////////////////////////////////////////////////////////////////
 
+    /**
+     * Gets the amount of the specified resource currently on the ship
+     * @param resource
+     * @return int amount of resource
+     */
     public int getCargoCount(Resource resource) {
         return ship.getCargoCount(resource);
     }
@@ -39,6 +51,8 @@ public class Player implements Serializable {
      */
     public boolean addCargo(Resource resource, int price) {
         if (price > credits) {
+            Log.e("main", "Player Class: Failed to add " + resource + " to cargo " +
+                    "since player does not have adequate credits");
             return false;
         } else if (ship.addCargo(resource)){
             credits -= price;
@@ -61,10 +75,18 @@ public class Player implements Serializable {
         return false;
     }
 
+    /**
+     * Gets the max amount of cargo that the ship can hold
+     * @return int max amount of cargo
+     */
     public int getMaxCargo() {
         return ship.getMaxCargo();
     }
 
+    /**
+     * Gets the current
+     * @return
+     */
     public int getCurrentCargo() {
         return ship.getCurrentCargo();
     }
@@ -73,6 +95,10 @@ public class Player implements Serializable {
     //Player Setters
     ///////////////////////////////////////////////////////////////////////////////////////
 
+    /**
+     * Sets the name of the player. Used while creating the player
+     * @param name for the player
+     */
     public void setName(String name) {
         this.name = name;
     }
@@ -81,27 +107,60 @@ public class Player implements Serializable {
     //Player Getters
     ///////////////////////////////////////////////////////////////////////////////////////
 
+    /**
+     * Gets the pilot skill points for the player
+     * @return int pilot skill points
+     */
     public int getPilotSkillPoints() {return pilotSkillPoints;}
 
+    /**
+     * Gets the fighter skill points for the player
+     * @return int fighter skill points
+     */
     public int getFighterSkillPoints() {return fighterSkillPoints;}
 
+    /**
+     * Gets the trader skill points for the player
+     * @return int trader skill points
+     */
     public int getTraderSkillPoints() {return traderSkillPoints;}
 
+    /**
+     * Gets the engineer skill points for the player
+     * @return int engineer skill points
+     */
     public int getEngineerSkillPoints() {return engineerSkillPoints;}
 
+    /**
+     * Gets array with designated points for each skill in each respective index
+     * [0] = pilot, [1] = fighter, [2] = trader, [3] = engineer
+     * @return int skillPoints Array
+     */
     public int[] getSkillPointsArray() {
         int []skillPoints = {pilotSkillPoints, fighterSkillPoints, traderSkillPoints, engineerSkillPoints};
         return skillPoints;
     }
 
+    /**
+     * Gets the player's name
+     * @return String name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Gets the player's credits
+     * @return int credits
+     */
     public int getCredits() {
         return credits;
     }
 
+    /**
+     * Gets the player's ship name
+     * @return String ship name
+     */
     public String getShipName() {
         return ship.toString();
     }
@@ -110,52 +169,98 @@ public class Player implements Serializable {
     //Increment, Decrement, and getter methods for Player Creation
     ///////////////////////////////////////////////////////////////////////////////////////
 
+    /**
+     * Increments the player's pilot skill points by one if there are still points
+     * left to allocate.
+     */
     public void incrementPilotSkillPoints() {
         if (getSkillSum() < skillPoints) {
             pilotSkillPoints++;
         }
     }
+
+    /**
+     * Increments the player's fighter skill points by one if there are still points
+     * left to allocate.
+     */
     public void incrementFighterSkillPoints() {
         if (getSkillSum() < skillPoints) {
             fighterSkillPoints++;
         }
     }
+
+    /**
+     * Increments the player's trader skill points by one if there are still points
+     * left to allocate.
+     */
     public void incrementTraderSkillPoints() {
         if (getSkillSum() < skillPoints) {
             traderSkillPoints++;
         }
     }
+
+    /**
+     * Increments the player's engineer skill points by one if there are still points
+     * left to allocate.
+     */
     public void incrementEngineerSkillPoints() {
         if (getSkillSum() < skillPoints) {
             engineerSkillPoints++;
         }
     }
 
+    /**
+     * Decrements the player's pilot skill points by one if the player has at least
+     * one pilot skill point
+     */
     public void decrementPilotSkillPoints() {
         if (pilotSkillPoints > 0) {
             pilotSkillPoints--;
         }
     }
+
+    /**
+     * Decrements the player's fighter skill points by one if the player has at least
+     * one fighter skill point
+     */
     public void decrementFighterSkillPoints() {
         if (fighterSkillPoints > 0) {
             fighterSkillPoints--;
         }
     }
+
+    /**
+     * Decrements the player's trader skill points by one if the player has at least
+     * one trader skill point
+     */
     public void decrementTraderSkillPoints() {
         if (traderSkillPoints > 0) {
             traderSkillPoints--;
         }
     }
+
+    /**
+     * Decrements the player's engineer skill points by one if the player has at least
+     * one engineer skill point
+     */
     public void decrementEngineerSkillPoints() {
         if (engineerSkillPoints > 0) {
             engineerSkillPoints--;
         }
     }
 
+    /**
+     * Gets the sum of all the skillpoints for the player.
+     * @return int sum
+     */
     private int getSkillSum(){
         return pilotSkillPoints + fighterSkillPoints + traderSkillPoints + engineerSkillPoints;
     }
 
+    /**
+     * Gets the total amount of points that have yet to be allocated
+     * @return int remaining amount of skill points
+     */
     public int getRemainingCount() {
         return skillPoints - getSkillSum();
     }

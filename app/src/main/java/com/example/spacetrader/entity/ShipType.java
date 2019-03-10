@@ -1,5 +1,9 @@
 package com.example.spacetrader.entity;
 
+/**
+ * The shipType enum is an attribute of a ship. Each shipType has a different name,
+ * and argoSize
+ */
 public enum ShipType {
     GNAT("Gnat", 15);
 
@@ -11,11 +15,15 @@ public enum ShipType {
         this.cargoSize = cargoSize;
     }
 
-    public String toString() {
-        return name;
-    }
-
+    /**
+     * Gets the max cargo size of the ship
+     * @return int max cargo Size
+     */
     public int getCargoSize() {
         return this.cargoSize;
+    }
+
+    public String toString() {
+        return name;
     }
 }

@@ -11,8 +11,6 @@ import com.example.spacetrader.R;
 import com.example.spacetrader.entity.Game;
 import com.example.spacetrader.entity.Resource;
 
-import java.io.Serializable;
-
 public class TradingActivity extends AppCompatActivity {
 
     private Game game;

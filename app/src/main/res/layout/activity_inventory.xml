@@ -7,38 +7,294 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/invetory_title"
+        android:id="@+id/water_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="15dp"
         android:fontFamily="@font/pixeled"
-        android:text="Inventory"
-        android:textSize="20sp"
+        android:text="Water: 0    (45 credits/ unit)"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bar" />
+
+    <TextView
+        android:id="@+id/furs_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/pixeled"
+        android:text="Furs: 0    (45 credits/ unit)"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/water_text" />
+
+    <TextView
+        android:id="@+id/food_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/pixeled"
+        android:text="Food: 0    (45 credits/ unit)"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/furs_text" />
+
+    <TextView
+        android:id="@+id/ore_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/pixeled"
+        android:text="Ore: 0    (45 credits/ unit)"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/food_text" />
+
+    <TextView
+        android:id="@+id/games_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/pixeled"
+        android:text="Games: 0    (45 credits/ unit)"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ore_text" />
+
+    <TextView
+        android:id="@+id/firearms_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/pixeled"
+        android:text="Firearms: 0    (45 credits/ unit)"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/games_text" />
+
+    <TextView
+        android:id="@+id/medicine_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/pixeled"
+        android:text="Medicine: 0    (45 credits/ unit)"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/firearms_text" />
+
+    <TextView
+        android:id="@+id/machines_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/pixeled"
+        android:text="Machines: 0    (45 credits/ unit)"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/medicine_text" />
+
+    <TextView
+        android:id="@+id/narcotics_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/pixeled"
+        android:text="Narcotics: 0    (45 credits/ unit)"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/machines_text" />
+
+    <TextView
+        android:id="@+id/robots_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/pixeled"
+        android:text="Robots: 0    (45 credits/ unit)"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/narcotics_text" />
+
+    <TextView
+        android:id="@+id/inventory_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="87dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="87dp"
+        android:fontFamily="@font/pixeled"
+        android:text="Ship Cargo Hold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/capacity_title"
+        android:id="@+id/credits_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/pixeled"
-        android:text="Capacity: "
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="Credits: 0/15"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inventory_title" />
 
     <TextView
-        android:id="@+id/inventory_box"
-        android:layout_width="356dp"
-        android:layout_height="587dp"
-        android:layout_marginStart="47dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="47dp"
+        android:id="@+id/cargo_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="30dp"
+        android:fontFamily="@font/pixeled"
+        android:text="Cargo: 0/15"
+        android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintTop_toBottomOf="@+id/inventory_title" />
+
+    <View
+        android:id="@+id/bar"
+        android:layout_width="355sp"
+        android:layout_height="4dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="105dp"
+        android:layout_marginEnd="18dp"
+        android:background="@android:color/black"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/invetory_title" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/dump_water"
+        android:layout_width="91dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="24dp"
+        android:text="Dump"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bar"
+        android:onClick="onClickDumpWater"/>
+
+    <Button
+        android:id="@+id/back_button_inventory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:onClick="onClickBackInventory"/>
+
+    <Button
+        android:id="@+id/dump_furs"
+        android:layout_width="91dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="24dp"
+        android:text="Dump"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dump_water"
+        android:onClick="onClickDumpFurs"/>
+
+    <Button
+        android:id="@+id/dump_food"
+        android:layout_width="91dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="24dp"
+        android:text="Dump"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dump_furs"
+        android:onClick="onClickDumpFood"/>
+
+    <Button
+        android:id="@+id/dump_ore"
+        android:layout_width="91dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="24dp"
+        android:text="Dump"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dump_food"
+        android:onClick="onClickDumpOre"/>
+
+    <Button
+        android:id="@+id/dump_games"
+        android:layout_width="91dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="24dp"
+        android:text="Dump"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dump_ore"
+        android:onClick="onClickDumpGames"/>
+
+    <Button
+        android:id="@+id/dump_firearms"
+        android:layout_width="91dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="24dp"
+        android:text="Dump"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dump_games"
+        android:onClick="onClickDumpFirearms"/>
+
+    <Button
+        android:id="@+id/dump_medicine"
+        android:layout_width="91dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="24dp"
+        android:text="Dump"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dump_firearms"
+        android:onClick="onClickDumpMedicine"/>
+
+    <Button
+        android:id="@+id/dump_machines"
+        android:layout_width="91dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="24dp"
+        android:text="Dump"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dump_medicine"
+        android:onClick="onClickDumpMachines"/>
+
+    <Button
+        android:id="@+id/dump_narcotics"
+        android:layout_width="91dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="24dp"
+        android:text="Dump"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dump_machines"
+        android:onClick="onClickDumpNarcotics"/>
+
+    <Button
+        android:id="@+id/dump_robots"
+        android:layout_width="91dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="24dp"
+        android:text="Dump"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dump_narcotics"
+        android:onClick="onClickDumpRobots"/>
 </android.support.constraint.ConstraintLayout>

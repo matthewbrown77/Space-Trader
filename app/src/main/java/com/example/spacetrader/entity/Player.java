@@ -75,6 +75,14 @@ public class Player {
     }
 
     /**
+     * Dumps the specified cargo from the ship's cargo. No credits are added to player.
+     * @param resource
+     */
+    public void dumpCargo(Resource resource) {
+        ship.removeCargo(resource);
+    }
+
+    /**
      * Gets the max amount of cargo that the ship can hold
      * @return int max amount of cargo
      */

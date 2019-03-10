@@ -15,7 +15,6 @@ import com.example.spacetrader.R;
 import com.example.spacetrader.entity.Game;
 import com.example.spacetrader.entity.Player;
 
-import java.io.Serializable;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
 	private TextView fighterCounterTextView;
 	private TextView traderCounterTextView;
 	private TextView engineerCounterTextView;
+	private TextView cargoCounterTextView;
 	private TextView mTextMessage;
 	private Game game;
 
@@ -64,6 +64,12 @@ public class MainActivity extends AppCompatActivity {
 		update();
 	}
 
+	public void onWindowFocusChanged (boolean hasFocus) {
+		if (hasFocus) {
+			update();
+		}
+	}
+
 	public void update() {
 		nameTextView = findViewById(R.id.text_commander_name);
 		creditsTextView = findViewById(R.id.text_credits);
@@ -72,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
 		traderCounterTextView = findViewById(R.id.trader_counter);
 		engineerCounterTextView = findViewById(R.id.engineer_counter);
 		shipNameTextView = findViewById(R.id.text_ship_type);
+		cargoCounterTextView = findViewById(R.id.text_cargo_amount);
 
 		nameTextView.setText("Commander " + game.getPlayerName());
 		creditsTextView.setText("" + game.getPlayerCredits());
@@ -81,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
 		traderCounterTextView.setText("" + skillPointsArray[2]);
 		engineerCounterTextView.setText("" + skillPointsArray[3]);
 		shipNameTextView.setText(game.getPlayerShipName());
+		cargoCounterTextView.setText("Cargo: " + game.getCurrentCargo() + " / " + game.getMaxCargo());
 	}
 
 	///////////////////////////////////////////////////////////////////////////////////////

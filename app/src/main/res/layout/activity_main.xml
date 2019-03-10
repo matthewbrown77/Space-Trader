@@ -9,20 +9,6 @@
         xmlns:android="http://schemas.android.com/apk/res/android">
 
         <TextView
-            android:id="@+id/weaponlvl_counter"
-            android:layout_width="30dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="66dp"
-            android:fontFamily="@font/pixeled"
-            android:text="0"
-            android:textAlignment="center"
-            android:textColor="#000000"
-            android:textSize="10sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/health_counter" />
-
-    <TextView
         android:id="@+id/text_pilot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -216,29 +202,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/text_health_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
-            android:fontFamily="@font/pixeled"
-            android:text="Health: "
-            android:textSize="10sp"
-            app:layout_constraintEnd_toStartOf="@+id/health_counter"
-            app:layout_constraintTop_toBottomOf="@+id/ship_image" />
-
-        <TextView
-            android:id="@+id/text_weapon_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="8dp"
-            android:fontFamily="@font/pixeled"
-            android:text="Weapon LVL:"
-            android:textSize="10sp"
-            app:layout_constraintEnd_toStartOf="@+id/weaponlvl_counter"
-            app:layout_constraintTop_toBottomOf="@+id/text_health_title" />
+    <TextView
+        android:id="@+id/text_weapon_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="75dp"
+        android:fontFamily="@font/pixeled"
+        android:text="Weapon LVL:"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_cargo_amount" />
 
     <TextView
         android:id="@+id/text_location_title"
@@ -309,17 +283,17 @@
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:layout_marginStart="@dimen/activity_horizontal_margin"/>
 
-        <TextView
-            android:id="@+id/health_counter"
-            android:layout_width="60dp"
-            android:layout_height="32dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="76dp"
-            android:fontFamily="@font/pixeled"
-            android:text="47/60"
-            android:textSize="10sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ship_image" />
+    <TextView
+        android:id="@+id/text_cargo_amount"
+        android:layout_width="150dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="75dp"
+        android:fontFamily="@font/pixeled"
+        android:text="47/60"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ship_image" />
 
     <TextView
         android:id="@+id/location_name"

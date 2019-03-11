@@ -146,6 +146,14 @@ public class Game {
         return currentPlanet.getResourceAmount(resource);
     }
 
+    /**
+     * Gets the string for the current planet's government type
+     * @return string government
+     */
+    public String getGovernmentType() {
+        return "" + currentPlanet.getGovernment();
+    }
+
     ///////////////////////////////////////////////////////////////////////////////////////
     //Ship Inventory
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -170,7 +178,8 @@ public class Game {
         } else if (!resourceAvailableToBuy(resource)) {
             Log.e("main", "Game Class: Failed to add " + resource + " since it is not available " +
                     "at the market");
-        } else if (player.addCargo(resource, resource.getPrice(currentPlanet.getTechLevel(), currentPlanet.getResourceType()))){
+        } else if (player.addCargo(resource, resource.getPrice(currentPlanet.getTechLevel(),
+                currentPlanet.getResourceType(), currentPlanet.getGovernment()))){
             currentPlanet.decrementResourceAmount(resource);
         }
     }
@@ -192,7 +201,8 @@ public class Game {
         if (!allowedToSell(resource)) {
             Log.e("main", "Game Class: Failed to remove " + resource + " since it is not allowed to " +
                     "be sold at the market");
-        } else if (player.removeCargo(resource, resource.getPrice(currentPlanet.getTechLevel(), currentPlanet.getResourceType()))) {
+        } else if (player.removeCargo(resource, resource.getPrice(currentPlanet.getTechLevel(),
+                currentPlanet.getResourceType(), currentPlanet.getGovernment()))) {
             currentPlanet.incrementResourceAmount(resource);
         }
     }

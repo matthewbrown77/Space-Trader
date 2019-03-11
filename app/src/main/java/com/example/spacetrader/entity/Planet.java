@@ -22,6 +22,10 @@ public class Planet {
         this.techLevel = TechLevel.values()[(int) (Math.random() * TechLevel.values().length)];
         this.resourceType = ResourceType.values()[(int) (Math.random() * ResourceType.values().length)];
         this.government = Government.values()[(int) (Math.random() * Government.values().length)];
+        while (techLevel.getLevel() < government.getMinTechLevel() ||
+                techLevel.getLevel() > government.getMaxTechLevel()) {
+            this.government = Government.values()[(int) (Math.random() * Government.values().length)];
+        }
         this.market = new Market(this);
     }
 
@@ -121,6 +125,14 @@ public class Planet {
      */
     public TechLevel getTechLevel() {
         return this.techLevel;
+    }
+
+    /**
+     * Gets the governmentType of the planet
+     * @return governmentType
+     */
+    public Government getGovernment() {
+        return this.government;
     }
 
     /**

@@ -23,22 +23,24 @@ public enum Resource {
     private int basePrice;
     private int priceIncreasePerLevel;
     private int variance;
-    private ResourceType cheapCondition;
-    private ResourceType expensiveCondition;
+    private ResourceType cheapResourceCondition;
+    private ResourceType expensiveResourceCondition;
+    private Government cheapGovernmentCondition;
+    private Government expensiveGovernmentCondition;
     private int minPrice;
     private int maxPrice;
 
     Resource(String name, int minTechLevelToProduce, int minTechLevelToUse, int basePrice,
-             int priceIncreasePerLevel, int variance, ResourceType cheapCondition,
-             ResourceType expensiveCondition, int minPrice, int maxPrice) {
+             int priceIncreasePerLevel, int variance, ResourceType cheapResourceCondition,
+             ResourceType expensiveResourceCondition, int minPrice, int maxPrice) {
         this.name = name;
         this.minTechLevelToProduce = minTechLevelToProduce;
         this.minTechLevelToUse = minTechLevelToUse;
         this.basePrice = basePrice;
         this.priceIncreasePerLevel = priceIncreasePerLevel;
         this.variance = variance;
-        this.cheapCondition = cheapCondition;
-        this.expensiveCondition = expensiveCondition;
+        this.cheapResourceCondition = cheapResourceCondition;
+        this.expensiveResourceCondition = expensiveResourceCondition;
         this.minPrice = minPrice;
         this.maxPrice = maxPrice;
     }
@@ -67,7 +69,7 @@ public enum Resource {
      * @param resourceType of the current Planet
      * @return int price of the good. -1 if the resource is not available to buy or sell.
      */
-    public int getPrice(TechLevel techLevel, ResourceType resourceType) {
+    public int getPrice(TechLevel techLevel, ResourceType resourceType, Government government) {
         if (techLevel.getLevel() < minTechLevelToProduce && techLevel.getLevel() < minTechLevelToUse) {
             Log.e("main", "Resource Class: Failed to retrieve the price of " + name
                     + " since it is not available at the current location.");
@@ -75,11 +77,12 @@ public enum Resource {
         }
         int price = basePrice;
         price += priceIncreasePerLevel * techLevel.getLevel();
-        if (cheapCondition != null && cheapCondition.equals(resourceType)) {
-            price /= 4;
+        price += (int)(government.getTradeFactor() * variance);
+        if (cheapResourceCondition != null && cheapResourceCondition.equals(resourceType)) {
+            price /= 10;
         }
-        if (expensiveCondition != null && expensiveCondition.equals(resourceType)) {
-            price *= 4;
+        if (expensiveResourceCondition != null && expensiveResourceCondition.equals(resourceType)) {
+            price *= 10;
         }
         return price;
     }

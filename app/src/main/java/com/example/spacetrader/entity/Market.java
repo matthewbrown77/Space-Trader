@@ -14,6 +14,7 @@ public class Market {
     private String name;
     private TechLevel techLevel;
     private ResourceType resourceType;
+    private Government government;
     private Planet planet;
     private HashMap<Resource, Integer> resourceAmounts;
 
@@ -26,6 +27,7 @@ public class Market {
         this.name = planet.getName();
         this.techLevel = planet.getTechLevel();
         this.resourceType = planet.getResourceType();
+        this.government = planet.getGovernment();
         this.resourceAmounts = new HashMap<>();
         for (Resource res: Resource.values()) {
             if (allowedToBuy(res)) {
@@ -70,7 +72,7 @@ public class Market {
      * @return int price of the good. -1 if the resource is not available to buy or sell.
      */
     public int getResourcePrice(Resource resource) {
-        return resource.getPrice(techLevel, resourceType);
+        return resource.getPrice(techLevel, resourceType, government);
     }
 
     /**

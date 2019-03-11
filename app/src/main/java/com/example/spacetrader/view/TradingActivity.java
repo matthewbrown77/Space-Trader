@@ -19,6 +19,7 @@ public class TradingActivity extends AppCompatActivity {
     private TextView cargoTextView;
     private TextView resourceTypeTextView;
     private TextView techLevelTextView;
+    private TextView governmentTextView;
 
     private TextView waterTextView;
     private TextView fursTextView;
@@ -64,6 +65,7 @@ public class TradingActivity extends AppCompatActivity {
         cargoTextView = findViewById(R.id.trading_cargo);
         resourceTypeTextView = findViewById(R.id.resource_type_title);
         techLevelTextView = findViewById(R.id.tech_level_title);
+        governmentTextView = findViewById(R.id.government_title);
 
         waterTextView = findViewById(R.id.water_title);
         fursTextView = findViewById(R.id.fur_title);
@@ -281,6 +283,7 @@ public class TradingActivity extends AppCompatActivity {
         techLevelTextView.setText("TL: " + game.getCurrentPlanetTechLevel());
         resourceTypeTextView.setText("RT: " + game.getCurrentPlanetResourceType());
         marketNameTextView.setText("Market: " + game.getCurrentPlanetName());
+        governmentTextView.setText("GOV: " + game.getGovernmentType());
     }
 
 }

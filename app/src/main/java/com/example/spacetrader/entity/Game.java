@@ -11,6 +11,7 @@ public class Game {
 
     private Player player;
     private Universe universe;
+    private SolarSystem currentSolarSystem;
     private Planet currentPlanet;
 
     /**
@@ -20,8 +21,23 @@ public class Game {
         this.player = new Player();
         this.universe = new Universe();
         Log.d("main", universe.toString());//will remove later.
-        this.currentPlanet = new Planet();//will remove later. Testing marketplace.
+        this.currentPlanet = universe.getOriginPlanet();//will remove later. Testing marketplace.
     }
+
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //Travel Methods
+    ///////////////////////////////////////////////////////////////////////////////////////
+
+    public void Travel(Planet planet) {
+        if (currentSolarSystem.contains(planet)) {
+            //in local solar system
+        } else {
+            //
+        }
+    }
+
+    //traveling within solar system costs 100 across planets
+    //traveling to different solar system
 
     ///////////////////////////////////////////////////////////////////////////////////////
     //Player Methods

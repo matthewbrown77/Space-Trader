@@ -18,14 +18,36 @@ public class Universe {
      */
     private static HashSet<Coordinate> solarSystemCoordinates = new HashSet<>();
 
+    private SolarSystem originSolarSystem;
+    private Planet originPlanet;
+
     /**
-     * Creates a universe with 10 solar systems.
+     * Creates a universe with 10 solar systems, with 1 at the origin.
      */
     public Universe() {
         solarSystems = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
+        originSolarSystem = new SolarSystem(new Coordinate(0,0));
+        originPlanet = originSolarSystem.getPlanets()[0];
+        solarSystems.add(originSolarSystem);
+        for (int i = 0; i < 9; i++) {
             solarSystems.add(new SolarSystem(generateNewCoordinate()));
         }
+    }
+
+    /**
+     * Gets the origin solarSystem
+     * @return origin solarSystem
+     */
+    public SolarSystem getOriginSolarSystem() {
+        return originSolarSystem;
+    }
+
+    /**
+     * Gets the origin planet
+     * @return origin planet
+     */
+    public Planet getOriginPlanet() {
+        return originPlanet;
     }
 
     /**

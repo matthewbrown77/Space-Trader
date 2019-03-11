@@ -81,13 +81,13 @@ public class MainActivity extends AppCompatActivity {
 		cargoCounterTextView = findViewById(R.id.text_cargo_amount);
 
 		nameTextView.setText("Commander " + game.getPlayerName());
-		creditsTextView.setText("" + game.getPlayerCredits());
+		creditsTextView.setText("Credits: $" + game.getPlayerCredits());
 		int[] skillPointsArray = game.getPlayerSkillPointsArray();
-		pilotCounterTextView.setText("" + skillPointsArray[0]);
-		fighterCounterTextView.setText("" + skillPointsArray[1]);
-		traderCounterTextView.setText("" + skillPointsArray[2]);
-		engineerCounterTextView.setText("" + skillPointsArray[3]);
-		shipNameTextView.setText(game.getPlayerShipName());
+		pilotCounterTextView.setText("Pilot: " + skillPointsArray[0]);
+		fighterCounterTextView.setText("Fighter: " + skillPointsArray[1]);
+		traderCounterTextView.setText("Trader: " + skillPointsArray[2]);
+		engineerCounterTextView.setText("Engineer: " + skillPointsArray[3]);
+		shipNameTextView.setText("Ship: " + game.getPlayerShipName());
 		cargoCounterTextView.setText("Cargo: " + game.getCurrentCargo() + " / " + game.getMaxCargo());
 	}
 

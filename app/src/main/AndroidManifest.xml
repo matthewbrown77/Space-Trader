@@ -23,15 +23,15 @@
         </activity>
         <activity
             android:name=".view.InventoryActivity"
-            android:label="Inventory">>
+            android:label="Inventory">
         </activity>
         <activity
             android:name=".view.TravelActivity"
-            android:label="Travel">>
+            android:label="Travel">
         </activity>
         <activity
             android:name=".view.TradingActivity"
-            android:label="Trading">>
+            android:label="Trading">
         </activity>
     </application>
 

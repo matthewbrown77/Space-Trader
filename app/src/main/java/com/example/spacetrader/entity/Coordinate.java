@@ -27,6 +27,15 @@ public class Coordinate implements Serializable {
         this.y = Math.min(Math.max(MIN_Y, y), MAX_Y);
     }
 
+    /**
+     * Gets the distance from this coordinate to the parameter coordinate
+     * @param c
+     * @return
+     */
+    public double getDistance(Coordinate c) {
+        return Math.sqrt(Math.pow((x - c.x), 2) + Math.pow((y - c.y), 2));
+    }
+
     @Override
     public String toString() {
         return "(" + x + ", " + y + ")";

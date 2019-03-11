@@ -27,6 +27,28 @@ public class SolarSystem{
     }
 
     /**
+     * Gets the array of planets in the solarSystem
+     * @return array of planets
+     */
+    public Planet [] getPlanets() {
+        return planets;
+    }
+
+    /**
+     * Gets if the planet is contained in the current solarSystem
+     * @param planet
+     * @return
+     */
+    public boolean contains(Planet planet) {
+        for (Planet p: planets) {
+            if (p.equals(planet)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
      * Generates a random name or random string of numbers and letters.
      * @return
      */

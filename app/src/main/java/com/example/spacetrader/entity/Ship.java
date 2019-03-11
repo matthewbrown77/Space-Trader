@@ -13,6 +13,8 @@ public class Ship {
     private int cargoAmount;
     private HashMap<Resource, Integer> cargoHold;
     private ShipType type;
+    private int fuelCapacity;
+    private int fuel;
 
     /**
      * Creates a ship of the specified type.

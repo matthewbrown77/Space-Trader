@@ -148,6 +148,18 @@ public class Planet {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (o == this) {
+            return true;
+        }
+        if (!(o instanceof Planet)) {
+            return false;
+        }
+        Planet planet = (Planet)o;
+        return planet.name.equals(name);
+    }
+
+    @Override
     public String toString() {
         return "Planet: " + name + ", TechLeveL: " + techLevel.toString() + ", ResourceType: "
                 + resourceType.toString() + ", Government: " + government.toString();

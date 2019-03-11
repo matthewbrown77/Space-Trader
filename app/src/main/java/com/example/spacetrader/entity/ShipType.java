@@ -5,14 +5,25 @@ package com.example.spacetrader.entity;
  * and argoSize
  */
 public enum ShipType {
-    GNAT("Gnat", 15);
+    FLEA("Flea", 5, 20),
+    GNAT("Gnat", 15, 20),
+    FIREFLY("Firefly", 20, 17),
+    MOSQUITO("Mosquito", 20, 13),
+    BUMBLEBEE("Bumblebee", 20, 15),
+    BEETLE("Beetle", 50, 14),
+    HORNET("Gnat", 20, 16),
+    GRASSHOPPER("Grasshopper", 30, 15),
+    TERMITE("Termite", 60, 13),
+    WASP("Wasp", 35, 14);
 
     private String name;
     private int cargoSize;
+    private int fuelCapacity;
 
-    ShipType(String name, int cargoSize) {
+    ShipType(String name, int cargoSize, int fuelCapacity) {
         this.name = name;
         this.cargoSize = cargoSize;
+        this.fuelCapacity = fuelCapacity;
     }
 
     /**
@@ -23,7 +34,17 @@ public enum ShipType {
         return this.cargoSize;
     }
 
+    /**
+     * Gets the price for the ship.
+     * @return
+     */
+    public int getPrice() {
+        return 500 * cargoSize + 200 * fuelCapacity;
+    }
+
     public String toString() {
         return name;
     }
+
+
 }

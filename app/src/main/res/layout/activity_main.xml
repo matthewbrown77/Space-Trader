@@ -8,113 +8,69 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:android="http://schemas.android.com/apk/res/android">
 
+        <View
+            android:id="@+id/bar2"
+            android:layout_width="355sp"
+            android:layout_height="4dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="18dp"
+            android:background="@android:color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/engineer_counter" />
+
         <TextView
-        android:id="@+id/text_pilot"
-        android:layout_width="wrap_content"
+        android:id="@+id/pilot_counter"
+        android:layout_width="89dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="72dp"
-        android:fontFamily="@font/pixeled"
-        android:text="Pilot: "
-        android:textColor="#000000"
-        android:textSize="10sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/text_fighter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
             android:fontFamily="@font/pixeled"
-            android:text="Fighter: "
-            android:textColor="#000000"
+            android:text="PIlot: 0"
+            android:textAlignment="viewStart"
             android:textSize="10sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_pilot" />
-
-        <TextView
-            android:id="@+id/text_trader"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/pixeled"
-            android:text="Trader: "
-            android:textColor="#000000"
-            android:textSize="10sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_fighter" />
-
-        <TextView
-            android:id="@+id/text_engineer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/pixeled"
-            android:text="Engineer: "
-            android:textColor="#000000"
-            android:textSize="10sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_trader" />
+            app:layout_constraintTop_toBottomOf="@+id/text_credits" />
 
     <TextView
-        android:id="@+id/pilot_counter"
-        android:layout_width="30dp"
+        android:id="@+id/fighter_counter"
+        android:layout_width="95dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/pixeled"
-        android:text="0"
-        android:textAlignment="center"
-        android:textColor="#000000"
+        android:text="Fighter: 0"
+        android:textAlignment="viewStart"
         android:textSize="10sp"
-        app:layout_constraintStart_toEndOf="@+id/text_pilot"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pilot_counter" />
 
-        <TextView
-            android:id="@+id/fighter_counter"
-            android:layout_width="30dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/pixeled"
-            android:text="0"
-            android:textAlignment="center"
-            android:textColor="#000000"
-            android:textSize="10sp"
-            app:layout_constraintStart_toEndOf="@+id/text_fighter"
-            app:layout_constraintTop_toBottomOf="@+id/pilot_counter" />
+    <TextView
+        android:id="@+id/trader_counter"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/pixeled"
+        android:text="Trader: 0"
+        android:textAlignment="viewStart"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fighter_counter" />
 
-        <TextView
-            android:id="@+id/trader_counter"
-            android:layout_width="30dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/pixeled"
-            android:text="0"
-            android:textAlignment="center"
-            android:textColor="#000000"
-            android:textSize="10sp"
-            app:layout_constraintStart_toEndOf="@+id/text_trader"
-            app:layout_constraintTop_toBottomOf="@+id/fighter_counter" />
-
-        <TextView
-            android:id="@+id/engineer_counter"
-            android:layout_width="30dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/pixeled"
-            android:text="0"
-            android:textAlignment="center"
-            android:textColor="#000000"
-            android:textSize="10sp"
-            app:layout_constraintStart_toEndOf="@+id/text_engineer"
-            app:layout_constraintTop_toBottomOf="@+id/trader_counter" />
+    <TextView
+        android:id="@+id/engineer_counter"
+        android:layout_width="148dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/pixeled"
+        android:text="Engineer: 0"
+        android:textAlignment="viewStart"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/trader_counter" />
 
     <TextView
         android:id="@+id/techlvl_counter"
@@ -130,84 +86,61 @@
         app:layout_constraintStart_toEndOf="@+id/text_techlevel_title"
         app:layout_constraintTop_toBottomOf="@+id/text_location_title" />
 
-        <TextView
-            android:id="@+id/text_commander_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/pixeled"
-            android:text="Commander Name"
-            android:textSize="9sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/text_credits_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="220dp"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/pixeled"
-            android:text="Credits: $"
-            android:textSize="9sp"
-            app:layout_constraintStart_toStartOf="@+id/message"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/text_credits"
-            android:layout_width="80dp"
-            android:layout_height="27dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/pixeled"
-            android:text="0"
-            android:textAlignment="textEnd"
-            android:textSize="9sp"
-            app:layout_constraintStart_toEndOf="@+id/text_credits_title"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/ship_image"
-        android:layout_width="176dp"
-        android:layout_height="138dp"
-        android:layout_marginTop="104dp"
-        android:layout_marginEnd="28dp"
-        android:background="@drawable/back"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/gnat" />
-
     <TextView
-        android:id="@+id/text_ship_title"
+        android:id="@+id/text_commander_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="12dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/pixeled"
-        android:text="Ship: "
+        android:text="Commander Name"
         android:textSize="10sp"
-        app:layout_constraintEnd_toStartOf="@+id/text_ship_type"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/text_ship_type"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="52dp"
+        android:id="@+id/text_credits"
+        android:layout_width="135dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/pixeled"
-        android:text="placeholder"
+        android:text="Credits: 0"
+        android:textAlignment="viewStart"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_commander_name" />
+
+    <ImageView
+        android:id="@+id/ship_image"
+        android:layout_width="170dp"
+        android:layout_height="141dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="28dp"
+        android:background="@drawable/back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_ship_type"
+        app:srcCompat="@drawable/gnat" />
+
+    <TextView
+        android:id="@+id/text_ship_type"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="28dp"
+        android:fontFamily="@font/pixeled"
+        android:text="Ship: name"
+        android:textAlignment="center"
         android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/text_weapon_title"
-        android:layout_width="wrap_content"
+        android:layout_width="170dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="75dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="28dp"
         android:fontFamily="@font/pixeled"
         android:text="Weapon LVL:"
         android:textSize="10sp"
@@ -285,12 +218,12 @@
 
     <TextView
         android:id="@+id/text_cargo_amount"
-        android:layout_width="150dp"
+        android:layout_width="170dp"
         android:layout_height="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="75dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="28dp"
         android:fontFamily="@font/pixeled"
-        android:text="47/60"
+        android:text="Cargo: 0 / 15"
         android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ship_image" />

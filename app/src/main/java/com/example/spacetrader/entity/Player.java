@@ -2,6 +2,8 @@ package com.example.spacetrader.entity;
 
 import android.util.Log;
 
+import java.util.HashMap;
+
 /**
  * The Player class represents the player in the game. It contains information about
  * their name, skill points, ship, and methods to get its cargo.
@@ -16,6 +18,7 @@ public class Player {
     private int traderSkillPoints;
     private int engineerSkillPoints;
     private int credits;
+    private HashMap<Resource, Double> avgPrice;
     private Ship ship;
 
     /**
@@ -27,6 +30,7 @@ public class Player {
         this.traderSkillPoints = 0;
         this.engineerSkillPoints = 0;
         this.credits = 1000;
+        this.avgPrice = new HashMap<>();
         this.ship = new Ship(ShipType.GNAT);
     }
 
@@ -55,6 +59,12 @@ public class Player {
             return false;
         } else if (ship.addCargo(resource)){
             credits -= price;
+            if (avgPrice.containsKey(resource)) {
+                avgPrice.put(resource, (avgPrice.get(resource) * (ship.getCargoCount(resource) - 1)
+                        + price)/ship.getCargoCount(resource));
+            } else {
+                avgPrice.put(resource, (double)price);
+            }
             return true;
         } else {
             return false;
@@ -69,6 +79,9 @@ public class Player {
     public boolean removeCargo(Resource resource, int price) {
         if (ship.removeCargo(resource)) {
             credits += price;
+            if (ship.getCargoCount(resource) == 0) {
+                avgPrice.remove(resource);
+            }
             return true;
         }
         return false;
@@ -80,6 +93,27 @@ public class Player {
      */
     public void dumpCargo(Resource resource) {
         ship.removeCargo(resource);
+        if (ship.getCargoCount(resource) == 0) {
+            avgPrice.remove(resource);
+        } else {
+            avgPrice.put(resource, (avgPrice.get(resource) * (ship.getCargoCount(resource) + 1)
+                    )/ship.getCargoCount(resource));
+        }
+    }
+
+    /**
+     * Gets the average price the player will need to get for each resource to break even.
+     * @param resource
+     * @return
+     */
+    public double getAvgPrice(Resource resource) {
+        if (avgPrice.containsKey(resource)) {
+            return Math.round(100 * avgPrice.get(resource)) / 100.0;
+        } else {
+            Log.e("main", "Player Class: Failed to get avg price for " + resource +
+                    " since it does not exist in the cargo load.");
+            return -1;
+        }
     }
 
     /**

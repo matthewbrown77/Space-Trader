@@ -176,6 +176,15 @@ public class Game {
     }
 
     /**
+     * Gets the average price the player will need to get for each resource to break even.
+     * @param resource
+     * @return
+     */
+    public double getAvgPrice(Resource resource) {
+        return player.getAvgPrice(resource);
+    }
+
+    /**
      * Removes the specified cargo from the ship's cargo.
      * @param resource
      */

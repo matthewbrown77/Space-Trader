@@ -2,6 +2,9 @@ package com.example.spacetrader.entity;
 
 import android.util.Log;
 
+import java.util.HashSet;
+import java.util.List;
+
 public class Game {
 
     private static Game instance = new Game();
@@ -21,6 +24,7 @@ public class Game {
         this.player = new Player();
         this.universe = new Universe();
         Log.d("main", universe.toString());//will remove later.
+        this.currentSolarSystem = universe.getOriginSolarSystem();
         this.currentPlanet = universe.getOriginPlanet();//will remove later. Testing marketplace.
     }
 
@@ -34,6 +38,22 @@ public class Game {
         } else {
             //
         }
+    }
+
+    /**
+     * Gets a list of the solar systems in the universe
+     * @return solarSystems
+     */
+    public List<SolarSystem> getSolarSystems() {
+        return universe.getSolarSystems();
+    }
+
+    /**
+     * Gets the current solarSystem coordinates
+     * @return coordinate
+     */
+    public Coordinate getCurrentSolarSystemCoordinate() {
+        return currentSolarSystem.getCoordinate();
     }
 
     //traveling within solar system costs 100 across planets

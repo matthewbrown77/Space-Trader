@@ -7,9 +7,9 @@ import java.io.Serializable;
  */
 public class Coordinate implements Serializable {
 
-    public final static int MIN_X = -100;
+    public final static int MIN_X = 0;
     public final static int MAX_X = 100;
-    public final static int MIN_Y = -100;
+    public final static int MIN_Y = 0;
     public final static int MAX_Y = 100;
 
     private int x;
@@ -34,6 +34,36 @@ public class Coordinate implements Serializable {
      */
     public double getDistance(Coordinate c) {
         return Math.sqrt(Math.pow((x - c.x), 2) + Math.pow((y - c.y), 2));
+    }
+
+    /**
+     * Transforms the coordinate to be plotted on a map of certain dimensions
+     * @param width of the map
+     * @param height of the map
+     * @param buffer pixels of map frame that are left empty
+     * @return new Coordinate
+     */
+    public Coordinate transform(int width, int height, int buffer) {
+        int newX = (int)((x - Coordinate.MIN_X) / (double) (Coordinate.MAX_X - Coordinate.MIN_X) * width);
+        int newY = (int)((y - Coordinate.MIN_Y) / (double) (Coordinate.MAX_Y - Coordinate.MIN_Y) * height);
+        return new Coordinate(newX, newY);
+    }
+
+
+    /**
+     * Gets the x coordinate
+     * @return x coordinate
+     */
+    public int getX(){
+        return x;
+    }
+
+    /**
+     * Gets the y coordinate
+     * @return y coordinate
+     */
+    public int getY(){
+        return y;
     }
 
     @Override

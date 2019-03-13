@@ -41,6 +41,15 @@ public class Game {
     }
 
     /**
+     * Gets the array of planets in the current SolarSystem
+     * @return array of planets
+     */
+    public Planet[] getCurrentSolarSystemPlanets() {
+        return currentSolarSystem.getPlanets();
+    }
+
+
+    /**
      * Gets a list of the solar systems in the universe
      * @return solarSystems
      */
@@ -54,6 +63,22 @@ public class Game {
      */
     public Coordinate getCurrentSolarSystemCoordinate() {
         return currentSolarSystem.getCoordinate();
+    }
+
+    /**
+     * Gets the current solarSystem name
+     * @return String name
+     */
+    public String getCurrentSolarSystemName() {
+        return currentSolarSystem.getName();
+    }
+
+    /**
+     * Gets the color of the planet
+     * @return color of the planet
+     */
+    public int getCurrentPlanetColor() {
+        return currentPlanet.getColor();
     }
 
     //traveling within solar system costs 100 across planets

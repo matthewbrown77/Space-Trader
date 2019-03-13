@@ -1,5 +1,7 @@
 package com.example.spacetrader.entity;
 
+import android.graphics.Color;
+
 /**
  * The Planet class represents a planet that the player can travel to.
  * Every planet has a name, techLevel, resourceType, government, and market
@@ -134,6 +136,15 @@ public class Planet {
     public Government getGovernment() {
         return this.government;
     }
+
+    /**
+     * Gets the color of the planet
+     * @return color of the planet
+     */
+    public int getColor() {
+        return resourceType.getColor();
+    }
+
 
     /**
      * Generates a random name for a planet or random string of numbers and letters.

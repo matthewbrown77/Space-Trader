@@ -6,50 +6,186 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/view_solar_system"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
+    <View
+        android:id="@+id/view6"
+        android:layout_width="355sp"
+        android:layout_height="4dp"
+        android:layout_marginStart="18dp"
         android:layout_marginTop="8dp"
-        android:text="View Solar System"
+        android:layout_marginEnd="18dp"
+        android:background="@android:color/black"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mapView" />
 
-    <Button
-        android:id="@+id/view_universe"
-        android:layout_width="165dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+    <TextView
+        android:id="@+id/solarsystem_text"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="View Universe"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.06"
-        app:layout_constraintStart_toEndOf="@+id/view_solar_system"
-        app:layout_constraintTop_toBottomOf="@+id/mapView" />
+        android:fontFamily="@font/pixeled"
+        android:text="Solar System:"
+        android:textSize="9sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view6" />
 
     <TextView
-        android:id="@+id/travel_title"
+        android:id="@+id/fuelSS_text"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="30dp"
+        android:fontFamily="@font/pixeled"
+        android:text="Fuel: 25"
+        android:textSize="9sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view6" />
+
+    <TextView
+        android:id="@+id/fuelp_text"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="30dp"
+        android:fontFamily="@font/pixeled"
+        android:text="Fuel: 3"
+        android:textSize="9sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fuelSS_text" />
+
+    <TextView
+        android:id="@+id/ship_fuel_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="87dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="87dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="30dp"
         android:fontFamily="@font/pixeled"
-        android:text="Something"
+        android:text="Remaining Ship Fuel: 22"
+        android:textSize="9sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/planet_spinner" />
+
+    <TextView
+        android:id="@+id/ship_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/pixeled"
+        android:text="Ship Health: 89/100"
+        android:textSize="9sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/planet_spinner" />
+
+    <Button
+        android:id="@+id/back_button_travel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:onClick="onClickBackTravel"
+        android:text="Back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/location_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/pixeled"
+        android:text="Planet: Earth"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/planet_text4"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/pixeled"
+        android:text="Planet: "
+        android:textSize="9sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/solarsystem_text" />
+
     <View
         android:id="@+id/mapView"
-        android:layout_width="333dp"
-        android:layout_height="333dp"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/travel_title" />
+        app:layout_constraintTop_toBottomOf="@+id/location_text" />
+
+    <Spinner
+        android:id="@+id/solarsystem_spinner"
+        android:layout_width="146dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/fuelSS_text"
+        app:layout_constraintStart_toEndOf="@+id/solarsystem_text"
+        app:layout_constraintTop_toBottomOf="@+id/view6" />
+
+    <Spinner
+        android:id="@+id/planet_spinner"
+        android:layout_width="167dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/fuelSS_text"
+        app:layout_constraintHorizontal_bias="0.578"
+        app:layout_constraintStart_toEndOf="@+id/solarsystem_text"
+        app:layout_constraintTop_toBottomOf="@+id/solarsystem_spinner" />
+
+    <Button
+        android:id="@+id/travel_button"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="164dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="8dp"
+        android:text="Travel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ship_status" />
+
+    <Button
+        android:id="@+id/directory_button"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="164dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="30dp"
+        android:text="View Directory"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ship_fuel_text" />
+
+    <Button
+        android:id="@+id/zoom_in_button"
+        android:layout_width="32dp"
+        android:layout_height="38dp"
+        android:onClick="onClickViewSolarSystem"
+        android:text="+"
+        app:layout_constraintBottom_toBottomOf="@+id/mapView"
+        app:layout_constraintEnd_toEndOf="@+id/mapView" />
+
+    <Button
+        android:id="@+id/zoom_out_button2"
+        android:layout_width="32dp"
+        android:layout_height="38dp"
+        android:onClick="onClickViewUniverse"
+        android:text="–"
+        app:layout_constraintBottom_toBottomOf="@+id/mapView"
+        app:layout_constraintStart_toStartOf="@+id/mapView" />
 </android.support.constraint.ConstraintLayout>

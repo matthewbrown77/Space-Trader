@@ -166,14 +166,13 @@ public class Planet {
         if (!(o instanceof Planet)) {
             return false;
         }
-        Planet planet = (Planet)o;
-        return planet.name.equals(name);
+        Planet p = (Planet) o;
+        return (p.name.equals(name) && p.techLevel.equals(techLevel) && p.resourceType.equals(resourceType) && p.government.equals(government));
     }
 
     @Override
     public String toString() {
-        return "Planet: " + name + ", TechLeveL: " + techLevel.toString() + ", ResourceType: "
-                + resourceType.toString() + ", Government: " + government.toString();
+        return name;
     }
 
     /**

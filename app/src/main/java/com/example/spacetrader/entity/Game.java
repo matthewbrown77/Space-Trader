@@ -2,6 +2,7 @@ package com.example.spacetrader.entity;
 
 import android.util.Log;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
@@ -32,22 +33,18 @@ public class Game {
     //Travel Methods
     ///////////////////////////////////////////////////////////////////////////////////////
 
-    public void Travel(Planet planet) {
-        if (currentSolarSystem.contains(planet)) {
-            //in local solar system
-        } else {
-            //
-        }
+    public void travel(SolarSystem solarSystem, Planet planet) {
+        currentSolarSystem = solarSystem;
+        currentPlanet = planet;
     }
 
     /**
-     * Gets the array of planets in the current SolarSystem
-     * @return array of planets
+     * Gets the List of planets in the current SolarSystem
+     * @return List of planets
      */
-    public Planet[] getCurrentSolarSystemPlanets() {
+    public List<Planet> getCurrentSolarSystemPlanets() {
         return currentSolarSystem.getPlanets();
     }
-
 
     /**
      * Gets a list of the solar systems in the universe
@@ -55,6 +52,22 @@ public class Game {
      */
     public List<SolarSystem> getSolarSystems() {
         return universe.getSolarSystems();
+    }
+
+    /**
+     * Gets the current solarSystem
+     * @return solarSystem
+     */
+    public SolarSystem getCurrentSolarSystem() {
+        return currentSolarSystem;
+    }
+
+    /**
+     * Gets the current planet
+     * @return planet
+     */
+    public Planet getCurrentPlanet() {
+        return currentPlanet;
     }
 
     /**
@@ -79,6 +92,19 @@ public class Game {
      */
     public int getCurrentPlanetColor() {
         return currentPlanet.getColor();
+    }
+
+    /**
+     * Gets list of SolarSystem names to display
+     * @return List solarSystem names
+     */
+    public List<String> solarSystemNames() {
+        List<SolarSystem> myList = universe.getSolarSystems();
+        List<String> strings = new ArrayList<>();
+        for(SolarSystem s: myList) {
+            strings.add(s.getName());
+        }
+        return strings;
     }
 
     //traveling within solar system costs 100 across planets

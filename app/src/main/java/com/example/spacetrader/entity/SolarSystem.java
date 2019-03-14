@@ -1,5 +1,8 @@
 package com.example.spacetrader.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * The SolarSystem class represents a solar system in the Universe. Each solarSystem
  * has a collection of planets predetermined during game creation. Each solarSystem
@@ -29,11 +32,15 @@ public class SolarSystem{
     }
 
     /**
-     * Gets the array of planets in the solarSystem
-     * @return array of planets
+     * Gets the list of planets in the solarSystem
+     * @return list of planets
      */
-    public Planet [] getPlanets() {
-        return planets;
+    public List<Planet> getPlanets() {
+        List<Planet> planetList = new ArrayList<>();
+        for (Planet p: planets) {
+            planetList.add(p);
+        }
+        return planetList;
     }
 
     /**
@@ -108,10 +115,18 @@ public class SolarSystem{
 
     @Override
     public String toString() {
-        String returnString = "Solar System: " + name + " " + coordinate + "\n";
-        for (Planet p: planets) {
-            returnString += "\t\t" + p.toString() + "\n";
+        return name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this) {
+            return true;
         }
-        return returnString;
+        if (!(o instanceof SolarSystem)) {
+            return false;
+        }
+        SolarSystem s = (SolarSystem) o;
+        return (s.coordinate.equals(coordinate)); // two solar systems with the same coordinate must be the same
     }
 }

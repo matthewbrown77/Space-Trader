@@ -27,7 +27,7 @@ public class Universe {
     public Universe() {
         solarSystems = new ArrayList<>();
         originSolarSystem = new SolarSystem(new Coordinate(Coordinate.MAX_X/2,Coordinate.MAX_Y/2));
-        originPlanet = originSolarSystem.getPlanets()[0];
+        originPlanet = originSolarSystem.getPlanets().get(0);
         solarSystems.add(originSolarSystem);
         for (int i = 0; i < 9; i++) {
             solarSystems.add(new SolarSystem(generateNewCoordinate()));

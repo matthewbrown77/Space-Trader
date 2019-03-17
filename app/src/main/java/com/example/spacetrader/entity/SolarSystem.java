@@ -1,5 +1,7 @@
 package com.example.spacetrader.entity;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,8 +15,8 @@ public class SolarSystem{
     private String name;
     private Coordinate coordinate;
     private Planet[] planets;
-    final int MAX_PLANETS = 5;
-    final int MIN_PLANETS = 3;
+    final static int MAX_PLANETS = 5;
+    final static int MIN_PLANETS = 3;
 
     /**
      * Constructor for the Solar System
@@ -27,7 +29,7 @@ public class SolarSystem{
         int planetNumber = MIN_PLANETS + (int)(Math.random() * (MAX_PLANETS - MIN_PLANETS + 1));
         planets = new Planet[planetNumber];
         for (int i = 0; i < planetNumber; i++) {
-            planets[i] = new Planet();
+            planets[i] = new Planet(i);
         }
     }
 
@@ -41,6 +43,11 @@ public class SolarSystem{
             planetList.add(p);
         }
         return planetList;
+    }
+
+
+    public double getDistance (SolarSystem solarSystem) {
+        return coordinate.getDistance(solarSystem.getCoordinate());
     }
 
     /**

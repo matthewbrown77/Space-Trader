@@ -29,8 +29,8 @@ public class Coordinate implements Serializable {
 
     /**
      * Gets the distance from this coordinate to the parameter coordinate
-     * @param c
-     * @return
+     * @param c parameter coordinate
+     * @return distance (in coordinate units) between two coordinates
      */
     public double getDistance(Coordinate c) {
         return Math.sqrt(Math.pow((x - c.x), 2) + Math.pow((y - c.y), 2));

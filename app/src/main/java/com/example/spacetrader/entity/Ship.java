@@ -13,8 +13,7 @@ public class Ship {
     private int cargoAmount;
     private HashMap<Resource, Integer> cargoHold;
     private ShipType type;
-    private int fuelCapacity;
-    private int fuel;
+    private int fuel;//coordinate distance can travel
 
     /**
      * Creates a ship of the specified type.
@@ -24,6 +23,7 @@ public class Ship {
         this.type = type;
         this.cargoHold = new HashMap<>();
         this.cargoAmount = 0;
+        this.fuel = type.getFuelCapacity();
     }
 
     /**
@@ -80,6 +80,14 @@ public class Ship {
     }
 
     /**
+     * Gets the current amount of fuel on the ship
+     * @return int fuel on ship
+     */
+    public int getFuel() {
+        return fuel;
+    }
+
+    /**
      * Gets the max amount of cargo the ship can hold
      * @return max amount of resources that the ship can hold
      */
@@ -100,4 +108,19 @@ public class Ship {
     }
 
 
+    /**
+     * Deducts the fuel from the ship
+     * @param f amount of fuel to deduct
+     * @return true if the action is successful, false otherwise
+     */
+    public boolean deductFuel(int f) {
+        Log.e("main", "Trying to deduct " + f);
+        if (fuel >= f) {
+            fuel -= f;
+            return true;
+        } else {
+            Log.e("main", "Ship Class: Failed to deduct fuel because player does not have enough fuel");
+            return false;
+        }
+    }
 }

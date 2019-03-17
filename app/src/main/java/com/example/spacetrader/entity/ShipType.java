@@ -35,6 +35,14 @@ public enum ShipType {
     }
 
     /**
+     * Gets the fuel capacity of the ship
+     * @return int fuelCapacity
+     */
+    public int getFuelCapacity() {
+        return fuelCapacity;
+    }
+
+    /**
      * Gets the price for the ship.
      * @return
      */

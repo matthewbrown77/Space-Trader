@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.ColorFilter;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 
 import com.example.spacetrader.entity.Coordinate;
 import com.example.spacetrader.entity.Game;
@@ -13,31 +14,58 @@ import com.example.spacetrader.entity.SolarSystem;
 
 import java.util.List;
 
+/**
+ * Map class draws the map of the planet, solar system, observable universe, and total universe
+ */
 public class Map extends Drawable {
 
     private int alpha;
     private ColorFilter colorFilter;
-    private int mapType;
+    private int mapType; //0 = planet, 1 = solar system, 2 = observable universe, 3 = total universe
+    public final int totalMapTypes = 4; //total number of maps. Used to adjust buttons in travel activity
     private Game game;
-    private Canvas canvas;
 
     public Map (int mapType) {
         this.mapType = mapType;
         this.game = Game.getInstance();
     }
 
+    /**
+     * Draws the appropriate map on the canvas
+     * @param canvas
+     */
     @Override
     public void draw(Canvas canvas) {
         switch(mapType) {
             case 0: {
-                drawSolarSystem(canvas);
+                drawPlanet(canvas);
             } break;
             case 1: {
-                drawUniverse(canvas);
+                drawSolarSystem(canvas);
+            } break;
+            case 2: {
+                drawObservableUniverse(canvas);
             } break;
         }
     }
 
+    /**
+     * Draws the planet on the canvas
+     * @param canvas
+     */
+    private void drawPlanet(Canvas canvas) {
+        Paint paint = new Paint();
+        paint.setStyle(Paint.Style.FILL);
+        paint.setColor(Color.BLACK);
+        canvas.drawPaint(paint);
+        paint.setColor(Color.YELLOW);
+        canvas.drawCircle(canvas.getWidth()/2,canvas.getWidth()/2,canvas.getWidth()/3, paint);
+    }
+
+    /**
+     * Draws the solarSystem on the canvas
+     * @param canvas
+     */
     private void drawSolarSystem(Canvas canvas) {
         List<Planet> planets = game.getCurrentSolarSystemPlanets();
         Paint paint = new Paint();
@@ -62,25 +90,28 @@ public class Map extends Drawable {
         }
     }
 
-    private void drawUniverse(Canvas canvas) {
+    /**
+     * Draws the observable universe on the canvas
+     * @param canvas
+     */
+    private void drawObservableUniverse(Canvas canvas) {
         int radius = 10;
-        int buffer = 100;
         Paint paint = new Paint();
         paint.setStyle(Paint.Style.FILL);
         paint.setColor(Color.BLACK);
         canvas.drawPaint(paint);
         List<SolarSystem> solarSystemList = game.getSolarSystems();
         for (SolarSystem s: solarSystemList) {
-            int x = buffer + (int)((double) s.getCoordinate().getX() / Coordinate.MAX_X * (canvas.getWidth() - buffer*2));
-            int y = buffer + (int)((double) s.getCoordinate().getY() / Coordinate.MAX_Y * (canvas.getHeight() - buffer*2));
-            paint.setColor(Color.WHITE);
-            paint.setTextSize(50);
-            if (x < canvas.getWidth()/2) {
+            int x = (int)((double) s.getCoordinate().getX() / Coordinate.MAX_X * canvas.getWidth());
+            int y = (int)((double) s.getCoordinate().getY() / Coordinate.MAX_Y * canvas.getHeight());
+            if (game.solarSystemInRange(s)) {
+                paint.setColor(Color.WHITE);
+                paint.setTextSize(50);
                 canvas.drawText(s.getName(), x + radius * 2, y, paint);
+                paint.setColor(Color.GREEN);
             } else {
-                canvas.drawText(s.getName(), x - s.getName().length() * 30, y, paint);
+                paint.setColor(Color.RED);
             }
-            paint.setColor(Color.YELLOW);
             canvas.drawCircle(x,y,radius, paint);
         }
         paint.setStyle(Paint.Style.STROKE);
@@ -88,7 +119,7 @@ public class Map extends Drawable {
         int x = (int)((double) c.getX() / Coordinate.MAX_X * canvas.getWidth());
         int y = (int)((double) c.getY() / Coordinate.MAX_Y * canvas.getHeight());
         paint.setColor(Color.WHITE);
-        canvas.drawCircle(x,y,400, paint);
+        canvas.drawCircle(x,y,(int)(game.getFuel() * 12.4), paint);
     }
 
     @Override

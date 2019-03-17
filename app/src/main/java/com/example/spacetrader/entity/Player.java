@@ -102,6 +102,14 @@ public class Player {
     }
 
     /**
+     * Gets the current amount of fuel on the ship
+     * @return int fuel on ship
+     */
+    public int getFuel() {
+        return ship.getFuel();
+    }
+
+    /**
      * Gets the average price the player will need to get for each resource to break even.
      * @param resource
      * @return
@@ -142,6 +150,15 @@ public class Player {
      */
     public void setName(String name) {
         this.name = name;
+    }
+
+    /**
+     * Deducts the fuel from the ship
+     * @param fuel amount of fuel to deduct
+     * @return true if the action is successful, false otherwise
+     */
+    public boolean deductFuel(int fuel) {
+        return ship.deductFuel(fuel);
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////

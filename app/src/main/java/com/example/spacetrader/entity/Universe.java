@@ -29,7 +29,7 @@ public class Universe {
         originSolarSystem = new SolarSystem(new Coordinate(Coordinate.MAX_X/2,Coordinate.MAX_Y/2));
         originPlanet = originSolarSystem.getPlanets().get(0);
         solarSystems.add(originSolarSystem);
-        for (int i = 0; i < 9; i++) {
+        for (int i = 0; i < 20; i++) {
             solarSystems.add(new SolarSystem(generateNewCoordinate()));
         }
     }

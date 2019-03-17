@@ -6,6 +6,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/current_location_text"
+        android:layout_width="363dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/pixeled"
+        android:text="Current Location: Earth (MilkyWay)"
+        android:textSize="9sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mapView" />
+
     <View
         android:id="@+id/view6"
         android:layout_width="355sp"
@@ -16,7 +28,7 @@
         android:background="@android:color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mapView" />
+        app:layout_constraintTop_toBottomOf="@+id/current_location_text" />
 
     <TextView
         android:id="@+id/solarsystem_text"
@@ -96,7 +108,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
         android:fontFamily="@font/pixeled"
         android:text="Planet: Earth"
         app:layout_constraintEnd_toEndOf="parent"

@@ -14,12 +14,13 @@ public class Planet {
     private ResourceType resourceType;
     private Government government;
     private Market market;
+    private int position; //position in solar system 0 - 5
 
     /**
      * Planet constructor
      * Will create a random techLevel, resourceType, and Government
      */
-    public Planet() {
+    public Planet(int pos) {
         this.name = generateRandomName();
         this.techLevel = TechLevel.values()[(int) (Math.random() * TechLevel.values().length)];
         this.resourceType = ResourceType.values()[(int) (Math.random() * ResourceType.values().length)];
@@ -29,6 +30,7 @@ public class Planet {
             this.government = Government.values()[(int) (Math.random() * Government.values().length)];
         }
         this.market = new Market(this);
+        this.position = pos;
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -111,6 +113,14 @@ public class Planet {
      */
     public String getName() {
         return this.name;
+    }
+
+    /**
+     * Gets the planet's position in its solar system
+     * @return
+     */
+    public int getPosition() {
+        return position;
     }
 
     /**

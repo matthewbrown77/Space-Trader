@@ -24,9 +24,8 @@ public class Game {
     public Game () {
         this.player = new Player();
         this.universe = new Universe();
-        Log.d("main", universe.toString());//will remove later.
         this.currentSolarSystem = universe.getOriginSolarSystem();
-        this.currentPlanet = universe.getOriginPlanet();//will remove later. Testing marketplace.
+        this.currentPlanet = universe.getOriginPlanet();
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -34,8 +33,43 @@ public class Game {
     ///////////////////////////////////////////////////////////////////////////////////////
 
     public void travel(SolarSystem solarSystem, Planet planet) {
-        currentSolarSystem = solarSystem;
-        currentPlanet = planet;
+        if (player.deductFuel((int)(getDistance(solarSystem) + getDistance(planet)))) {
+            currentSolarSystem = solarSystem;
+            currentPlanet = planet;
+        }
+    }
+
+    public boolean solarSystemInRange(SolarSystem solarSystem) {
+        return currentSolarSystem.getDistance(solarSystem) <= getFuel();
+    }
+
+    public boolean planetInRange(Planet planet, SolarSystem parentSolarSystem) {
+        return getDistance(planet) + getDistance(parentSolarSystem) <= getFuel();
+    }
+
+    /**
+     * Gets the current amount of fuel on the ship
+     * @return int fuel on ship
+     */
+    public int getFuel() {
+        return player.getFuel();
+    }
+
+    /**
+     * Gets the distance
+     * @param solarSystem
+     * @return
+     */
+    public double getDistance(SolarSystem solarSystem) {
+        return solarSystem.getDistance(currentSolarSystem);
+    }
+
+    public int getDistance(Planet planet) {
+        if (currentSolarSystem.getPlanets().contains(planet)) {
+            return Math.abs(currentSolarSystem.getPlanets().indexOf(planet) - currentSolarSystem.getPlanets().indexOf(currentPlanet));
+        } else {
+            return planet.getPosition();
+        }
     }
 
     /**
@@ -47,12 +81,42 @@ public class Game {
     }
 
     /**
+     * Gets a list of the solar systems in range of the player's ship
+     * @return
+     */
+    public List<Planet> getPlanetsInRange(SolarSystem parentSolarSystem) {
+        List<Planet> planets = new ArrayList<>();
+        for(Planet p: parentSolarSystem.getPlanets()) {
+            if (planetInRange(p, parentSolarSystem)) {
+                planets.add(p);
+            }
+        }
+        return planets;
+    }
+
+    /**
      * Gets a list of the solar systems in the universe
      * @return solarSystems
      */
     public List<SolarSystem> getSolarSystems() {
         return universe.getSolarSystems();
     }
+
+    /**
+     * Gets a list of the solar systems in range of the player's ship
+     * @return
+     */
+    public List<SolarSystem> getSolarSystemsInRange() {
+        List<SolarSystem> solarSystems = new ArrayList<>();
+        for(SolarSystem s: universe.getSolarSystems()) {
+            if (solarSystemInRange(s)) {
+                solarSystems.add(s);
+            }
+        }
+        return solarSystems;
+    }
+
+
 
     /**
      * Gets the current solarSystem

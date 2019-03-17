@@ -30,6 +30,19 @@ public enum Resource {
     private int minPrice;
     private int maxPrice;
 
+    /**
+     * Resource Constructor
+     * @param name
+     * @param minTechLevelToProduce
+     * @param minTechLevelToUse
+     * @param basePrice
+     * @param priceIncreasePerLevel
+     * @param variance
+     * @param cheapResourceCondition
+     * @param expensiveResourceCondition
+     * @param minPrice
+     * @param maxPrice
+     */
     Resource(String name, int minTechLevelToProduce, int minTechLevelToUse, int basePrice,
              int priceIncreasePerLevel, int variance, ResourceType cheapResourceCondition,
              ResourceType expensiveResourceCondition, int minPrice, int maxPrice) {

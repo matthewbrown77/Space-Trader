@@ -16,11 +16,20 @@ public enum ResourceType {
     private String name;
     private int color;
 
+    /**
+     * ResourceType constructor
+     * @param name
+     * @param color
+     */
     ResourceType(String name, int color) {
         this.name = name;
         this.color = color;
     }
 
+    /**
+     * Gets the color of the Planet that has this resourceType
+     * @return
+     */
     public int getColor() {
         return color;
     }

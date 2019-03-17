@@ -1,7 +1,4 @@
 package com.example.spacetrader.entity;
-
-import android.util.Log;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +11,7 @@ import java.util.List;
 public class SolarSystem{
     private String name;
     private Coordinate coordinate;
-    private Planet[] planets;
+    private List<Planet> planets;
     final static int MAX_PLANETS = 5;
     final static int MIN_PLANETS = 3;
 
@@ -26,11 +23,19 @@ public class SolarSystem{
     public SolarSystem(Coordinate coordinate) {
         this.name = Names.getName();
         this.coordinate = coordinate;
+        this.planets = new ArrayList<>();
         int planetNumber = MIN_PLANETS + (int)(Math.random() * (MAX_PLANETS - MIN_PLANETS + 1));
-        planets = new Planet[planetNumber];
         for (int i = 0; i < planetNumber; i++) {
-            planets[i] = new Planet(i);
+            planets.add(new Planet(i));
         }
+    }
+
+    /**
+     * Gets the coordinates of the Solar System
+     * @return coordinate
+     */
+    public Coordinate getCoordinate() {
+        return coordinate;
     }
 
     /**
@@ -38,30 +43,16 @@ public class SolarSystem{
      * @return list of planets
      */
     public List<Planet> getPlanets() {
-        List<Planet> planetList = new ArrayList<>();
-        for (Planet p: planets) {
-            planetList.add(p);
-        }
-        return planetList;
-    }
-
-
-    public double getDistance (SolarSystem solarSystem) {
-        return coordinate.getDistance(solarSystem.getCoordinate());
+        return planets;
     }
 
     /**
-     * Gets if the planet is contained in the current solarSystem
-     * @param planet
-     * @return
+     * Gets the distance between this SolarSystem and the parameter SolarSystem
+     * @param solarSystem
+     * @return distance
      */
-    public boolean contains(Planet planet) {
-        for (Planet p: planets) {
-            if (p.equals(planet)) {
-                return true;
-            }
-        }
-        return false;
+    public double getDistance (SolarSystem solarSystem) {
+        return coordinate.getDistance(solarSystem.getCoordinate());
     }
 
     /**
@@ -72,13 +63,6 @@ public class SolarSystem{
         return name;
     }
 
-    /**
-     * Gets the coordinates of the Solar System
-     * @return coordinate
-     */
-    public Coordinate getCoordinate() {
-        return coordinate;
-    }
 
     @Override
     public String toString() {

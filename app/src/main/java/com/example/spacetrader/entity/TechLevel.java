@@ -11,9 +11,21 @@ public enum TechLevel {
     EARLY_INDUSTRIAL("Early-Industrial", 4), INDUSTRIAL("Industrial", 5),
     POST_INDUSTRIAL("Post-Industrial", 6), HI_TECH("Hi-Tech", 7);
 
+    /**
+     * Name of the techLevel
+     */
     private String name;
+
+    /**
+     * Integer representation of the techLevel used in calculations (0 - 7)
+     */
     private int level;
 
+    /**
+     * TechLevel constructor
+     * @param name
+     * @param level
+     */
     TechLevel(String name, int level) {
         this.name = name;
         this.level = level;

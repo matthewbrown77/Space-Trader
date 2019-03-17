@@ -41,7 +41,7 @@ public class TravelActivity extends AppCompatActivity {
 
         //set up map
         mapView = findViewById(R.id.mapView);
-        mapSetting = 0;
+        mapSetting = 1;
         map = new Map(mapSetting);
         mapView.setBackground(map);
 

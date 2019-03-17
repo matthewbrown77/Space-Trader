@@ -35,7 +35,7 @@ public class Player {
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////
-    //Manipulating Player Cargo
+    //Player cargo methods
     ///////////////////////////////////////////////////////////////////////////////////////
 
     /**
@@ -102,11 +102,19 @@ public class Player {
     }
 
     /**
-     * Gets the current amount of fuel on the ship
-     * @return int fuel on ship
+     * Gets the max amount of cargo that the ship can hold
+     * @return int max amount of cargo
      */
-    public int getFuel() {
-        return ship.getFuel();
+    public int getMaxCargo() {
+        return ship.getMaxCargo();
+    }
+
+    /**
+     * Gets the current
+     * @return
+     */
+    public int getCurrentCargo() {
+        return ship.getCurrentCargo();
     }
 
     /**
@@ -124,20 +132,26 @@ public class Player {
         }
     }
 
+
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //Travel Methods
+    ///////////////////////////////////////////////////////////////////////////////////////
+
     /**
-     * Gets the max amount of cargo that the ship can hold
-     * @return int max amount of cargo
+     * Gets the current amount of fuel on the ship
+     * @return int fuel on ship
      */
-    public int getMaxCargo() {
-        return ship.getMaxCargo();
+    public int getFuel() {
+        return ship.getFuel();
     }
 
     /**
-     * Gets the current
-     * @return
+     * Deducts the fuel from the ship
+     * @param fuel amount of fuel to deduct
+     * @return true if the action is successful, false otherwise
      */
-    public int getCurrentCargo() {
-        return ship.getCurrentCargo();
+    public boolean deductFuel(int fuel) {
+        return ship.deductFuel(fuel);
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -150,15 +164,6 @@ public class Player {
      */
     public void setName(String name) {
         this.name = name;
-    }
-
-    /**
-     * Deducts the fuel from the ship
-     * @param fuel amount of fuel to deduct
-     * @return true if the action is successful, false otherwise
-     */
-    public boolean deductFuel(int fuel) {
-        return ship.deductFuel(fuel);
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////

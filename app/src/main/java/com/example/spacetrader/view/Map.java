@@ -67,7 +67,7 @@ public class Map extends Drawable {
      * @param canvas
      */
     private void drawSolarSystem(Canvas canvas) {
-        List<Planet> planets = game.getCurrentSolarSystemPlanets();
+        List<Planet> planets = game.getPlanets();
         Paint paint = new Paint();
         paint.setStyle(Paint.Style.FILL);
         paint.setColor(Color.BLACK);

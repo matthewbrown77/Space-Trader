@@ -3,7 +3,6 @@ package com.example.spacetrader.view;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.EditText;
@@ -14,6 +13,9 @@ import com.example.spacetrader.R;
 import com.example.spacetrader.entity.Game;
 import com.example.spacetrader.entity.Player;
 
+/**
+ * Activity deals with player creation on opening screen
+ */
 public class CreatePlayerActivity extends AppCompatActivity {
 
     private Player player;
@@ -144,7 +146,6 @@ public class CreatePlayerActivity extends AppCompatActivity {
     ///////////////////////////////////////////////////////////////////////////////////////
 
     public void onClickExit(View v) {
-        Log.e("main", "Will Exit Game");
         finish();
         System.exit(0);
     }

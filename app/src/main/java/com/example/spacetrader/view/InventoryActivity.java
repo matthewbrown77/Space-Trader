@@ -10,6 +10,9 @@ import com.example.spacetrader.R;
 import com.example.spacetrader.entity.Game;
 import com.example.spacetrader.entity.Resource;
 
+/**
+ * Activity deals with inventory menu
+ */
 public class InventoryActivity extends AppCompatActivity {
 
     private Game game;

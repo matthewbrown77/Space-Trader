@@ -16,6 +16,13 @@ public enum Government {
     private int maxTechLevel;
     private double tradeFactor;
 
+    /**
+     * Government constructor
+     * @param name
+     * @param minTechLevel
+     * @param maxTechLevel
+     * @param tradeFactor
+     */
     Government(String name, int minTechLevel, int maxTechLevel, double tradeFactor) {
         this.name = name;
         this.minTechLevel = minTechLevel;

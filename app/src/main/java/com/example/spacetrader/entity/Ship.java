@@ -103,11 +103,6 @@ public class Ship {
         return cargoAmount;
     }
 
-    public String toString() {
-        return type.toString();
-    }
-
-
     /**
      * Deducts the fuel from the ship
      * @param f amount of fuel to deduct
@@ -123,4 +118,10 @@ public class Ship {
             return false;
         }
     }
+
+    @Override
+    public String toString() {
+        return type.toString();
+    }
+
 }

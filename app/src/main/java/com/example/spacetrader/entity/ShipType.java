@@ -1,8 +1,8 @@
 package com.example.spacetrader.entity;
 
 /**
- * The shipType enum is an attribute of a ship. Each shipType has a different name,
- * and argoSize
+ * The ShipType enum is an attribute of a ship. Each shipType has a different name,
+ * and cargoSize
  */
 public enum ShipType {
     FLEA("Flea", 5, 20),
@@ -20,6 +20,12 @@ public enum ShipType {
     private int cargoSize;
     private int fuelCapacity;
 
+    /**
+     * ShipType constructor
+     * @param name
+     * @param cargoSize
+     * @param fuelCapacity
+     */
     ShipType(String name, int cargoSize, int fuelCapacity) {
         this.name = name;
         this.cargoSize = cargoSize;
@@ -50,9 +56,9 @@ public enum ShipType {
         return 500 * cargoSize + 200 * fuelCapacity;
     }
 
+    @Override
     public String toString() {
         return name;
     }
-
 
 }

@@ -26,7 +26,7 @@ public class Names {
 
     /**
      * Gets a random name from the list, or a number if all 1000 names are used.
-     * @return random name unique from all other names. 
+     * @return random name unique from all other names.
      */
     public static String getName() {
         if (unusedNames.size() > 0) {

@@ -3,7 +3,6 @@ package com.example.spacetrader.entity;
 import android.util.Log;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 public class Game {
@@ -32,6 +31,12 @@ public class Game {
     //Travel Methods
     ///////////////////////////////////////////////////////////////////////////////////////
 
+    /**
+     * Travels to the requested solarSystem and planet if allowed. Deducts the necessary
+     * fuel from the player's ship.
+     * @param solarSystem
+     * @param planet
+     */
     public void travel(SolarSystem solarSystem, Planet planet) {
         if (player.deductFuel((int)(getDistance(solarSystem) + getDistance(planet)))) {
             currentSolarSystem = solarSystem;
@@ -39,11 +44,26 @@ public class Game {
         }
     }
 
+    /**
+     * Determines if the requested solarSystem is in range given the player's current
+     * fuel and current location
+     * @param solarSystem
+     * @return true if solarSystem is in range
+     */
     public boolean solarSystemInRange(SolarSystem solarSystem) {
         return currentSolarSystem.getDistance(solarSystem) <= getFuel();
     }
 
-    public boolean planetInRange(Planet planet, SolarSystem parentSolarSystem) {
+    /**
+     * Determines if the requested planet in the solarSystem is in range
+     * @param planet
+     * @param parentSolarSystem solarSystem that the planet is located in
+     * @return true if in range
+     */
+    public boolean systemAndPlanetInRange(Planet planet, SolarSystem parentSolarSystem) {
+        if (!parentSolarSystem.getPlanets().contains(planet)) {
+            throw new RuntimeException("Planet not in parentSolarSystem");
+        }
         return getDistance(planet) + getDistance(parentSolarSystem) <= getFuel();
     }
 
@@ -56,14 +76,20 @@ public class Game {
     }
 
     /**
-     * Gets the distance
+     * Gets the distance between the parameter SolarSystem and the current solarSystem
      * @param solarSystem
-     * @return
+     * @return distance
      */
     public double getDistance(SolarSystem solarSystem) {
         return solarSystem.getDistance(currentSolarSystem);
     }
 
+    /**
+     * Gets the distance between the parameter planet and the current planet.
+     * Ignores solarSystem distance if planets are in different SolarSystems.
+     * @param planet
+     * @return distance
+     */
     public int getDistance(Planet planet) {
         if (currentSolarSystem.getPlanets().contains(planet)) {
             return Math.abs(currentSolarSystem.getPlanets().indexOf(planet) - currentSolarSystem.getPlanets().indexOf(currentPlanet));
@@ -72,22 +98,26 @@ public class Game {
         }
     }
 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //Getters for solarSystems and planets
+    ///////////////////////////////////////////////////////////////////////////////////////
+
     /**
      * Gets the List of planets in the current SolarSystem
      * @return List of planets
      */
-    public List<Planet> getCurrentSolarSystemPlanets() {
+    public List<Planet> getPlanets() {
         return currentSolarSystem.getPlanets();
     }
 
     /**
-     * Gets a list of the solar systems in range of the player's ship
-     * @return
+     * Gets a list of the solar systems in range given current fuel
+     * @return list of SolarSystems
      */
     public List<Planet> getPlanetsInRange(SolarSystem parentSolarSystem) {
         List<Planet> planets = new ArrayList<>();
         for(Planet p: parentSolarSystem.getPlanets()) {
-            if (planetInRange(p, parentSolarSystem)) {
+            if (systemAndPlanetInRange(p, parentSolarSystem)) {
                 planets.add(p);
             }
         }
@@ -103,8 +133,8 @@ public class Game {
     }
 
     /**
-     * Gets a list of the solar systems in range of the player's ship
-     * @return
+     * Gets a list of the solar systems in range given current fuel
+     * @return list of solarSystems
      */
     public List<SolarSystem> getSolarSystemsInRange() {
         List<SolarSystem> solarSystems = new ArrayList<>();
@@ -115,8 +145,6 @@ public class Game {
         }
         return solarSystems;
     }
-
-
 
     /**
      * Gets the current solarSystem
@@ -157,22 +185,6 @@ public class Game {
     public int getCurrentPlanetColor() {
         return currentPlanet.getColor();
     }
-
-    /**
-     * Gets list of SolarSystem names to display
-     * @return List solarSystem names
-     */
-    public List<String> solarSystemNames() {
-        List<SolarSystem> myList = universe.getSolarSystems();
-        List<String> strings = new ArrayList<>();
-        for(SolarSystem s: myList) {
-            strings.add(s.getName());
-        }
-        return strings;
-    }
-
-    //traveling within solar system costs 100 across planets
-    //traveling to different solar system
 
     ///////////////////////////////////////////////////////////////////////////////////////
     //Player Methods

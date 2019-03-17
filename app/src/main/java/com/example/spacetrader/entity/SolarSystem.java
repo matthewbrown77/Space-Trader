@@ -81,17 +81,6 @@ public class SolarSystem{
     }
 
     /**
-     * Transforms the coordinate to be plotted on a map of certain dimensions
-     * @param width of the map
-     * @param height of the map
-     * @param buffer pixels of map frame that are left empty
-     * @return new Coordinate
-     */
-    public Coordinate transformCoordinate(int width, int height, int buffer) {
-        return coordinate.transform(width, height, buffer);
-    }
-
-    /**
      * Generates a random name or random string of numbers and letters.
      * @return
      */

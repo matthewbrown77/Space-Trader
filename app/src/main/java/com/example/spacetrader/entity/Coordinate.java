@@ -37,20 +37,6 @@ public class Coordinate implements Serializable {
     }
 
     /**
-     * Transforms the coordinate to be plotted on a map of certain dimensions
-     * @param width of the map
-     * @param height of the map
-     * @param buffer pixels of map frame that are left empty
-     * @return new Coordinate
-     */
-    public Coordinate transform(int width, int height, int buffer) {
-        int newX = (int)((x - Coordinate.MIN_X) / (double) (Coordinate.MAX_X - Coordinate.MIN_X) * width);
-        int newY = (int)((y - Coordinate.MIN_Y) / (double) (Coordinate.MAX_Y - Coordinate.MIN_Y) * height);
-        return new Coordinate(newX, newY);
-    }
-
-
-    /**
      * Gets the x coordinate
      * @return x coordinate
      */
@@ -64,6 +50,14 @@ public class Coordinate implements Serializable {
      */
     public int getY(){
         return y;
+    }
+
+    /**
+     * Gets the center coordinate of the grid. Used to determine the origin solarSystem.
+     * @return center coordinate of the grid
+     */
+    public static Coordinate getCenterCoordinate() {
+        return new Coordinate((MAX_X - MIN_X) / 2 + MIN_X, (MAX_Y - MIN_Y) / 2 + MIN_Y);
     }
 
     @Override

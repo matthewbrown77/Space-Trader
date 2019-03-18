@@ -14,25 +14,31 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".view.MainActivity"
-            android:label="@string/app_name">
-        </activity>
+            android:label="@string/app_name" />
         <activity
             android:name=".view.InventoryActivity"
-            android:label="Inventory">
-        </activity>
+            android:label="Inventory" />
         <activity
             android:name=".view.TravelActivity"
-            android:label="Travel">
-        </activity>
+            android:label="Travel" />
         <activity
             android:name=".view.TradingActivity"
-            android:label="Trading">
-        </activity>
+            android:label="Trading" />
+        <activity
+            android:name=".view.PlanetInfoActivity"
+            android:label="Planet Information" />
+        <activity
+            android:name=".view.ShipUpgradeActivity"
+            android:label="Manage Ship" />
+        <activity
+            android:name=".view.EncounterActivity"
+            android:label="Travel" />
     </application>
 
 </manifest>

@@ -33,7 +33,7 @@ public class Universe {
     /**
      * Total number of solarSystems in the universe
      */
-    private final int SOLAR_SYSTEM_COUNT = 20;
+    private final int SOLAR_SYSTEM_COUNT = 30;
 
     /**
      * Preferred minimum distance between any two solar systems.

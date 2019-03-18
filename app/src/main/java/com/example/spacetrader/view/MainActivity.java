@@ -109,7 +109,16 @@ public class MainActivity extends AppCompatActivity {
 		Intent intent = new Intent(MainActivity.this, TradingActivity.class);
 		//intent.putExtra("Game", game);
 		startActivity(intent); //goes to Trading Activity.
-		Log.e("main", "Going to trading");
+	}
+
+	public void onClickUpgradeShip(View v) {
+		Intent intent = new Intent(MainActivity.this, ShipUpgradeActivity.class);
+		startActivity(intent); //goes to encounter.
+	}
+
+	public void onClickPlanetInfo(View v) {
+		Intent intent = new Intent(MainActivity.this, PlanetInfoActivity.class);
+		startActivity(intent); //goes to planet info.
 	}
 
 }

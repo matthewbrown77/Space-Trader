@@ -1,5 +1,6 @@
 package com.example.spacetrader.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -180,6 +181,8 @@ public class TravelActivity extends AppCompatActivity {
         solarSystemSpinner.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, game.getSolarSystemsInRange()));
         planetSpinner.setAdapter(createNewAdapter(selectedSolarSystem));
         updateText();
+        Intent intent = new Intent(TravelActivity.this, EncounterActivity.class);
+        startActivity(intent); //goes to encounter.
     }
 
     public void onClickShipStatus(View v) {

@@ -154,6 +154,14 @@ public class Player {
         return ship.deductFuel(fuel);
     }
 
+    /**
+     * Adds 1 fuel point to the ship
+     * @return true if successful
+     */
+    public boolean incrementFuel() {
+        return ship.incrementFuel();
+    }
+
     ///////////////////////////////////////////////////////////////////////////////////////
     //Player Setters
     ///////////////////////////////////////////////////////////////////////////////////////

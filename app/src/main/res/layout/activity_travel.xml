@@ -172,13 +172,14 @@
         android:onClick="onClickTravelVerified"/>
 
     <Button
-        android:id="@+id/directory_button"
+        android:id="@+id/ship_status_button"
         style="@style/Widget.AppCompat.Button"
         android:layout_width="164dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="30dp"
-        android:text="View Directory"
+        android:onClick="onClickShipStatus"
+        android:text="Buy Fuel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ship_fuel_text" />
 

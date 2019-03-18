@@ -4,6 +4,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.ColorFilter;
 import android.graphics.Paint;
+import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
 
@@ -25,9 +26,21 @@ public class Map extends Drawable {
     public final int totalMapTypes = 4; //total number of maps. Used to adjust buttons in travel activity
     private Game game;
 
+    private SolarSystem selectedSolarSystem;
+    private Planet selectedPlanet;
+
+
     public Map (int mapType) {
         this.mapType = mapType;
         this.game = Game.getInstance();
+    }
+
+    public void setSelectedSolarSystem(SolarSystem solarSystem) {
+        selectedSolarSystem = solarSystem;
+    }
+
+    public void setSelectedPlanet(Planet planet) {
+        selectedPlanet = planet;
     }
 
     /**
@@ -44,7 +57,7 @@ public class Map extends Drawable {
                 drawSolarSystem(canvas);
             } break;
             case 2: {
-                drawObservableUniverse(canvas);
+               drawObservableUniverse(canvas);
             } break;
         }
     }
@@ -58,8 +71,26 @@ public class Map extends Drawable {
         paint.setStyle(Paint.Style.FILL);
         paint.setColor(Color.BLACK);
         canvas.drawPaint(paint);
-        paint.setColor(Color.YELLOW);
-        canvas.drawCircle(canvas.getWidth()/2,canvas.getWidth()/2,canvas.getWidth()/3, paint);
+        paint.setColor(selectedPlanet.getColor());
+        int x = canvas.getWidth()/2;
+        int y = canvas.getWidth()/3;
+        int radius = canvas.getWidth()/4;
+        canvas.drawCircle(x,y, radius, paint);
+        paint.setColor(Color.WHITE);
+        paint.setStyle(Paint.Style.STROKE);
+        RectF oval1 = new RectF(x - radius, y - radius/5, x + radius, y + radius/5);
+        double deg = Math.PI/4;
+        //RectF oval2 = new RectF(x - radius * Math., y - radius/5, x + radius, y + radius/5);
+        canvas.drawOval(oval1, paint);
+        //canvas.drawArc(oval1, 180F, 0F, true, paint);
+        paint.setStyle(Paint.Style.FILL);
+        paint.setColor(Color.WHITE);
+        paint.setTextSize(70);
+        paint.setTextAlign(Paint.Align.CENTER);
+        canvas.drawText("Tech Level: " + selectedPlanet.getTechLevel(), canvas.getWidth()/2, 2 * canvas.getWidth()/3, paint);
+        canvas.drawText("Resource Type: " + selectedPlanet.getResourceType(), canvas.getWidth()/2, (int)(2.3 * canvas.getWidth()/3), paint);
+        canvas.drawText("Government: " + selectedPlanet.getGovernment(), canvas.getWidth()/2, (int)(2.6 * canvas.getWidth()/3), paint);
+        canvas.drawText("Status: N/A" , canvas.getWidth()/2, (int)(2.9 * canvas.getWidth()/3), paint);
     }
 
     /**
@@ -67,7 +98,7 @@ public class Map extends Drawable {
      * @param canvas
      */
     private void drawSolarSystem(Canvas canvas) {
-        List<Planet> planets = game.getPlanets();
+        List<Planet> planets = selectedSolarSystem.getPlanets();
         Paint paint = new Paint();
         paint.setStyle(Paint.Style.FILL);
         paint.setColor(Color.BLACK);

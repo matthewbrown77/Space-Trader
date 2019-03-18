@@ -109,12 +109,25 @@ public class Ship {
      * @return true if the action is successful, false otherwise
      */
     public boolean deductFuel(int f) {
-        Log.e("main", "Trying to deduct " + f);
         if (fuel >= f) {
             fuel -= f;
             return true;
         } else {
             Log.e("main", "Ship Class: Failed to deduct fuel because player does not have enough fuel");
+            return false;
+        }
+    }
+
+    /**
+     * Adds 1 fuel point to the ship
+     * @return true if successful
+     */
+    public boolean incrementFuel() {
+        if (fuel < type.getFuelCapacity()) {
+            fuel++;
+            return true;
+        } else {
+            Log.e("main", "Ship Class: Failed to add fuel because fuel is already full");
             return false;
         }
     }

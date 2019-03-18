@@ -45,6 +45,13 @@ public class Game {
     }
 
     /**
+     * Increments the fuel by one
+     */
+    public void incrementFuel() {
+        player.incrementFuel();
+    }
+
+    /**
      * Determines if the requested solarSystem is in range given the player's current
      * fuel and current location
      * @param solarSystem

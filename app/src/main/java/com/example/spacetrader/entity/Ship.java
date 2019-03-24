@@ -13,6 +13,7 @@ public class Ship {
     private int cargoAmount;
     private HashMap<Resource, Integer> cargoHold;
     private ShipType type;
+    private int health; //health of ship (0,100]
     private int fuel;//coordinate distance can travel
 
     /**
@@ -23,6 +24,7 @@ public class Ship {
         this.type = type;
         this.cargoHold = new HashMap<>();
         this.cargoAmount = 0;
+        this.health = 100;
         this.fuel = type.getFuelCapacity();
     }
 
@@ -101,6 +103,26 @@ public class Ship {
      */
     public int getCurrentCargo() {
         return cargoAmount;
+    }
+
+    /**
+     * Gets the ship's health (0, 100]
+     * @return ship health
+     */
+    public int getShipHealth() {
+        return health;
+    }
+
+    /**
+     * Deducts the amount from the ship health
+     * @param amount
+     * @return
+     */
+    public void deductShipHealth(int amount) {
+        health -= amount;
+        if (health < 0) {
+            health = 0;
+        }
     }
 
     /**

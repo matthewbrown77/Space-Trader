@@ -26,8 +26,8 @@ public class Map extends Drawable {
     public final int totalMapTypes = 4; //total number of maps. Used to adjust buttons in travel activity
     private Game game;
 
-    private SolarSystem selectedSolarSystem;
-    private Planet selectedPlanet;
+    private static SolarSystem selectedSolarSystem;
+    private static Planet selectedPlanet;
 
 
     public Map (int mapType) {
@@ -35,11 +35,11 @@ public class Map extends Drawable {
         this.game = Game.getInstance();
     }
 
-    public void setSelectedSolarSystem(SolarSystem solarSystem) {
+    public static void setSelectedSolarSystem(SolarSystem solarSystem) {
         selectedSolarSystem = solarSystem;
     }
 
-    public void setSelectedPlanet(Planet planet) {
+    public static void setSelectedPlanet(Planet planet) {
         selectedPlanet = planet;
     }
 
@@ -49,6 +49,7 @@ public class Map extends Drawable {
      */
     @Override
     public void draw(Canvas canvas) {
+        if (selectedSolarSystem == null || selectedPlanet == null) return;
         switch(mapType) {
             case 0: {
                 drawPlanet(canvas);

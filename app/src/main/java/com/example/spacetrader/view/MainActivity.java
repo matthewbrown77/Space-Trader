@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
 	private TextView engineerCounterTextView;
 	private TextView cargoCounterTextView;
 	private TextView mTextMessage;
+	private TextView shipHealthTextView;
 	private Game game;
 
 	/*
@@ -79,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
 		engineerCounterTextView = findViewById(R.id.engineer_counter);
 		shipNameTextView = findViewById(R.id.text_ship_type);
 		cargoCounterTextView = findViewById(R.id.text_cargo_amount);
+		shipHealthTextView = findViewById(R.id.text_ship_health);
 
 		nameTextView.setText("Commander " + game.getPlayerName());
 		creditsTextView.setText("Credits: $" + game.getPlayerCredits());
@@ -89,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
 		engineerCounterTextView.setText("Engineer: " + skillPointsArray[3]);
 		shipNameTextView.setText("Ship: " + game.getPlayerShipName());
 		cargoCounterTextView.setText("Cargo: " + game.getCurrentCargo() + " / " + game.getMaxCargo());
+		shipHealthTextView.setText("Ship Health: " + game.getShipHealth() + "/100");
 	}
 
 	///////////////////////////////////////////////////////////////////////////////////////

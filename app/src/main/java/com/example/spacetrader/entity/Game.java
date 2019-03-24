@@ -5,6 +5,9 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Represents the model of Space Traders
+ */
 public class Game {
 
     private static Game instance = new Game();
@@ -37,11 +40,16 @@ public class Game {
      * @param solarSystem
      * @param planet
      */
-    public void travel(SolarSystem solarSystem, Planet planet) {
-        if (player.deductFuel((int)(getDistance(solarSystem) + getDistance(planet)))) {
+    public boolean travel(SolarSystem solarSystem, Planet planet) {
+        if (planet.equals(currentPlanet)) {
+            Log.e("main", "Game Class: Failed to travel since already at location");
+            return false;
+        } else if (player.deductFuel((int)(getDistance(solarSystem) + getDistance(planet)))) {
             currentSolarSystem = solarSystem;
             currentPlanet = planet;
+            return true;
         }
+         return false;
     }
 
     /**
@@ -59,19 +67,6 @@ public class Game {
      */
     public boolean solarSystemInRange(SolarSystem solarSystem) {
         return currentSolarSystem.getDistance(solarSystem) <= getFuel();
-    }
-
-    /**
-     * Determines if the requested planet in the solarSystem is in range
-     * @param planet
-     * @param parentSolarSystem solarSystem that the planet is located in
-     * @return true if in range
-     */
-    public boolean systemAndPlanetInRange(Planet planet, SolarSystem parentSolarSystem) {
-        if (!parentSolarSystem.getPlanets().contains(planet)) {
-            throw new RuntimeException("Planet not in parentSolarSystem");
-        }
-        return getDistance(planet) + getDistance(parentSolarSystem) <= getFuel();
     }
 
     /**
@@ -106,6 +101,38 @@ public class Game {
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////
+    //Encounter Methods
+    ///////////////////////////////////////////////////////////////////////////////////////
+
+    /**
+     * Generates and returns a pirate encounter with the player
+     * @return pirateEncounter
+     */
+    private Encounter pirateEncounter() {
+        return new PirateEncounter(player);
+    }
+
+    /**
+     * Gets a list of encounters while traveling
+     * @return list of encounters
+     */
+    public List<Encounter> getEncounters() {
+        List<Encounter> encounters = new ArrayList<>();
+        for (int i = 0; i < 3; i++) {
+            encounters.add(pirateEncounter());
+        }
+        return encounters;
+    }
+
+    /**
+     * Gets the ship's health (0, 100]
+     * @return ship health
+     */
+    public int getShipHealth() {
+        return player.getShipHealth();
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////
     //Getters for solarSystems and planets
     ///////////////////////////////////////////////////////////////////////////////////////
 
@@ -118,13 +145,17 @@ public class Game {
     }
 
     /**
-     * Gets a list of the solar systems in range given current fuel
-     * @return list of SolarSystems
+     * Gets a list of the planets in the selected solar system in range given current fuel
+     * @return list of planets
      */
     public List<Planet> getPlanetsInRange(SolarSystem parentSolarSystem) {
         List<Planet> planets = new ArrayList<>();
+        if (!solarSystemInRange(parentSolarSystem)) {
+            return planets;
+        }
+        int distanceToSolarSystem = (int)getDistance(parentSolarSystem);
         for(Planet p: parentSolarSystem.getPlanets()) {
-            if (systemAndPlanetInRange(p, parentSolarSystem)) {
+            if (getDistance(p) + distanceToSolarSystem <= player.getFuel() ) {
                 planets.add(p);
             }
         }

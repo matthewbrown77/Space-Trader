@@ -35,6 +35,44 @@ public class Player {
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////
+    //Player Encounter methods
+    ///////////////////////////////////////////////////////////////////////////////////////
+
+    /**
+     * Decrements the credits by the specified amount
+     * @param amount
+     */
+    public void decrementCredits(int amount) {
+        credits -= amount;
+        if (credits < 0) {
+            Log.e("main", "Player Class: Failed to decrement player credits by " + amount + " since" +
+                    "player does not have that many credits. Setting credits to 0.");
+            credits = 0;
+        }
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //Player Ship methods
+    ///////////////////////////////////////////////////////////////////////////////////////
+
+
+    /**
+     * Gets the ship's health (0, 100]
+     * @return ship health
+     */
+    public int getShipHealth() {
+        return ship.getShipHealth();
+    }
+
+    /**
+     * Deducts the amount from the ship health
+     * @param amount
+     */
+    public void deductShipHealth(int amount) {
+        ship.deductShipHealth(amount);
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////
     //Player cargo methods
     ///////////////////////////////////////////////////////////////////////////////////////
 
@@ -110,7 +148,7 @@ public class Player {
     }
 
     /**
-     * Gets the current
+     * Gets the current cargo amount
      * @return
      */
     public int getCurrentCargo() {
@@ -131,7 +169,6 @@ public class Player {
             return -1;
         }
     }
-
 
     ///////////////////////////////////////////////////////////////////////////////////////
     //Travel Methods

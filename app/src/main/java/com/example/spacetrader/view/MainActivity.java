@@ -26,8 +26,9 @@ public class MainActivity extends AppCompatActivity {
 	private TextView traderCounterTextView;
 	private TextView engineerCounterTextView;
 	private TextView cargoCounterTextView;
-	private TextView mTextMessage;
 	private TextView shipHealthTextView;
+
+	private TextView planetTextView;
 	private Game game;
 
 	/*
@@ -59,7 +60,6 @@ public class MainActivity extends AppCompatActivity {
 		//Serializable player = getIntent().getSerializableExtra("Player");//gets player from CreatePlayerActivity
 		game = Game.getInstance();
 
-		mTextMessage = (TextView) findViewById(R.id.message);
 		//BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
 		//navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 		update();
@@ -81,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
 		shipNameTextView = findViewById(R.id.text_ship_type);
 		cargoCounterTextView = findViewById(R.id.text_cargo_amount);
 		shipHealthTextView = findViewById(R.id.text_ship_health);
+		planetTextView = findViewById(R.id.text_planet_title);
 
 		nameTextView.setText("Commander " + game.getPlayerName());
 		creditsTextView.setText("Credits: $" + game.getPlayerCredits());
@@ -92,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
 		shipNameTextView.setText("Ship: " + game.getPlayerShipName());
 		cargoCounterTextView.setText("Cargo: " + game.getCurrentCargo() + " / " + game.getMaxCargo());
 		shipHealthTextView.setText("Ship Health: " + game.getShipHealth() + "/100");
+		planetTextView.setText("" + game.getCurrentPlanet());
 	}
 
 	///////////////////////////////////////////////////////////////////////////////////////

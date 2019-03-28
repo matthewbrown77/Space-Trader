@@ -1,9 +1,11 @@
 package com.example.spacetrader.entity;
 
+import java.io.Serializable;
+
 /**
  * The Government enum represents the government type of a planet.
  */
-public enum Government {
+public enum Government implements Serializable {
     ANARCHY("Anarchy", 2, 6, 10.0), CAPITALIST("Capitalist", 4, 7, -0.4), COMMUNIST("Communist", 4, 6, 1.0),
     CONFEDERACY("Confederacy", 2, 7, 0.2), CORPORATE("Corporate", 5, 7, -0.3), CYBERNETIC("Cybernetic", 7, 7, 0.2),
     DEMOCRACY("Democracy", 2, 7, -0.3), DICTATORSHIP("Dictatorship", 2, 6, 0.5), FASCIST("Fascist", 4, 7, 0.3),

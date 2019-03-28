@@ -2,10 +2,12 @@ package com.example.spacetrader.entity;
 
 import android.util.Log;
 
+import java.io.Serializable;
+
 /**
  * The resource enum represents a specific type of item that the player can trade.
  */
-public enum Resource {
+public enum Resource implements Serializable {
     WATER("Water",0,0,30,3,4,ResourceType.LOTS_OF_WATER, ResourceType.DESERT, 30, 50),
     FURS("Furs",0,0,250,10,10,ResourceType.RICH_FAUNA, ResourceType.LIFELESS, 230, 280),
     FOOD("Food",1,0,100,5,5,ResourceType.RICH_SOIL, ResourceType.POOR_SOIL, 90, 160),

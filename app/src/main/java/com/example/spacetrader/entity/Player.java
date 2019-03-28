@@ -2,13 +2,14 @@ package com.example.spacetrader.entity;
 
 import android.util.Log;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
 /**
  * The Player class represents the player in the game. It contains information about
  * their name, skill points, ship, and methods to get its cargo.
  */
-public class Player {
+public class Player implements Serializable {
 
     public final int skillPoints = 16;
 

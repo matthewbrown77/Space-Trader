@@ -1,9 +1,11 @@
 package com.example.spacetrader.entity;
 
+import java.io.Serializable;
+
 /**
  * Abstract class for an encounter while traveling.
  */
-public abstract class Encounter {
+public abstract class Encounter implements Serializable {
 
     protected Player player;
     protected String messageToDisplay;

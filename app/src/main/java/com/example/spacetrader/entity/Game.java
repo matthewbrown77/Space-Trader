@@ -2,13 +2,20 @@ package com.example.spacetrader.entity;
 
 import android.util.Log;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Represents the model of Space Traders
  */
-public class Game {
+public class Game implements Serializable {
 
     private static Game instance = new Game();
     public static Game getInstance() {
@@ -440,5 +447,42 @@ public class Game {
     public String toString() {
         return "GAME: " + player.toString();
     }
+
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //Persistence methods
+    ///////////////////////////////////////////////////////////////////////////////////////
+
+    public final static String DEFAULT_BINARY_FILE_NAME = "data.bin";
+
+    public boolean loadBinary(File file) {
+        boolean success = true;
+        try {
+            ObjectInputStream in = new ObjectInputStream(new FileInputStream(file));
+            instance = (Game) in.readObject();
+            in.close();
+        } catch (IOException e) {
+            Log.e("main", "Game Class: Error reading an entry from binary file",e);
+            success = false;
+        } catch (ClassNotFoundException e) {
+            Log.e("main", "Game Class: Error casting a class from the binary file",e);
+            success = false;
+        }
+        return success;
+    }
+
+    public boolean saveBinary(File file) {
+        boolean success = true;
+        try {
+            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file));
+            out.writeObject(instance);
+            out.close();
+
+        } catch (IOException e) {
+            Log.e("main", "Game Class: Error writing an entry from binary file",e);
+            success = false;
+        }
+        return success;
+    }
+
 
 }

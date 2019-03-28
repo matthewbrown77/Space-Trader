@@ -15,6 +15,8 @@ import com.example.spacetrader.R;
 import com.example.spacetrader.entity.Game;
 import com.example.spacetrader.entity.Player;
 
+import java.io.File;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,43 +33,19 @@ public class MainActivity extends AppCompatActivity {
 	private TextView planetTextView;
 	private Game game;
 
-	/*
-	private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-			= new BottomNavigationView.OnNavigationItemSelectedListener() {
-
-		@Override
-		public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-			switch (item.getItemId()) {
-				case R.id.navigation_travel:
-					mTextMessage.setText(R.string.title_travel);
-					return true;
-				case R.id.navigation_store:
-					mTextMessage.setText(R.string.title_store);
-					return true;
-				case R.id.navigation_inventory:
-					mTextMessage.setText(R.string.title_inventory);
-					return true;
-			}
-			return false;
-		}
-	};
-	*/
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		//Serializable player = getIntent().getSerializableExtra("Player");//gets player from CreatePlayerActivity
 		game = Game.getInstance();
-
-		//BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-		//navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 		update();
 	}
 
 	public void onWindowFocusChanged (boolean hasFocus) {
 		if (hasFocus) {
 			update();
+			File file = new File(this.getFilesDir(), Game.DEFAULT_BINARY_FILE_NAME);
+			game.saveBinary(file); //saves game
 		}
 	}
 

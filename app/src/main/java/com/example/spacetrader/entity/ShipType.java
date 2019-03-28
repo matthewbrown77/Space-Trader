@@ -1,10 +1,12 @@
 package com.example.spacetrader.entity;
 
+import java.io.Serializable;
+
 /**
  * The ShipType enum is an attribute of a ship. Each shipType has a different name,
  * and cargoSize
  */
-public enum ShipType {
+public enum ShipType implements Serializable {
     FLEA("Flea", 5, 20),
     GNAT("Gnat", 15, 20),
     FIREFLY("Firefly", 20, 17),

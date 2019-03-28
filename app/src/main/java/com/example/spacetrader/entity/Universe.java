@@ -1,6 +1,7 @@
 package com.example.spacetrader.entity;
 import android.util.Log;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.List;
 import java.util.ArrayList;
@@ -8,7 +9,7 @@ import java.util.ArrayList;
 /**
  * Class representing the space universe. Contains solar systems.
  */
-public class Universe {
+public class Universe implements Serializable {
 
     /**
      * List of solarSystems

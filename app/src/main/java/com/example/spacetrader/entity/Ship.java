@@ -1,5 +1,7 @@
 package com.example.spacetrader.entity;
 import android.util.Log;
+
+import java.io.Serializable;
 import java.util.HashMap;
 
 /**
@@ -8,7 +10,7 @@ import java.util.HashMap;
  * resources. Each ship also has a ShipType that specifies its name and
  * how much cargo it can hold.
  */
-public class Ship {
+public class Ship implements Serializable {
 
     private int cargoAmount;
     private HashMap<Resource, Integer> cargoHold;

@@ -1,11 +1,13 @@
 package com.example.spacetrader.entity;
 
+import java.io.Serializable;
+
 /**
  * The TechLevel Enum represents the sophistication of the planet. These are ranked
  * from pre-agriculture to hi-tech. The TechLevel helps to determine which goods can be
  * bought and sold at each planet and their prices.
  */
-public enum TechLevel {
+public enum TechLevel implements Serializable {
     PRE_AGRICULTURE("Pre-Agriculture", 0), AGRICULTURE("Agriculture", 1),
     MEDIEVAL("Medieval", 2), RENAISSANCE("Renaissance", 3),
     EARLY_INDUSTRIAL("Early-Industrial", 4), INDUSTRIAL("Industrial", 5),

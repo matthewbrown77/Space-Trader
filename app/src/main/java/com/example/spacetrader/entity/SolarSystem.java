@@ -1,4 +1,5 @@
 package com.example.spacetrader.entity;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,7 +9,7 @@ import java.util.List;
  * has a distinct coordinate in the universe. Once a player is at a solarSystem, they
  * can travel to any of its planets.
  */
-public class SolarSystem{
+public class SolarSystem implements Serializable {
     private String name;
     private Coordinate coordinate;
     private List<Planet> planets;

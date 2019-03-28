@@ -1,9 +1,11 @@
 package com.example.spacetrader.entity;
 
+import java.io.Serializable;
+
 /**
  * Represents an encounter with a pirate
  */
-public class PirateEncounter extends Encounter {
+public class PirateEncounter extends Encounter implements Serializable {
 
     /**
      * Creates a new pirate encounter with the player

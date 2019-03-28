@@ -2,11 +2,13 @@ package com.example.spacetrader.entity;
 
 import android.graphics.Color;
 
+import java.io.Serializable;
+
 /**
  * The Planet class represents a planet that the player can travel to.
  * Every planet has a name, techLevel, resourceType, government, and market
  */
-public class Planet {
+public class Planet implements Serializable {
 
     private String name;
     private TechLevel techLevel;

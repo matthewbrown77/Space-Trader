@@ -1,5 +1,6 @@
 package com.example.spacetrader.entity;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -7,7 +8,7 @@ import java.util.Arrays;
 /**
  * Class used to generate a random name for a Solar System or planet
  */
-public class Names {
+public class Names implements Serializable {
 
     /**
      * Array of 1000 random names

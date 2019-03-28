@@ -2,6 +2,7 @@ package com.example.spacetrader.entity;
 
 import android.util.Log;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
 /**
@@ -9,7 +10,7 @@ import java.util.HashMap;
  * on a given planet. Only one market can exist per planet. A market is dynamic
  * and can change after a player trades or conditions on the planet change.
  */
-public class Market {
+public class Market implements Serializable {
 
     private String name;
     private TechLevel techLevel;

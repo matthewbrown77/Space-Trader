@@ -32,6 +32,7 @@ public class TravelActivity extends AppCompatActivity {
 
     private SolarSystem selectedSolarSystem; //solar system selected in the drop down menu
     private Planet selectedPlanet; //planet selected in the drop down menu
+
     private int mapSetting;
     private final Handler handler = new Handler(); //handler for map update
 
@@ -57,7 +58,6 @@ public class TravelActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 selectedSolarSystem = (SolarSystem)solarSystemSpinner.getSelectedItem(); //sets selected solar system to selected position in dropdown
                 planetSpinner.setAdapter(createNewAdapter(selectedSolarSystem)); //resets planets in planet dropdown
-                planetSpinner.setSelection(0); //sets selected planet in the spinner to the first one in the planet dropdown.
                 selectedPlanet = (Planet) planetSpinner.getSelectedItem(); // sets the selected planet to the selected position
                 Map.setSelectedPlanet(selectedPlanet); //sets the map setting to draw the correct planet
                 Map.setSelectedSolarSystem(selectedSolarSystem); //sets the map setting to draw the correct solar system
@@ -160,7 +160,6 @@ public class TravelActivity extends AppCompatActivity {
         } else if (mapSetting == 2) {
             planetTextView.setText("Universe");
         }
-
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////

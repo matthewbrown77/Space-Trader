@@ -52,6 +52,14 @@ public class Player implements Serializable {
         }
     }
 
+    /**
+     * Increments the credits by the specified amount
+     * @param amount
+     */
+    public void incrementCredits(int amount) {
+        credits+= amount;
+    }
+
     ///////////////////////////////////////////////////////////////////////////////////////
     //Player Ship methods
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -108,6 +116,13 @@ public class Player implements Serializable {
         } else {
             return false;
         }
+    }
+
+    /**
+     * Clears all the cargo from the cargoHold.
+     */
+    public void clearCargo() {
+        ship.clearCargo();
     }
 
     /**

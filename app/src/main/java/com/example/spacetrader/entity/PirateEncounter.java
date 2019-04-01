@@ -1,6 +1,8 @@
 package com.example.spacetrader.entity;
 
 import java.io.Serializable;
+import java.util.ListIterator;
+import java.util.Stack;
 
 /**
  * Represents an encounter with a pirate
@@ -27,9 +29,6 @@ public class PirateEncounter extends Encounter implements Serializable {
         if (options[option].equals("Attack")) attack();
         else if (options[option].equals("Flee")) flee();
         else if (options[option].equals("Surrender")) surrender();
-        else if (options[option].equals("Plunder Ship")) plunder();
-        else if (options[option].contains("credits")) seizeCredits();
-        else if (options[option].equals("Kill pirate")) killPirate();
     }
 
     private void attack() {
@@ -37,13 +36,11 @@ public class PirateEncounter extends Encounter implements Serializable {
             if (Math.random() < 0.1) {
                 opponentShip.deductShipHealth(5);
                 messageToDisplay = "You hit the pirate. ";
-                if (opponentShip.getShipHealth()/100.0 < Math.random()) {
-                    messageToDisplay += "The pirate surrendered. ";
-                    options[0] = "Plunder Ship";
-                    options[1] = "Seize credits (" + (int) (player.getCredits() * Math.random() / 2) + ")";
-                    options[2] = "Kill pirate";
-                }
                 finished = false;
+                if (opponentShip.getShipHealth()/100.0 < Math.random()) {
+                    messageToDisplay += "The pirate fled. ";
+                    finished = true;
+                }
                 return;
             }
         }
@@ -70,30 +67,23 @@ public class PirateEncounter extends Encounter implements Serializable {
     }
 
     private void surrender() {
-        messageToDisplay = "You surrendered. ";
-        if (player.getCurrentCargo() < 4) {
-            int amount = (int)((4 - player.getCurrentCargo())/4.0 * player.getCredits());
-            messageToDisplay += "The pirates took " + amount + " credits.";
-            player.decrementCredits(amount);
+        messageToDisplay = "You surrendered. The pirates took";
+        if (player.getCurrentCargo() > 0) {
+            messageToDisplay += " all of your cargo";
+            if (player.getCurrentCargo() < 4) {
+                messageToDisplay += " and";
+            }
         }
+        if (player.getCurrentCargo() < 4) {
+            int amount = (int)((4 - player.getCurrentCargo())/4.0 * player.getCredits() * Math.random());
+            messageToDisplay += " " + amount + " credits.";
+            player.decrementCredits(amount);
+        } else {
+            messageToDisplay += ".";
+        }
+        player.clearCargo();
         finished = true;
     }
-
-    private void plunder() {
-        messageToDisplay = "You plundered the ship!";
-        finished = true;
-    }
-
-    private void seizeCredits() {
-        messageToDisplay = "You seized the pirate's credits";
-        finished = true;
-    }
-
-    private void killPirate() {
-        messageToDisplay = "You killed the pirate.";
-        finished = true;
-    }
-
 
 
 

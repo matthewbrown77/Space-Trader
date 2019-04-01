@@ -125,7 +125,8 @@ public class Game implements Serializable {
      */
     public List<Encounter> getEncounters() {
         List<Encounter> encounters = new ArrayList<>();
-        for (int i = 0; i < 3; i++) {
+        int amount = 1 + (int)(Math.random() * 3);
+        for (int i = 0; i < amount; i++) {
             encounters.add(pirateEncounter());
         }
         return encounters;

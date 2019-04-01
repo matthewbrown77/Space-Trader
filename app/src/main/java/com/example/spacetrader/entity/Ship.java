@@ -2,7 +2,11 @@ package com.example.spacetrader.entity;
 import android.util.Log;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Stack;
 
 /**
  * The ship class represents a ship that the player uses to travel from
@@ -60,6 +64,14 @@ public class Ship implements Serializable {
         }
         cargoAmount++;
         return true;
+    }
+
+    /**
+     * Clears all the cargo from the cargoHold.
+     */
+    public void clearCargo() {
+        cargoAmount = 0;
+        cargoHold = new HashMap<>();
     }
 
     /**

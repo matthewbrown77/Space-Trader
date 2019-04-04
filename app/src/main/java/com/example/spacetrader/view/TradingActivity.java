@@ -2,7 +2,6 @@ package com.example.spacetrader.view;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -223,21 +222,21 @@ public class TradingActivity extends AppCompatActivity {
     //Update Text for Sell Buttons
     ///////////////////////////////////////////////////////////////////////////////////////
 
-    public String generateResourceText(Resource resource) {
+    private String generateResourceText(Resource resource) {
         return "" + resource + (game.allowedToBuy(resource)||game.allowedToSell(resource) ? " " +
                 "- $" + game.getResourcePrice(resource): "");
     }
 
-    public String generateBuyResourceText(Resource resource) {
+    private String generateBuyResourceText(Resource resource) {
         return game.allowedToBuy(resource) ? "Buy (" + game.getResourceAmount(resource)+")": "N/A";
     }
 
-    public String generateSellResourceText(Resource resource) {
+    private String generateSellResourceText(Resource resource) {
         return game.allowedToSell(resource) ? "Sell (" + game.getCargoCount(resource) + ")" : "N/A";
     }
 
 
-    public void updateText() {
+    private void updateText() {
         waterTextView.setText(generateResourceText(Resource.WATER));
         buyWaterButton.setText(generateBuyResourceText(Resource.WATER));
         sellWaterButton.setText(generateSellResourceText(Resource.WATER));

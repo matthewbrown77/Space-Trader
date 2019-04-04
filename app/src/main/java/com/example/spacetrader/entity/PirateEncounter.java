@@ -1,8 +1,6 @@
 package com.example.spacetrader.entity;
 
 import java.io.Serializable;
-import java.util.ListIterator;
-import java.util.Stack;
 
 /**
  * Represents an encounter with a pirate

@@ -7,11 +7,11 @@ import java.io.Serializable;
  */
 public abstract class Encounter implements Serializable {
 
-    protected Player player;
-    protected String messageToDisplay;
-    protected String[] options;
-    protected boolean finished;
-    protected Ship opponentShip;
+    Player player;
+    String messageToDisplay;
+    String[] options;
+    boolean finished;
+    Ship opponentShip;
 
     /**
      * Gets the message to display for this encounter. Can change based on interaction.
@@ -26,7 +26,7 @@ public abstract class Encounter implements Serializable {
      * @return list of three strings
      */
     public String[] getThreeOptions() {
-        return options;
+        return options.clone();
     }
 
     /**

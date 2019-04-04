@@ -3,7 +3,6 @@ package com.example.spacetrader.view;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.EditText;
@@ -66,12 +65,20 @@ public class CreatePlayerActivity extends AppCompatActivity {
     //Pilot
     ///////////////////////////////////////////////////////////////////////////////////////
 
+    /**
+     * When Pilot Plus is Clicked
+     * @param v View
+     */
     public void onClickPilotPlus(View v) {
         player.incrementPilotSkillPoints();
         pilotCounterTextView.setText("" + player.getPilotSkillPoints());
         counterTextView.setText("" + player.getRemainingCount());
     }
 
+    /**
+     * When pilot minus is clicked
+     * @param v View
+     */
     public void onClickPilotMinus(View v) {
         player.decrementPilotSkillPoints();
         pilotCounterTextView.setText("" + player.getPilotSkillPoints());
@@ -82,12 +89,20 @@ public class CreatePlayerActivity extends AppCompatActivity {
     //Fighter
     ///////////////////////////////////////////////////////////////////////////////////////
 
+    /**
+     * When fighter plus is clicked
+     * @param v View
+     */
     public void onClickFighterPlus(View v) {
         player.incrementFighterSkillPoints();
         pilotFighterTextView.setText("" + player.getFighterSkillPoints());
         counterTextView.setText("" + player.getRemainingCount());
     }
 
+    /**
+     * When fighter minus is clicked
+     * @param v View
+     */
     public void onClickFighterMinus(View v) {
         player.decrementFighterSkillPoints();
         pilotFighterTextView.setText("" + player.getFighterSkillPoints());

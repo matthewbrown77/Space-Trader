@@ -1,6 +1,7 @@
 package com.example.spacetrader.entity;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -13,8 +14,8 @@ public class SolarSystem implements Serializable {
     private String name;
     private Coordinate coordinate;
     private List<Planet> planets;
-    final static int MAX_PLANETS = 5;
-    final static int MIN_PLANETS = 3;
+    private final static int MAX_PLANETS = 5;
+    private final static int MIN_PLANETS = 3;
 
     /**
      * Constructor for the Solar System
@@ -44,7 +45,7 @@ public class SolarSystem implements Serializable {
      * @return list of planets
      */
     public List<Planet> getPlanets() {
-        return planets;
+        return Collections.unmodifiableList(planets);
     }
 
     /**

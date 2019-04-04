@@ -1,7 +1,5 @@
 package com.example.spacetrader.entity;
 
-import android.graphics.Color;
-
 import java.io.Serializable;
 
 /**

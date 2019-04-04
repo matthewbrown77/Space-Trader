@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Button;
 
 import com.example.spacetrader.R;
 import com.example.spacetrader.entity.Game;
@@ -119,7 +118,7 @@ public class InventoryActivity extends AppCompatActivity {
     //Update text
     ///////////////////////////////////////////////////////////////////////////////////////
 
-    public void updateText() {
+    private void updateText() {
         creditsTextView.setText("Credits: " + game.getPlayerCredits());
         cargoTextView.setText("Cargo: " + game.getCurrentCargo() + " / " + game.getMaxCargo());
 
@@ -135,7 +134,7 @@ public class InventoryActivity extends AppCompatActivity {
         robotsTextView.setText(generateResourceText(Resource.ROBOTS));
     }
 
-    public String generateResourceText(Resource resource) {
+    private String generateResourceText(Resource resource) {
         if (game.getCargoCount(resource) > 0) {
             return "" + resource + ": " + game.getCargoCount(resource) + "   " +
                     "(" + game.getAvgPrice(resource) +

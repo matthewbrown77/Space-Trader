@@ -11,7 +11,7 @@ import java.util.HashMap;
  */
 public class Player implements Serializable {
 
-    public final int skillPoints = 16;
+    private final int skillPoints = 16;
 
     private String name;
     private int pilotSkillPoints;

@@ -3,7 +3,6 @@ package com.example.spacetrader.view;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Spinner;
@@ -99,7 +98,7 @@ public class TravelActivity extends AppCompatActivity {
         //update map
         class MyRunnable implements Runnable {
             private Handler handler;
-            public MyRunnable(Handler handler) {
+            MyRunnable(Handler handler) {
                 this.handler = handler;
             }
             @Override
@@ -140,7 +139,7 @@ public class TravelActivity extends AppCompatActivity {
     /**
      * Updates the map using the current mapSetting
      */
-    public void update() {
+    private void update() {
         map = new Map(mapSetting);
         mapView.setBackground(map);
     }
@@ -149,7 +148,7 @@ public class TravelActivity extends AppCompatActivity {
      * Updates the mapSetting, and then updates the map
      * @param newMapSetting
      */
-    public void update(int newMapSetting) {
+    private void update(int newMapSetting) {
         mapSetting = newMapSetting;
         update();
     }

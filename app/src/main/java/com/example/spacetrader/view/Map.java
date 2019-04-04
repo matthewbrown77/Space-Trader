@@ -6,7 +6,6 @@ import android.graphics.ColorFilter;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
-import android.util.Log;
 
 import com.example.spacetrader.entity.Coordinate;
 import com.example.spacetrader.entity.Game;

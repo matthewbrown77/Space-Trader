@@ -49,19 +49,28 @@ public class TravelActivity extends AppCompatActivity {
         solarSystemSpinner = findViewById(R.id.solar_system_spinner);
         planetSpinner = findViewById(R.id.planet_spinner);
 
-        solarSystemSpinner.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, game.getSolarSystemsInRange()));
-        planetSpinner.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, game.getPlanetsInRange(selectedSolarSystem)));
+        solarSystemSpinner.setAdapter(new ArrayAdapter<>(this,
+                android.R.layout.simple_list_item_1, game.getSolarSystemsInRange()));
+        planetSpinner.setAdapter(new ArrayAdapter<>(this,
+                android.R.layout.simple_list_item_1, game.getPlanetsInRange(selectedSolarSystem)));
 
 
         solarSystemSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                selectedSolarSystem = (SolarSystem)solarSystemSpinner.getSelectedItem(); //sets selected solar system to selected position in dropdown
-                planetSpinner.setAdapter(createNewAdapter(selectedSolarSystem)); //resets planets in planet dropdown
-                selectedPlanet = (Planet) planetSpinner.getSelectedItem(); // sets the selected planet to the selected position
-                Map.setSelectedPlanet(selectedPlanet); //sets the map setting to draw the correct planet
-                Map.setSelectedSolarSystem(selectedSolarSystem); //sets the map setting to draw the correct solar system
-                updateText(); //updates all text fields (including the fuel required to get to the newly selected solar system)
+                selectedSolarSystem = (SolarSystem)solarSystemSpinner.getSelectedItem();
+                //sets selected solar system to selected position in dropdown
+                planetSpinner.setAdapter(createNewAdapter(selectedSolarSystem));
+                //resets planets in planet dropdown
+                selectedPlanet = (Planet) planetSpinner.getSelectedItem();
+                // sets the selected planet to the selected position
+                Map.setSelectedPlanet(selectedPlanet);
+                //sets the map setting to draw the correct planet
+                Map.setSelectedSolarSystem(selectedSolarSystem);
+                //sets the map setting to draw the correct solar system
+                updateText();
+                //updates all text fields (including the fuel required to get to the
+                // newly selected solar system)
             }
 
             @Override
@@ -119,7 +128,8 @@ public class TravelActivity extends AppCompatActivity {
      * @return ArrayAdapter with planet Strings.
      */
     private ArrayAdapter<Planet> createNewAdapter (SolarSystem s) {
-        final ArrayAdapter<Planet> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, game.getPlanetsInRange(s));
+        final ArrayAdapter<Planet> adapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_list_item_1, game.getPlanetsInRange(s));
         return adapter;
     }
 
@@ -152,7 +162,8 @@ public class TravelActivity extends AppCompatActivity {
         planetFuelTextView.setText("Fuel: " + game.getDistance(selectedPlanet));
         overallFuelTextView.setText("Remaining Ship Fuel: " + game.getFuel());
         shipHealthTextView.setText("Ship Health " + game.getShipHealth() + "/100");
-        locationTextView.setText("Current Location: " + game.getCurrentPlanetName() + " (" + game.getCurrentSolarSystemName() + ")");
+        locationTextView.setText("Current Location: " + game.getCurrentPlanetName()
+                + " (" + game.getCurrentSolarSystemName() + ")");
         if (mapSetting == 0) {
             planetTextView.setText("Planet: " + selectedPlanet);
         } else if (mapSetting == 1) {
@@ -185,7 +196,8 @@ public class TravelActivity extends AppCompatActivity {
 
     public void onClickTravelVerified(View v) {
         if (game.travel(selectedSolarSystem, selectedPlanet)) {
-            solarSystemSpinner.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, game.getSolarSystemsInRange()));
+            solarSystemSpinner.setAdapter(new ArrayAdapter<>(this,
+                    android.R.layout.simple_list_item_1, game.getSolarSystemsInRange()));
             planetSpinner.setAdapter(createNewAdapter(selectedSolarSystem));
             updateText();
             Intent intent = new Intent(TravelActivity.this, EncounterActivity.class);
@@ -195,7 +207,8 @@ public class TravelActivity extends AppCompatActivity {
 
     public void onClickShipStatus(View v) {
         game.incrementFuel();
-        solarSystemSpinner.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, game.getSolarSystemsInRange()));
+        solarSystemSpinner.setAdapter(new ArrayAdapter<>(this,
+                android.R.layout.simple_list_item_1, game.getSolarSystemsInRange()));
         planetSpinner.setAdapter(createNewAdapter(selectedSolarSystem));
         overallFuelTextView.setText("Remaining Ship Fuel: " + game.getFuel());
         updateText();

@@ -224,11 +224,12 @@ public class TradingActivity extends AppCompatActivity {
     ///////////////////////////////////////////////////////////////////////////////////////
 
     public String generateResourceText(Resource resource) {
-        return "" + resource + (game.allowedToBuy(resource)||game.allowedToSell(resource) ? " - $" + game.getResourcePrice(resource): "");
+        return "" + resource + (game.allowedToBuy(resource)||game.allowedToSell(resource) ? " " +
+                "- $" + game.getResourcePrice(resource): "");
     }
 
     public String generateBuyResourceText(Resource resource) {
-        return game.allowedToBuy(resource) ? "Buy (" + game.getResourceAmount(resource) + ")": "N/A";
+        return game.allowedToBuy(resource) ? "Buy (" + game.getResourceAmount(resource)+")": "N/A";
     }
 
     public String generateSellResourceText(Resource resource) {

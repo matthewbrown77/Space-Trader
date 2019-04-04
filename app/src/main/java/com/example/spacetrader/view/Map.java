@@ -23,7 +23,8 @@ public class Map extends Drawable {
     private int alpha;
     private ColorFilter colorFilter;
     private int mapType; //0 = planet, 1 = solar system, 2 = observable universe, 3 = total universe
-    public final int totalMapTypes = 4; //total number of maps. Used to adjust buttons in travel activity
+    public final int totalMapTypes = 4; //total number of maps. Used to adjust
+    // buttons in travel activity
     private Game game;
 
     private static SolarSystem selectedSolarSystem;
@@ -88,10 +89,14 @@ public class Map extends Drawable {
         paint.setColor(Color.WHITE);
         paint.setTextSize(70);
         paint.setTextAlign(Paint.Align.CENTER);
-        canvas.drawText("Tech Level: " + selectedPlanet.getTechLevel(), canvas.getWidth()/2, 2 * canvas.getWidth()/3, paint);
-        canvas.drawText("Resource Type: " + selectedPlanet.getResourceType(), canvas.getWidth()/2, (int)(2.3 * canvas.getWidth()/3), paint);
-        canvas.drawText("Government: " + selectedPlanet.getGovernment(), canvas.getWidth()/2, (int)(2.6 * canvas.getWidth()/3), paint);
-        canvas.drawText("Status: N/A" , canvas.getWidth()/2, (int)(2.9 * canvas.getWidth()/3), paint);
+        canvas.drawText("Tech Level: " + selectedPlanet.getTechLevel(),
+                canvas.getWidth()/2, 2 * canvas.getWidth()/3, paint);
+        canvas.drawText("Resource Type: " + selectedPlanet.getResourceType(),
+                canvas.getWidth()/2, (int)(2.3 * canvas.getWidth()/3), paint);
+        canvas.drawText("Government: " + selectedPlanet.getGovernment(),
+                canvas.getWidth()/2, (int)(2.6 * canvas.getWidth()/3), paint);
+        canvas.drawText("Status: N/A" , canvas.getWidth()/2, (int)(2.9 *
+                canvas.getWidth()/3), paint);
     }
 
     /**
@@ -115,10 +120,13 @@ public class Map extends Drawable {
             double angle = ((System.currentTimeMillis()/10)%period)/period * 6.283;
             paint.setStyle(Paint.Style.FILL);
             paint.setColor(planets.get(i).getColor());
-            canvas.drawCircle(canvas.getWidth()/2 + (int)(icd * (i + 1) * Math.cos(angle)),canvas.getWidth()/2 +(int)(icd * (i + 1) * Math.sin(angle)),15, paint);
+            canvas.drawCircle(canvas.getWidth()/2 + (int)(icd * (i + 1) * Math.cos(angle)),
+                    canvas.getWidth()/2 +(int)(icd * (i + 1) * Math.sin(angle)),15, paint);
             paint.setColor(Color.WHITE);
             paint.setTextSize(50);
-            canvas.drawText(planets.get(i).getName(), canvas.getWidth()/2 + (int)(icd * (i + 1) * Math.cos(angle)) + 10, canvas.getWidth()/2 +(int)(icd * (i + 1) * Math.sin(angle) - 30), paint);
+            canvas.drawText(planets.get(i).getName(), canvas.getWidth()/2 + (int)(icd * (i + 1)
+                    * Math.cos(angle)) + 10, canvas.getWidth()/2 +(int)(icd * (i + 1)
+                    * Math.sin(angle) - 30), paint);
         }
     }
 
@@ -135,7 +143,8 @@ public class Map extends Drawable {
         List<SolarSystem> solarSystemList = game.getSolarSystems();
         for (SolarSystem s: solarSystemList) {
             int x = (int)((double) s.getCoordinate().getX() / Coordinate.MAX_X * canvas.getWidth());
-            int y = (int)((double) s.getCoordinate().getY() / Coordinate.MAX_Y * canvas.getHeight());
+            int y = (int)((double) s.getCoordinate().getY() / Coordinate.MAX_Y *
+                    canvas.getHeight());
             if (game.solarSystemInRange(s)) {
                 paint.setColor(Color.WHITE);
                 paint.setTextSize(50);

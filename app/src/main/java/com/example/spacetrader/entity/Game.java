@@ -101,7 +101,8 @@ public class Game implements Serializable {
      */
     public int getDistance(Planet planet) {
         if (currentSolarSystem.getPlanets().contains(planet)) {
-            return Math.abs(currentSolarSystem.getPlanets().indexOf(planet) - currentSolarSystem.getPlanets().indexOf(currentPlanet));
+            return Math.abs(currentSolarSystem.getPlanets().indexOf(planet) -
+                    currentSolarSystem.getPlanets().indexOf(currentPlanet));
         } else {
             return planet.getPosition();
         }
@@ -408,7 +409,8 @@ public class Game implements Serializable {
      */
     public void removeCargo(Resource resource) {
         if (!allowedToSell(resource)) {
-            Log.e("main", "Game Class: Failed to remove " + resource + " since it is not allowed to " +
+            Log.e("main", "Game Class: Failed to remove " + resource +
+                    " since it is not allowed to " +
                     "be sold at the market");
         } else if (player.removeCargo(resource, resource.getPrice(currentPlanet.getTechLevel(),
                 currentPlanet.getResourceType(), currentPlanet.getGovernment()))) {

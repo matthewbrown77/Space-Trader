@@ -137,7 +137,8 @@ public class InventoryActivity extends AppCompatActivity {
 
     public String generateResourceText(Resource resource) {
         if (game.getCargoCount(resource) > 0) {
-            return "" + resource + ": " + game.getCargoCount(resource) + "   (" + game.getAvgPrice(resource) +
+            return "" + resource + ": " + game.getCargoCount(resource) + "   " +
+                    "(" + game.getAvgPrice(resource) +
                     "/ unit)";
         } else {
             return "" + resource + ": " + game.getCargoCount(resource);

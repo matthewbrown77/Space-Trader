@@ -24,11 +24,13 @@ public class Planet implements Serializable {
     public Planet(int pos) {
         this.name = Names.getName();
         this.techLevel = TechLevel.values()[(int) (Math.random() * TechLevel.values().length)];
-        this.resourceType = ResourceType.values()[(int) (Math.random() * ResourceType.values().length)];
+        this.resourceType = ResourceType.values()[(int) (Math.random() *
+                ResourceType.values().length)];
         this.government = Government.values()[(int) (Math.random() * Government.values().length)];
         while (techLevel.getLevel() < government.getMinTechLevel() ||
                 techLevel.getLevel() > government.getMaxTechLevel()) {
-            this.government = Government.values()[(int) (Math.random() * Government.values().length)];
+            this.government = Government.values()[(int) (Math.random() *
+                    Government.values().length)];
         }
         this.market = new Market(this);
         this.position = pos;
@@ -179,7 +181,8 @@ public class Planet implements Serializable {
             return false;
         }
         Planet p = (Planet) o;
-        return (p.name.equals(name) && p.techLevel.equals(techLevel) && p.resourceType.equals(resourceType) && p.government.equals(government));
+        return (p.name.equals(name) && p.techLevel.equals(techLevel)
+                && p.resourceType.equals(resourceType) && p.government.equals(government));
     }
 
     @Override

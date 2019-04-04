@@ -85,7 +85,8 @@ public enum Resource implements Serializable {
      * @return int price of the good. -1 if the resource is not available to buy or sell.
      */
     public int getPrice(TechLevel techLevel, ResourceType resourceType, Government government) {
-        if (techLevel.getLevel() < minTechLevelToProduce && techLevel.getLevel() < minTechLevelToUse) {
+        if (techLevel.getLevel() < minTechLevelToProduce && techLevel.getLevel()
+                < minTechLevelToUse) {
             Log.e("main", "Resource Class: Failed to retrieve the price of " + name
                     + " since it is not available at the current location.");
             return -1;

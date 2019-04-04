@@ -79,6 +79,7 @@ public class SolarSystem implements Serializable {
             return false;
         }
         SolarSystem s = (SolarSystem) o;
-        return (s.coordinate.equals(coordinate)); // two solar systems with the same coordinate must be the same
+        return (s.coordinate.equals(coordinate));
+        // two solar systems with the same coordinate must be the same
     }
 }

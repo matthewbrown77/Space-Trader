@@ -149,7 +149,8 @@ public class Ship implements Serializable {
             fuel -= f;
             return true;
         } else {
-            Log.e("main", "Ship Class: Failed to deduct fuel because player does not have enough fuel");
+            Log.e("main", "Ship Class: Failed to deduct fuel because player" +
+                    " does not have enough fuel");
             return false;
         }
     }

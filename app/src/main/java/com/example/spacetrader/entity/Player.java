@@ -46,7 +46,8 @@ public class Player implements Serializable {
     public void decrementCredits(int amount) {
         credits -= amount;
         if (credits < 0) {
-            Log.e("main", "Player Class: Failed to decrement player credits by " + amount + " since" +
+            Log.e("main", "Player Class: Failed to decrement player credits by "
+                    + amount + " since" +
                     "player does not have that many credits. Setting credits to 0.");
             credits = 0;
         }
@@ -261,7 +262,8 @@ public class Player implements Serializable {
      * @return int skillPoints Array
      */
     public int[] getSkillPointsArray() {
-        int []skillPoints = {pilotSkillPoints, fighterSkillPoints, traderSkillPoints, engineerSkillPoints};
+        int []skillPoints = {pilotSkillPoints, fighterSkillPoints, traderSkillPoints,
+                engineerSkillPoints};
         return skillPoints;
     }
 

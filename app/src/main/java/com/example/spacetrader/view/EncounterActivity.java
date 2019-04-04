@@ -72,7 +72,8 @@ public class EncounterActivity extends AppCompatActivity {
             option0Button.setText(encounter.getThreeOptions()[0]);
             option1Button.setText(encounter.getThreeOptions()[1]);
             option2Button.setText(encounter.getThreeOptions()[2]);
-            opponentShipHealth.setText("Pirate Ship Health: " + encounter.getOpponentShipHealth() + "/100");
+            opponentShipHealth.setText("Pirate Ship Health: " + encounter.getOpponentShipHealth()
+                    + "/100");
         } else {
             opponentShipHealth.setText("");
         }

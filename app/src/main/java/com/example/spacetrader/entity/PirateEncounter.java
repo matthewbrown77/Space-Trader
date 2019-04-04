@@ -17,7 +17,8 @@ public class PirateEncounter extends Encounter implements Serializable {
         this.player = player;
         this.finished = false;
         this.opponentShip = new Ship(ShipType.GNAT);
-        this.messageToDisplay = "You encounter a pirate. Your opponent attacks you, but misses your ship.";
+        this.messageToDisplay = "You encounter a pirate. Your opponent attacks you, but misses " +
+                "your ship.";
         this.options = new String[3];
         options[0] = "Attack";
         options[1] = "Flee";
@@ -75,7 +76,8 @@ public class PirateEncounter extends Encounter implements Serializable {
             }
         }
         if (player.getCurrentCargo() < 4) {
-            int amount = (int)((4 - player.getCurrentCargo())/4.0 * player.getCredits() * Math.random());
+            int amount = (int)((4 - player.getCurrentCargo())/4.0 * player.getCredits()
+                    * Math.random());
             messageToDisplay += " " + amount + " credits.";
             player.decrementCredits(amount);
         } else {

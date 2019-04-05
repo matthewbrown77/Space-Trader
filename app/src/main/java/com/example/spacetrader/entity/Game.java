@@ -101,9 +101,9 @@ public class Game implements Serializable {
      * @return distance
      */
     public int getDistance(Planet planet) {
-        if (currentSolarSystem.getPlanets().contains(planet)) {
-            return Math.abs(currentSolarSystem.getPlanets().indexOf(planet) -
-                    currentSolarSystem.getPlanets().indexOf(currentPlanet));
+        if (currentSolarSystem.contains(planet)) {
+            return Math.abs(currentSolarSystem.indexOf(planet) -
+                    currentSolarSystem.indexOf(currentPlanet));
         } else {
             return planet.getPosition();
         }
@@ -157,7 +157,7 @@ public class Game implements Serializable {
         }
         int distanceToSolarSystem = (int)getDistance(parentSolarSystem);
         for(Planet p: parentSolarSystem.getPlanets()) {
-            if (getDistance(p) + distanceToSolarSystem <= player.getFuel() ) {
+            if ((getDistance(p) + distanceToSolarSystem) <= player.getFuel()) {
                 planets.add(p);
             }
         }
@@ -312,7 +312,7 @@ public class Game implements Serializable {
      * @return String representation of the resourceType
      */
     public String getCurrentPlanetResourceType(){
-        return currentPlanet.getResourceType().toString();
+        return "" + currentPlanet.getResourceType();
     }
 
     /**
@@ -320,7 +320,7 @@ public class Game implements Serializable {
      * @return String representation of the techLevel
      */
     public String getCurrentPlanetTechLevel() {
-        return currentPlanet.getTechLevel().toString();
+        return "" + currentPlanet.getTechLevel();
     }
 
     /**

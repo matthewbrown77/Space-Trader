@@ -13,7 +13,7 @@ public class Names implements Serializable {
     /**
      * Array of 1000 random names
      */
-    private static String [] names = {"Acamar",
+    private static final String [] names = {"Acamar",
             "Acotera","Acunov","Adahn","Ademia","Adilea","Ahines",
             "Aicarro","Aldea","Aliatis","Almeshan","Alvomia","Alvuter",
             "Andeonope","Andevian","Andoinov","Anides","Ankualea","Annippe",
@@ -185,23 +185,25 @@ public class Names implements Serializable {
     /**
      * List of unused names from the random array.
      */
-    private static List<String> unusedNames = new ArrayList<>(Arrays.asList(names));
+    private static final List<String> unusedNames = new ArrayList<>(Arrays.asList(names));
 
     /**
      * Number used if all names are used
      */
-    private static int count = 0;
+    private static int count;
 
     /**
      * Gets a random name from the list, or a number if all 1000 names are used.
      * @return random name unique from all other names.
      */
     public static String getName() {
-        if (unusedNames.size() > 0) {
+        if (!unusedNames.isEmpty()) {
             int random = (int)(Math.random() * unusedNames.size());
             return unusedNames.remove(random);
         } else {
-            return "" + count++;
+            String result = "" + count;
+            count++;
+            return result;
         }
     }
 }

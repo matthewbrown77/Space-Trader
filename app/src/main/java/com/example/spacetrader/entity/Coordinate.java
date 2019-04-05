@@ -7,13 +7,13 @@ import java.io.Serializable;
  */
 public class Coordinate implements Serializable {
 
-    public final static int MIN_X = 0;
-    public final static int MAX_X = 100;
-    public final static int MIN_Y = 0;
-    public final static int MAX_Y = 100;
+    public static final int MIN_X = 0;
+    public static final int MAX_X = 100;
+    public static final int MIN_Y = 0;
+    public static final int MAX_Y = 100;
 
-    private int x;
-    private int y;
+    private final int x;
+    private final int y;
 
     /**
      * Constructor for the coordinate
@@ -57,7 +57,7 @@ public class Coordinate implements Serializable {
      * @return center coordinate of the grid
      */
     public static Coordinate getCenterCoordinate() {
-        return new Coordinate((MAX_X - MIN_X) / 2 + MIN_X, (MAX_Y - MIN_Y) / 2 + MIN_Y);
+        return new Coordinate(((MAX_X - MIN_X) / 2) + MIN_X, ((MAX_Y - MIN_Y) / 2) + MIN_Y);
     }
 
     @Override
@@ -74,14 +74,14 @@ public class Coordinate implements Serializable {
             return false;
         }
         Coordinate coordinate = (Coordinate)o;
-        return (coordinate.x == this.x && coordinate.y == this.y);
+        return ((coordinate.x == this.x) && (coordinate.y == this.y));
     }
 
     @Override
     public int hashCode() {
         int result = 37;
-        result = 31 * result + x;
-        result = 31 * result + y;
+        result = (31 * result) + x;
+        result = (31 * result) + y;
         return result;
     }
 }

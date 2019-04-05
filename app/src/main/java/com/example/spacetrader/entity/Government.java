@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * The Government enum represents the government type of a planet.
  */
-public enum Government implements Serializable {
+public enum Government {
     ANARCHY("Anarchy", 2, 6, 10.0), CAPITALIST("Capitalist", 4, 7, -0.4),
     COMMUNIST("Communist", 4, 6, 1.0), CONFEDERACY("Confederacy", 2, 7, 0.2),
     CORPORATE("Corporate", 5, 7, -0.3), CYBERNETIC("Cybernetic", 7, 7, 0.2),
@@ -16,10 +16,10 @@ public enum Government implements Serializable {
     SATORI("Satori", 1, 3,  -1.0), TECHNOCRACY("Technocracy", 7, 7, 0.2),
     THEOCRACY("Theocracy", 1, 3, -0.4), NONE("None", 0, 1, -1.0);
 
-    private String name;
-    private int minTechLevel;
-    private int maxTechLevel;
-    private double tradeFactor;
+    private final String name;
+    private final int minTechLevel;
+    private final int maxTechLevel;
+    private final double tradeFactor;
 
     /**
      * Government constructor

@@ -11,9 +11,9 @@ import java.util.List;
  * can travel to any of its planets.
  */
 public class SolarSystem implements Serializable {
-    private String name;
-    private Coordinate coordinate;
-    private List<Planet> planets;
+    private final String name;
+    private final Coordinate coordinate;
+    private final List<Planet> planets;
     private static final int MAX_PLANETS = 5;
     private static final int MIN_PLANETS = 3;
 
@@ -26,10 +26,28 @@ public class SolarSystem implements Serializable {
         this.name = Names.getName();
         this.coordinate = coordinate;
         this.planets = new ArrayList<>();
-        int planetNumber = MIN_PLANETS + (int)(Math.random() * (MAX_PLANETS - MIN_PLANETS + 1));
+        int planetNumber = MIN_PLANETS + (int) (Math.random() * ((MAX_PLANETS - MIN_PLANETS) + 1));
         for (int i = 0; i < planetNumber; i++) {
             planets.add(new Planet(i));
         }
+    }
+
+    /**
+     * Determines if the planet is in the solar system
+     * @param planet planet to be searched for
+     * @return true if the planet is in the solar system, false otherwise
+     */
+    public boolean contains(Planet planet) {
+        return planets.contains(planet);
+    }
+
+    /**
+     * Gets the index of the planet in the solar system
+     * @param planet planet to be searched for
+     * @return index of the planet
+     */
+    public int indexOf(Planet planet) {
+        return planets.indexOf(planet);
     }
 
     /**

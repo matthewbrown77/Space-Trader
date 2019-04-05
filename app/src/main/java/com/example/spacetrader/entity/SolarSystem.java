@@ -14,8 +14,8 @@ public class SolarSystem implements Serializable {
     private String name;
     private Coordinate coordinate;
     private List<Planet> planets;
-    private final static int MAX_PLANETS = 5;
-    private final static int MIN_PLANETS = 3;
+    private static final int MAX_PLANETS = 5;
+    private static final int MIN_PLANETS = 3;
 
     /**
      * Constructor for the Solar System

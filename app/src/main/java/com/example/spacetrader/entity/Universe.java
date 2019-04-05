@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Set;
 
 /**
  * Class representing the space universe. Contains solar systems.
@@ -20,7 +21,7 @@ public class Universe implements Serializable {
     /**
      * List of solarSystem coordinates. Used to prevent repeats.
      */
-    private static HashSet<Coordinate> solarSystemCoordinates = new HashSet<>();
+    private static Set<Coordinate> solarSystemCoordinates = new HashSet<>();
 
     /**
      * Origin SolarSystem upon game creation
@@ -115,10 +116,6 @@ public class Universe implements Serializable {
 
     @Override
     public String toString() {
-        String returnString = "Universe:\n";
-        for (SolarSystem s: solarSystems) {
-            returnString += "\t" + s.toString() + "\n";
-        }
-        return returnString;
+        return "Universe";
     }
 }

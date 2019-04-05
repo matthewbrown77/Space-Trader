@@ -32,7 +32,7 @@ public class Market implements Serializable {
         this.resourceAmounts = new HashMap<>();
         for (Resource res: Resource.values()) {
             if (allowedToBuy(res)) {
-                resourceAmounts.put(res, (int)(Math.random() * 10 + 3));
+                resourceAmounts.put(res, (int) ((Math.random() * 10) + 3));
             }
         }
     }
@@ -43,7 +43,7 @@ public class Market implements Serializable {
      * @return true if resource is available, false otherwise
      */
     public boolean resourceAvailableToBuy(Resource resource) {
-        return resourceAmounts.containsKey(resource) && resourceAmounts.get(resource) > 0;
+        return resourceAmounts.containsKey(resource) && (resourceAmounts.get(resource) > 0);
     }
 
     /**

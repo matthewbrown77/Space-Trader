@@ -49,6 +49,10 @@ public class Ship implements Serializable {
      * @return true if the operation is successful, false otherwise.
      */
     public boolean addCargo(Resource resource) {
+        if (resource == null) {
+            Log.e("main", "Ship Class: Failed to add resource since resource is null");
+            return false;
+        }
         if (cargoAmount >= type.getCargoSize()) {
             Log.e("main", "Ship Class: Failed to add " + resource + " since cargo hold is full");
             return false;
@@ -76,6 +80,10 @@ public class Ship implements Serializable {
      * @return true if the operation is successful, false otherwise.
      */
     public boolean removeCargo(Resource resource) {
+        if (resource == null) {
+            Log.e("main", "Ship Class: Failed to remove resource since resource is null");
+            return false;
+        }
         if (!cargoHold.containsKey(resource)) {
             Log.e("main", "Ship Class: Failed to remove " + resource
                     + " since it does not exist in the cargo hold");

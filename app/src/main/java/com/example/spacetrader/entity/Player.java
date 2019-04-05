@@ -53,14 +53,6 @@ public class Player implements Serializable {
         }
     }
 
-    /**
-     * Increments the credits by the specified amount
-     * @param amount
-     */
-    public void incrementCredits(int amount) {
-        credits+= amount;
-    }
-
     ///////////////////////////////////////////////////////////////////////////////////////
     //Player Ship methods
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -108,8 +100,8 @@ public class Player implements Serializable {
         } else if (ship.addCargo(resource)){
             credits -= price;
             if (avgPrice.containsKey(resource)) {
-                avgPrice.put(resource, (avgPrice.get(resource) * (ship.getCargoCount(resource) - 1)
-                        + price)/ship.getCargoCount(resource));
+                avgPrice.put(resource, ((avgPrice.get(resource) * (ship.getCargoCount(resource) - 1))
+                        + price) / ship.getCargoCount(resource));
             } else {
                 avgPrice.put(resource, (double)price);
             }

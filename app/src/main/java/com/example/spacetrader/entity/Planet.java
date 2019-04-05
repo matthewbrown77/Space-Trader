@@ -25,8 +25,8 @@ public class Planet implements Serializable {
         this.resourceType = ResourceType.values()[(int) (Math.random() *
                 ResourceType.values().length)];
         this.government = Government.values()[(int) (Math.random() * Government.values().length)];
-        while (techLevel.getLevel() < government.getMinTechLevel() ||
-                techLevel.getLevel() > government.getMaxTechLevel()) {
+        while ((techLevel.getLevel() < government.getMinTechLevel()) ||
+                (techLevel.getLevel() > government.getMaxTechLevel())) {
             this.government = Government.values()[(int) (Math.random() *
                     Government.values().length)];
         }

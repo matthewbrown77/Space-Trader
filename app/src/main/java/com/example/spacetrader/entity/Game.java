@@ -7,6 +7,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -23,7 +24,7 @@ public class Game implements Serializable {
     }
 
     private Player player;
-    private Universe universe;
+    private final Universe universe;
     private SolarSystem currentSolarSystem;
     private Planet currentPlanet;
 
@@ -146,14 +147,6 @@ public class Game implements Serializable {
     ///////////////////////////////////////////////////////////////////////////////////////
 
     /**
-     * Gets the List of planets in the current SolarSystem
-     * @return List of planets
-     */
-    public List<Planet> getPlanets() {
-        return currentSolarSystem.getPlanets();
-    }
-
-    /**
      * Gets a list of the planets in the selected solar system in range given current fuel
      * @return list of planets
      */
@@ -225,14 +218,6 @@ public class Game implements Serializable {
         return currentSolarSystem.getName();
     }
 
-    /**
-     * Gets the color of the planet
-     * @return color of the planet
-     */
-    public int getCurrentPlanetColor() {
-        return currentPlanet.getColor();
-    }
-
     ///////////////////////////////////////////////////////////////////////////////////////
     //Player Methods
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -298,7 +283,7 @@ public class Game implements Serializable {
      * @param resource
      * @return true if resource can be bought, false otherwise
      */
-    public boolean resourceAvailableToBuy(Resource resource) {
+    private boolean resourceAvailableToBuy(Resource resource) {
         return currentPlanet.resourceAvailableToBuy(resource);
     }
 
@@ -455,7 +440,7 @@ public class Game implements Serializable {
     //Persistence methods
     ///////////////////////////////////////////////////////////////////////////////////////
 
-    public final static String DEFAULT_BINARY_FILE_NAME = "data.bin";
+    public static final String DEFAULT_BINARY_FILE_NAME = "data.bin";
 
     public boolean loadBinary(File file) {
         boolean success = true;
@@ -476,7 +461,7 @@ public class Game implements Serializable {
     public boolean saveBinary(File file) {
         boolean success = true;
         try {
-            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file));
+            ObjectOutput out = new ObjectOutputStream(new FileOutputStream(file));
             out.writeObject(instance);
             out.close();
 

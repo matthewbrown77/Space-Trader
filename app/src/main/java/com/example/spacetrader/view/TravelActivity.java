@@ -97,7 +97,7 @@ public class TravelActivity extends AppCompatActivity {
 
         //update map
         class MyRunnable implements Runnable {
-            private Handler handler;
+            private final Handler handler;
             MyRunnable(Handler handler) {
                 this.handler = handler;
             }
@@ -177,13 +177,13 @@ public class TravelActivity extends AppCompatActivity {
     ///////////////////////////////////////////////////////////////////////////////////////
 
     public void onClickViewSolarSystem(View v) {
-        mapSetting = mapSetting > 0 ? mapSetting - 1 : 0;
+        mapSetting = (mapSetting > 0) ? (mapSetting - 1) : 0;
         update(mapSetting);
         updateText();
     }
 
     public void onClickViewUniverse(View v) {
-        mapSetting = mapSetting < 2 ? mapSetting + 1 : 2;
+        mapSetting = (mapSetting < 2) ? (mapSetting + 1) : 2;
         update(mapSetting);
         updateText();
     }

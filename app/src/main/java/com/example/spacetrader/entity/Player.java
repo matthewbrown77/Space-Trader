@@ -19,8 +19,8 @@ public class Player implements Serializable {
     private int traderSkillPoints;
     private int engineerSkillPoints;
     private int credits;
-    private HashMap<Resource, Double> avgPrice;
-    private Ship ship;
+    private final HashMap<Resource, Double> avgPrice;
+    private final Ship ship;
 
     /**
      * Constructor for a player. Sets skill points to 0, ship to GNAT, and credits to 1000
@@ -100,7 +100,7 @@ public class Player implements Serializable {
         } else if (ship.addCargo(resource)){
             credits -= price;
             if (avgPrice.containsKey(resource)) {
-                avgPrice.put(resource, ((avgPrice.get(resource) * (ship.getCargoCount(resource) - 1))
+                avgPrice.put(resource, ((avgPrice.get(resource)*(ship.getCargoCount(resource) - 1))
                         + price) / ship.getCargoCount(resource));
             } else {
                 avgPrice.put(resource, (double)price);

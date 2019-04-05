@@ -8,7 +8,7 @@ import java.io.Serializable;
  * The ResourceType enum represents the environment of a planet. Each type determines
  * the amount and types of goods that can be sold at the planet and their prices.
  */
-public enum ResourceType implements Serializable {
+public enum ResourceType {
     NO_SPECIAL_RESOURCES("No Special Resources", Color.rgb(168, 31, 236)),
     MINERAL_RICH("Mineral Rich", Color.rgb(102,0,0)),
     MINERAL_POOR("Mineral Poor", Color.rgb(255,255,153)),
@@ -23,8 +23,8 @@ public enum ResourceType implements Serializable {
     ARTISTIC("Artistic", Color.rgb(255,77,225)),
     WARLIKE("Warlike", Color.rgb(255,25,25));
 
-    private String name;
-    private int color;
+    private final String name;
+    private final int color;
 
     /**
      * ResourceType constructor

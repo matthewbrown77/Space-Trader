@@ -7,7 +7,7 @@ import java.io.Serializable;
 /**
  * The resource enum represents a specific type of item that the player can trade.
  */
-public enum Resource implements Serializable {
+public enum Resource {
     WATER("Water",0,0,30,3,4,ResourceType.LOTS_OF_WATER, ResourceType.DESERT, 30, 50),
     FURS("Furs",0,0,250,10,10,ResourceType.RICH_FAUNA, ResourceType.LIFELESS, 230, 280),
     FOOD("Food",1,0,100,5,5,ResourceType.RICH_SOIL, ResourceType.POOR_SOIL, 90, 160),
@@ -19,18 +19,16 @@ public enum Resource implements Serializable {
     NARCOTICS("Narcotics",5,0,3500,-125,150,ResourceType.WEIRD_MUSHROOMS, null, 2000, 3000),
     ROBOTS("Robots",6,4,5000,-150,100,null, null, 3500, 5000);
 
-    private String name;
-    private int minTechLevelToProduce;
-    private int minTechLevelToUse;
-    private int basePrice;
-    private int priceIncreasePerLevel;
-    private int variance;
-    private ResourceType cheapResourceCondition;
-    private ResourceType expensiveResourceCondition;
+    private final String name;
+    private final int minTechLevelToProduce;
+    private final int minTechLevelToUse;
+    private final int basePrice;
+    private final int priceIncreasePerLevel;
+    private final int variance;
+    private final ResourceType cheapResourceCondition;
+    private final ResourceType expensiveResourceCondition;
     private Government cheapGovernmentCondition;
     private Government expensiveGovernmentCondition;
-    private int minPrice;
-    private int maxPrice;
 
     /**
      * Resource Constructor
@@ -56,8 +54,6 @@ public enum Resource implements Serializable {
         this.variance = variance;
         this.cheapResourceCondition = cheapResourceCondition;
         this.expensiveResourceCondition = expensiveResourceCondition;
-        this.minPrice = minPrice;
-        this.maxPrice = maxPrice;
     }
 
     /**
@@ -85,8 +81,8 @@ public enum Resource implements Serializable {
      * @return int price of the good. -1 if the resource is not available to buy or sell.
      */
     public int getPrice(TechLevel techLevel, ResourceType resourceType, Government government) {
-        if (techLevel.getLevel() < minTechLevelToProduce && techLevel.getLevel()
-                < minTechLevelToUse) {
+        if ((techLevel.getLevel() < minTechLevelToProduce) && (techLevel.getLevel()
+                < minTechLevelToUse)) {
             Log.e("main", "Resource Class: Failed to retrieve the price of " + name
                     + " since it is not available at the current location.");
             return -1;
@@ -94,10 +90,11 @@ public enum Resource implements Serializable {
         int price = basePrice;
         price += priceIncreasePerLevel * techLevel.getLevel();
         price += (int)(government.getTradeFactor() * variance);
-        if (cheapResourceCondition != null && cheapResourceCondition.equals(resourceType)) {
+        if ((cheapResourceCondition != null) && cheapResourceCondition.equals(resourceType)) {
             price /= 10;
         }
-        if (expensiveResourceCondition != null && expensiveResourceCondition.equals(resourceType)) {
+        if ((expensiveResourceCondition != null) && expensiveResourceCondition.
+                equals(resourceType)) {
             price *= 10;
         }
         return price;

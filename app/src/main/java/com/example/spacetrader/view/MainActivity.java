@@ -14,18 +14,7 @@ import java.io.File;
 
 public class MainActivity extends AppCompatActivity {
 
-	private TextView nameTextView;
-	private TextView creditsTextView;
-	private TextView shipNameTextView;
-	private TextView pilotCounterTextView;
-	private TextView fighterCounterTextView;
-	private TextView traderCounterTextView;
-	private TextView engineerCounterTextView;
-	private TextView cargoCounterTextView;
-	private TextView shipHealthTextView;
-
-	private TextView planetTextView;
-	private Game game;
+    private Game game;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -44,16 +33,16 @@ public class MainActivity extends AppCompatActivity {
 	}
 
 	private void update() {
-		nameTextView = findViewById(R.id.text_commander_name);
-		creditsTextView = findViewById(R.id.text_credits);
-		pilotCounterTextView = findViewById(R.id.pilot_counter);
-		fighterCounterTextView = findViewById(R.id.fighter_counter);
-		traderCounterTextView = findViewById(R.id.trader_counter);
-		engineerCounterTextView = findViewById(R.id.engineer_counter);
-		shipNameTextView = findViewById(R.id.text_ship_type);
-		cargoCounterTextView = findViewById(R.id.text_cargo_amount);
-		shipHealthTextView = findViewById(R.id.text_ship_health);
-		planetTextView = findViewById(R.id.text_planet_title);
+        TextView nameTextView = findViewById(R.id.text_commander_name);
+        TextView creditsTextView = findViewById(R.id.text_credits);
+        TextView pilotCounterTextView = findViewById(R.id.pilot_counter);
+        TextView fighterCounterTextView = findViewById(R.id.fighter_counter);
+        TextView traderCounterTextView = findViewById(R.id.trader_counter);
+        TextView engineerCounterTextView = findViewById(R.id.engineer_counter);
+        TextView shipNameTextView = findViewById(R.id.text_ship_type);
+        TextView cargoCounterTextView = findViewById(R.id.text_cargo_amount);
+        TextView shipHealthTextView = findViewById(R.id.text_ship_health);
+        TextView planetTextView = findViewById(R.id.text_planet_title);
 
 		nameTextView.setText("Commander " + game.getPlayerName());
 		creditsTextView.setText("Credits: $" + game.getPlayerCredits());

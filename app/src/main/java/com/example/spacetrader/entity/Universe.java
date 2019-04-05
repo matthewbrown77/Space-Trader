@@ -2,6 +2,7 @@ package com.example.spacetrader.entity;
 import android.util.Log;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
@@ -16,35 +17,22 @@ public class Universe implements Serializable {
     /**
      * List of solarSystems
      */
-    private List<SolarSystem> solarSystems;
+    private final List<SolarSystem> solarSystems;
 
     /**
      * List of solarSystem coordinates. Used to prevent repeats.
      */
-    private static Set<Coordinate> solarSystemCoordinates = new HashSet<>();
+    private static final Collection<Coordinate> solarSystemCoordinates = new HashSet<>();
 
     /**
      * Origin SolarSystem upon game creation
      */
-    private SolarSystem originSolarSystem;
+    private final SolarSystem originSolarSystem;
 
     /**
      * Origin Planet upon game creation
      */
-    private Planet originPlanet;
-
-    /**
-     * Total number of solarSystems in the universe
-     */
-    private final int SOLAR_SYSTEM_COUNT = 30;
-
-    /**
-     * Preferred minimum distance between any two solar systems.
-     *
-     * The actual distance between two solar systems may be less
-     * if the universe is extremely crowded.
-     */
-    private final int MIN_DISTANCE_BETWEEN_SOLAR_SYSTEMS = 10;
+    private final Planet originPlanet;
 
     /**
      * Creates a universe with 10 solar systems, with 1 at the origin.
@@ -55,6 +43,10 @@ public class Universe implements Serializable {
         solarSystemCoordinates.add(Coordinate.getCenterCoordinate());
         originPlanet = originSolarSystem.getPlanets().get(0);
         solarSystems.add(originSolarSystem);
+        /**
+         * Total number of solarSystems in the universe
+         */
+        int SOLAR_SYSTEM_COUNT = 30;
         for (int i = 0; i < SOLAR_SYSTEM_COUNT; i++) {
             solarSystems.add(new SolarSystem(generateNewCoordinate(100)));
         }
@@ -94,11 +86,19 @@ public class Universe implements Serializable {
      * @return Coordinate
      */
     private Coordinate generateNewCoordinate(int maxAttempts) {
-        if (maxAttempts == 0) {
+        int maxAttempts1 = maxAttempts;
+        if (maxAttempts1 == 0) {
             throw new RuntimeException("Universe is too crowded. Increase the " +
                     "coordinate size or decrease the amount of solar-systems generated");
         }
-        int distance = maxAttempts > 10 ? MIN_DISTANCE_BETWEEN_SOLAR_SYSTEMS : 1;
+        /**
+         * Preferred minimum distance between any two solar systems.
+         *
+         * The actual distance between two solar systems may be less
+         * if the universe is extremely crowded.
+         */
+        int MIN_DISTANCE_BETWEEN_SOLAR_SYSTEMS = 10;
+        int distance = (maxAttempts1 > 10) ? MIN_DISTANCE_BETWEEN_SOLAR_SYSTEMS : 1;
         if (distance == 1) {
             Log.e("main", "Had to revert to distance 1");
         }
@@ -107,7 +107,8 @@ public class Universe implements Serializable {
                 (int)(Math.random() * (Coordinate.MAX_Y - Coordinate.MIN_Y)) + Coordinate.MIN_Y);
         for (Coordinate c: solarSystemCoordinates) {
             if (c.getDistance(newCoordinate) < distance) {
-                return generateNewCoordinate(--maxAttempts);
+                --maxAttempts1;
+                return generateNewCoordinate(maxAttempts1);
             }
         }
         solarSystemCoordinates.add(newCoordinate);

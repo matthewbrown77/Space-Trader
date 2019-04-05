@@ -42,8 +42,7 @@ public class Market implements Serializable {
      * @return true if resource is available, false otherwise
      */
     public boolean resourceAvailableToBuy(Resource resource) {
-        if (resource == null) {
-            Log.e("main", "Market Class: Failed to get null resource.");
+        if (resourceAmounts == null) {
             return false;
         }
         return resourceAmounts.containsKey(resource) && (resourceAmounts.get(resource) > 0);
@@ -85,9 +84,8 @@ public class Market implements Serializable {
      * @return int resource amount. -1 if resource cannot exist on the planet.
      */
     public int getResourceAmount(Resource resource) {
-        if (resource == null) {
-            Log.e("main", "Market Class: Failed to get null resource.");
-            return -1;
+        if (resourceAmounts == null) {
+            return 0;
         }
         if (!resourceAmounts.containsKey(resource)) {
             Log.e("main", "Market Class: Failed to get " + resource + " amount since it is not " +
@@ -103,8 +101,7 @@ public class Market implements Serializable {
      * @param resource to be decremented
      */
     public void incrementResourceAmount(Resource resource) {
-        if (resource == null) {
-            Log.e("main", "Market Class: Failed to get null resource.");
+        if (resourceAmounts == null) {
             return;
         }
         if (resourceAmounts.containsKey(resource)) {
@@ -121,8 +118,7 @@ public class Market implements Serializable {
      * @param resource to be decremented
      */
     public void decrementResourceAmount(Resource resource) {
-        if (resource == null) {
-            Log.e("main", "Market Class: Failed to get null resource.");
+        if (resourceAmounts == null) {
             return;
         }
         if (!resourceAmounts.containsKey(resource)) {

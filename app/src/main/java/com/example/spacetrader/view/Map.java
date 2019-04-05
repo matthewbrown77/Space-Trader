@@ -19,12 +19,11 @@ import java.util.List;
  */
 public class Map extends Drawable {
 
-    private int alpha;
-    private ColorFilter colorFilter;
-    private int mapType; //0 = planet, 1 = solar system, 2 = observable universe, 3 = total universe
+    private final int mapType; //0 = planet, 1 = solar system, 2 = observable universe,
+    // 3 = total universe
     public final int totalMapTypes = 4; //total number of maps. Used to adjust
     // buttons in travel activity
-    private Game game;
+    private final Game game;
 
     private static SolarSystem selectedSolarSystem;
     private static Planet selectedPlanet;
@@ -49,7 +48,9 @@ public class Map extends Drawable {
      */
     @Override
     public void draw(Canvas canvas) {
-        if (selectedSolarSystem == null || selectedPlanet == null) return;
+        if ((selectedSolarSystem == null) || (selectedPlanet == null)) {
+            return;
+        }
         switch(mapType) {
             case 0: {
                 drawPlanet(canvas);
@@ -79,7 +80,7 @@ public class Map extends Drawable {
         canvas.drawCircle(x,y, radius, paint);
         paint.setColor(Color.WHITE);
         paint.setStyle(Paint.Style.STROKE);
-        RectF oval1 = new RectF(x - radius, y - radius/5, x + radius, y + radius/5);
+        RectF oval1 = new RectF(x - radius, y - (radius / 5), x + radius, y + (radius / 5));
         double deg = Math.PI/4;
         //RectF oval2 = new RectF(x - radius * Math., y - radius/5, x + radius, y + radius/5);
         canvas.drawOval(oval1, paint);
@@ -89,13 +90,13 @@ public class Map extends Drawable {
         paint.setTextSize(70);
         paint.setTextAlign(Paint.Align.CENTER);
         canvas.drawText("Tech Level: " + selectedPlanet.getTechLevel(),
-                canvas.getWidth()/2, 2 * canvas.getWidth()/3, paint);
+                canvas.getWidth()/2, (2 * canvas.getWidth()) / 3, paint);
         canvas.drawText("Resource Type: " + selectedPlanet.getResourceType(),
-                canvas.getWidth()/2, (int)(2.3 * canvas.getWidth()/3), paint);
+                canvas.getWidth()/2, (int) ((2.3 * canvas.getWidth()) / 3), paint);
         canvas.drawText("Government: " + selectedPlanet.getGovernment(),
-                canvas.getWidth()/2, (int)(2.6 * canvas.getWidth()/3), paint);
-        canvas.drawText("Status: N/A" , canvas.getWidth()/2, (int)(2.9 *
-                canvas.getWidth()/3), paint);
+                canvas.getWidth()/2, (int) ((2.6 * canvas.getWidth()) / 3), paint);
+        canvas.drawText("Status: N/A" , canvas.getWidth()/2, (int) ((2.9 *
+                canvas.getWidth()) / 3), paint);
     }
 
     /**
@@ -115,17 +116,17 @@ public class Map extends Drawable {
             paint.setStyle(Paint.Style.STROKE);
             paint.setColor(Color.WHITE);
             canvas.drawCircle(canvas.getWidth()/2,canvas.getWidth()/2,icd * (i+1), paint);
-            double period = 9000 * Math.sqrt(Math.pow(i+1,3)) / Math.sqrt(8);
-            double angle = ((System.currentTimeMillis()/10)%period)/period * 6.283;
+            double period = (9000 * Math.sqrt(Math.pow(i + 1, 3))) / Math.sqrt(8);
+            double angle = (((System.currentTimeMillis() / 10) % period) / period) * 6.283;
             paint.setStyle(Paint.Style.FILL);
             paint.setColor(planets.get(i).getColor());
-            canvas.drawCircle(canvas.getWidth()/2 + (int)(icd * (i + 1) * Math.cos(angle)),
-                    canvas.getWidth()/2 +(int)(icd * (i + 1) * Math.sin(angle)),15, paint);
+            canvas.drawCircle((canvas.getWidth() / 2) + (int) (icd * (i + 1) * Math.cos(angle)),
+                    (canvas.getWidth() / 2) + (int) (icd * (i + 1) * Math.sin(angle)),15, paint);
             paint.setColor(Color.WHITE);
             paint.setTextSize(50);
-            canvas.drawText(planets.get(i).getName(), canvas.getWidth()/2 + (int)(icd * (i + 1)
-                    * Math.cos(angle)) + 10, canvas.getWidth()/2 +(int)(icd * (i + 1)
-                    * Math.sin(angle) - 30), paint);
+            canvas.drawText(planets.get(i).getName(), (canvas.getWidth() / 2) + (int) (icd * (i + 1)
+                    * Math.cos(angle)) + 10, (canvas.getWidth() / 2) + (int) ((icd * (i + 1)
+                    * Math.sin(angle)) - 30), paint);
         }
     }
 
@@ -141,13 +142,14 @@ public class Map extends Drawable {
         canvas.drawPaint(paint);
         List<SolarSystem> solarSystemList = game.getSolarSystems();
         for (SolarSystem s: solarSystemList) {
-            int x = (int)((double) s.getCoordinate().getX() / Coordinate.MAX_X * canvas.getWidth());
-            int y = (int)((double) s.getCoordinate().getY() / Coordinate.MAX_Y *
+            int x = (int) (((double) s.getCoordinate().getX() / Coordinate.MAX_X) *
+                    canvas.getWidth());
+            int y = (int) (((double) s.getCoordinate().getY() / Coordinate.MAX_Y) *
                     canvas.getHeight());
             if (game.solarSystemInRange(s)) {
                 paint.setColor(Color.WHITE);
                 paint.setTextSize(50);
-                canvas.drawText(s.getName(), x + radius * 2, y, paint);
+                canvas.drawText(s.getName(), x + (radius * 2), y, paint);
                 paint.setColor(Color.GREEN);
             } else {
                 paint.setColor(Color.RED);
@@ -156,20 +158,20 @@ public class Map extends Drawable {
         }
         paint.setStyle(Paint.Style.STROKE);
         Coordinate c = game.getCurrentSolarSystemCoordinate();
-        int x = (int)((double) c.getX() / Coordinate.MAX_X * canvas.getWidth());
-        int y = (int)((double) c.getY() / Coordinate.MAX_Y * canvas.getHeight());
+        int x = (int) (((double) c.getX() / Coordinate.MAX_X) * canvas.getWidth());
+        int y = (int) (((double) c.getY() / Coordinate.MAX_Y) * canvas.getHeight());
         paint.setColor(Color.WHITE);
         canvas.drawCircle(x,y,(int)(game.getFuel() * 12.4), paint);
     }
 
     @Override
     public void setAlpha(int alpha) {
-        this.alpha = alpha;
+        int alpha1 = alpha;
     }
 
     @Override
     public void setColorFilter(ColorFilter colorFilter) {
-        this.colorFilter = colorFilter;
+        ColorFilter colorFilter1 = colorFilter;
     }
 
     @Override

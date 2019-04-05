@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Represents an encounter with a pirate
  */
-public class PirateEncounter extends Encounter implements Serializable {
+public class PirateEncounter extends Encounter {
 
     /**
      * Creates a new pirate encounter with the player
@@ -25,9 +25,13 @@ public class PirateEncounter extends Encounter implements Serializable {
 
     @Override
     public void doOption(int option) {
-        if (options[option].equals("Attack")) attack();
-        else if (options[option].equals("Flee")) flee();
-        else if (options[option].equals("Surrender")) surrender();
+        if ("Attack".equals(options[option])) {
+            attack();
+        } else if ("Flee".equals(options[option])) {
+            flee();
+        } else if ("Surrender".equals(options[option])) {
+            surrender();
+        }
     }
 
     private void attack() {
@@ -36,7 +40,7 @@ public class PirateEncounter extends Encounter implements Serializable {
                 opponentShip.deductShipHealth(5);
                 messageToDisplay = "You hit the pirate. ";
                 finished = false;
-                if (opponentShip.getShipHealth()/100.0 < Math.random()) {
+                if ((opponentShip.getShipHealth() / 100.0) < Math.random()) {
                     messageToDisplay += "The pirate fled. ";
                     finished = true;
                 }
@@ -74,7 +78,7 @@ public class PirateEncounter extends Encounter implements Serializable {
             }
         }
         if (player.getCurrentCargo() < 4) {
-            int amount = (int)((4 - player.getCurrentCargo())/4.0 * player.getCredits()
+            int amount = (int) (((4 - player.getCurrentCargo()) / 4.0) * player.getCredits()
                     * Math.random());
             messageToDisplay += " " + amount + " credits.";
             player.decrementCredits(amount);

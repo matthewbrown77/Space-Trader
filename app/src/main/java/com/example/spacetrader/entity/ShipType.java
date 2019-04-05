@@ -6,7 +6,7 @@ import java.io.Serializable;
  * The ShipType enum is an attribute of a ship. Each shipType has a different name,
  * and cargoSize
  */
-public enum ShipType implements Serializable {
+public enum ShipType {
     FLEA("Flea", 5, 20),
     GNAT("Gnat", 15, 20),
     FIREFLY("Firefly", 20, 17),
@@ -18,9 +18,9 @@ public enum ShipType implements Serializable {
     TERMITE("Termite", 60, 13),
     WASP("Wasp", 35, 14);
 
-    private String name;
-    private int cargoSize;
-    private int fuelCapacity;
+    private final String name;
+    private final int cargoSize;
+    private final int fuelCapacity;
 
     /**
      * ShipType constructor
@@ -55,7 +55,7 @@ public enum ShipType implements Serializable {
      * @return
      */
     public int getPrice() {
-        return 500 * cargoSize + 200 * fuelCapacity;
+        return (500 * cargoSize) + (200 * fuelCapacity);
     }
 
     @Override

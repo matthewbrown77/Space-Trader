@@ -22,8 +22,6 @@ public class CreatePlayerActivity extends AppCompatActivity {
 
     private Player player;
 
-    private Spinner spinner;
-
     private TextView counterTextView;
     private TextView pilotCounterTextView;
     private TextView pilotFighterTextView;
@@ -54,7 +52,7 @@ public class CreatePlayerActivity extends AppCompatActivity {
         myName = findViewById(R.id.editText);
 
         //populate spinner
-        spinner = findViewById(R.id.spinner);
+        Spinner spinner = findViewById(R.id.spinner);
         ArrayAdapter<CharSequence> dataAdapter =
 				ArrayAdapter.createFromResource(this, R.array.difficulty, R.layout.my_spinner);
         dataAdapter.setDropDownViewResource(R.layout.spinner_dropdown);

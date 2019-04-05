@@ -7,7 +7,7 @@ import java.io.Serializable;
  * from pre-agriculture to hi-tech. The TechLevel helps to determine which goods can be
  * bought and sold at each planet and their prices.
  */
-public enum TechLevel implements Serializable {
+public enum TechLevel {
     PRE_AGRICULTURE("Pre-Agriculture", 0), AGRICULTURE("Agriculture", 1),
     MEDIEVAL("Medieval", 2), RENAISSANCE("Renaissance", 3),
     EARLY_INDUSTRIAL("Early-Industrial", 4), INDUSTRIAL("Industrial", 5),
@@ -16,12 +16,12 @@ public enum TechLevel implements Serializable {
     /**
      * Name of the techLevel
      */
-    private String name;
+    private final String name;
 
     /**
      * Integer representation of the techLevel used in calculations (0 - 7)
      */
-    private int level;
+    private final int level;
 
     /**
      * TechLevel constructor

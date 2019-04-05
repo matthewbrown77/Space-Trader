@@ -24,8 +24,7 @@ public class MyJUnitTest {
 
     @Test
     public void testNull() {
-        resourceToAdd = null;
-        assertFalse(ship.addCargo(resourceToAdd));
+        assertFalse(ship.addCargo(null));
         assertEquals(ship.getCurrentCargo(), 0);
     }
 

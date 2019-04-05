@@ -14,7 +14,7 @@ public class Ship implements Serializable {
 
     private int cargoAmount;
     private HashMap<Resource, Integer> cargoHold;
-    private ShipType type;
+    private final ShipType type;
     private int health; //health of ship (0,100]
     private int fuel;//coordinate distance can travel
 

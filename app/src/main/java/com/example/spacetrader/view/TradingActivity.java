@@ -228,11 +228,13 @@ public class TradingActivity extends AppCompatActivity {
     }
 
     private String generateBuyResourceText(Resource resource) {
-        return game.allowedToBuy(resource) ? "Buy (" + game.getResourceAmount(resource)+")": "N/A";
+        return game.allowedToBuy(resource) ? ("Buy (" + game.getResourceAmount(resource) + ")")
+                : "N/A";
     }
 
     private String generateSellResourceText(Resource resource) {
-        return game.allowedToSell(resource) ? "Sell (" + game.getCargoCount(resource) + ")" : "N/A";
+        return game.allowedToSell(resource) ? ("Sell (" + game.getCargoCount(resource) + ")")
+                : "N/A";
     }
 
 

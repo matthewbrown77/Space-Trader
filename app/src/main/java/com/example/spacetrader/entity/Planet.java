@@ -8,12 +8,12 @@ import java.io.Serializable;
  */
 public class Planet implements Serializable {
 
-    private String name;
-    private TechLevel techLevel;
-    private ResourceType resourceType;
+    private final String name;
+    private final TechLevel techLevel;
+    private final ResourceType resourceType;
     private Government government;
-    private Market market;
-    private int position; //position in solar system 0 - 5
+    private final Market market;
+    private final int position; //position in solar system 0 - 5
 
     /**
      * Planet constructor

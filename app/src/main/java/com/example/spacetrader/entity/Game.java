@@ -442,7 +442,7 @@ public class Game implements Serializable {
 
     public static final String DEFAULT_BINARY_FILE_NAME = "data.bin";
 
-    public boolean loadBinary(File file) {
+    public void loadBinary(File file) {
         boolean success = true;
         try {
             ObjectInputStream in = new ObjectInputStream(new FileInputStream(file));
@@ -455,10 +455,9 @@ public class Game implements Serializable {
             Log.e("main", "Game Class: Error casting a class from the binary file",e);
             success = false;
         }
-        return success;
     }
 
-    public boolean saveBinary(File file) {
+    public void saveBinary(File file) {
         boolean success = true;
         try {
             ObjectOutput out = new ObjectOutputStream(new FileOutputStream(file));
@@ -469,7 +468,6 @@ public class Game implements Serializable {
             Log.e("main", "Game Class: Error writing an entry from binary file",e);
             success = false;
         }
-        return success;
     }
 
 

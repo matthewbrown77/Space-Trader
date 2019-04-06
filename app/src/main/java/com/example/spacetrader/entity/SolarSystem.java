@@ -83,6 +83,13 @@ public class SolarSystem implements Serializable {
         return name;
     }
 
+    public int getXCoordinate() {
+        return coordinate.getX();
+    }
+
+    public int getYCoordinate() {
+        return coordinate.getY();
+    }
 
     @Override
     public String toString() {

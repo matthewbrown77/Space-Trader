@@ -30,8 +30,8 @@ public class Planet implements Serializable {
             this.government = Government.values()[(int) (Math.random() *
                     Government.values().length)];
         }
-        this.market = new Market(this);
         this.position = pos;
+        this.market = new Market(this);
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////

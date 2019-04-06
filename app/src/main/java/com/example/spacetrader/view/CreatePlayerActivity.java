@@ -163,7 +163,7 @@ public class CreatePlayerActivity extends AppCompatActivity {
     //Exit
     ///////////////////////////////////////////////////////////////////////////////////////
 
-    public void onClickExit(View v) {
+    public void onClickExit() {
         finish();
         System.exit(0);
     }

@@ -10,12 +10,11 @@ import java.util.HashMap;
  * on a given planet. Only one market can exist per planet. A market is dynamic
  * and can change after a player trades or conditions on the planet change.
  */
-public class Market implements Serializable {
+class Market implements Serializable {
 
     private final TechLevel techLevel;
     private final ResourceType resourceType;
     private final Government government;
-    private Planet planet;
     private final HashMap<Resource, Integer> resourceAmounts;
 
     /**

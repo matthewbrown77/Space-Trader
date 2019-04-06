@@ -163,13 +163,11 @@ public class Ship implements Serializable {
      * Adds 1 fuel point to the ship
      * @return true if successful
      */
-    public boolean incrementFuel() {
+    public void incrementFuel() {
         if (fuel < type.getFuelCapacity()) {
             fuel++;
-            return true;
         } else {
             Log.e("main", "Ship Class: Failed to add fuel because fuel is already full");
-            return false;
         }
     }
 

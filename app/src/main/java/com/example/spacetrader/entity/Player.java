@@ -204,8 +204,8 @@ public class Player implements Serializable {
      * Adds 1 fuel point to the ship
      * @return true if successful
      */
-    public boolean incrementFuel() {
-        return ship.incrementFuel();
+    public void incrementFuel() {
+        ship.incrementFuel();
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////

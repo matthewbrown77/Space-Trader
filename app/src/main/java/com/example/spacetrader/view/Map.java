@@ -17,7 +17,7 @@ import java.util.List;
 /**
  * Map class draws the map of the planet, solar system, observable universe, and total universe
  */
-public class Map extends Drawable {
+class Map extends Drawable {
 
     private final int mapType; //0 = planet, 1 = solar system, 2 = observable universe,
     // 3 = total universe
@@ -142,9 +142,9 @@ public class Map extends Drawable {
         canvas.drawPaint(paint);
         List<SolarSystem> solarSystemList = game.getSolarSystems();
         for (SolarSystem s: solarSystemList) {
-            int x = (int) (((double) s.getCoordinate().getX() / Coordinate.MAX_X) *
+            int x = (int) (((double) s.getXCoordinate() / Coordinate.MAX_X) *
                     canvas.getWidth());
-            int y = (int) (((double) s.getCoordinate().getY() / Coordinate.MAX_Y) *
+            int y = (int) (((double) s.getYCoordinate()  / Coordinate.MAX_Y) *
                     canvas.getHeight());
             if (game.solarSystemInRange(s)) {
                 paint.setColor(Color.WHITE);

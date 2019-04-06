@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
 		update();
 	}
 
+	@Override
 	public void onWindowFocusChanged (boolean hasFocus) {
 		if (hasFocus) {
 			update();

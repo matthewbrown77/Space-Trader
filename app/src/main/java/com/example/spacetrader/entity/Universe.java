@@ -12,7 +12,7 @@ import java.util.Set;
 /**
  * Class representing the space universe. Contains solar systems.
  */
-public class Universe implements Serializable {
+class Universe implements Serializable {
 
     /**
      * List of solarSystems

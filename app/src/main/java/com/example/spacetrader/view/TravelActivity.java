@@ -213,6 +213,7 @@ public class TravelActivity extends AppCompatActivity {
         updateText();
     }
 
+    @Override
     public void onWindowFocusChanged (boolean hasFocus) {
         if (hasFocus) {
             updateText();

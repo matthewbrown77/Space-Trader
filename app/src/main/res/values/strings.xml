@@ -1,9 +1,3 @@
 <resources>
     <string name="app_name">SpaceTrader</string>
-    <string name="title_travel">Travel</string>
-    <string name="title_store">Store</string>
-    <string name="title_inventory">Inventory</string>
-    <string name="add_skill">+</string>
-    <string name="minus_skill">-</string>
-    <string name="new_commander">New Commander</string>
 </resources>

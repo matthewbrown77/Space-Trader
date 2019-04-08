@@ -186,7 +186,6 @@
         android:onClick="onClickDumpWater"/>
 
     <Button
-        android:id="@+id/back_button_inventory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -287,7 +286,6 @@
         android:onClick="onClickDumpNarcotics"/>
 
     <Button
-        android:id="@+id/dump_robots"
         android:layout_width="91dp"
         android:layout_height="37dp"
         android:layout_marginTop="6dp"

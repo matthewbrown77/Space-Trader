@@ -135,7 +135,6 @@
         app:layout_constraintTop_toBottomOf="@+id/text_cargo_amount" />
 
     <TextView
-        android:id="@+id/text_police_status"
         android:layout_width="170dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
@@ -207,7 +206,6 @@
         android:onClick="onClickTravel"/>
 
     <Button
-        android:id="@+id/inventory_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="51dp"
@@ -231,7 +229,6 @@
         android:onClick="onClickTrading"/>
 
     <Button
-        android:id="@+id/planet_button"
         android:layout_width="121dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -242,7 +239,6 @@
         app:layout_constraintTop_toBottomOf="@+id/planet_image" />
 
     <Button
-        android:id="@+id/ship_button"
         android:layout_width="121dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"

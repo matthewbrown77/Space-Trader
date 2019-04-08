@@ -90,7 +90,6 @@
         app:layout_constraintTop_toBottomOf="@+id/planet_spinner" />
 
     <Button
-        android:id="@+id/back_button_travel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -171,7 +170,6 @@
         android:onClick="onClickTravelVerified"/>
 
     <Button
-        android:id="@+id/ship_status_button"
         style="@style/Widget.AppCompat.Button"
         android:layout_width="164dp"
         android:layout_height="wrap_content"
@@ -183,7 +181,6 @@
         app:layout_constraintTop_toBottomOf="@+id/ship_fuel_text" />
 
     <Button
-        android:id="@+id/zoom_in_button"
         android:layout_width="32dp"
         android:layout_height="38dp"
         android:onClick="onClickViewSolarSystem"
@@ -192,7 +189,6 @@
         app:layout_constraintEnd_toEndOf="@+id/mapView" />
 
     <Button
-        android:id="@+id/zoom_out_button2"
         android:layout_width="32dp"
         android:layout_height="38dp"
         android:onClick="onClickViewUniverse"

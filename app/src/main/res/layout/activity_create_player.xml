@@ -3,7 +3,6 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/scrollView2"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -54,7 +53,6 @@
             app:layout_constraintTop_toBottomOf="@+id/text_fighter" />
 
         <TextView
-            android:id="@+id/text_engineer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -124,7 +122,6 @@
             app:layout_constraintTop_toBottomOf="@+id/text_name" />
 
         <Button
-            android:id="@+id/ok_button"
             android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -376,21 +373,18 @@
             app:layout_constraintTop_toBottomOf="@+id/trader_counter" />
 
         <android.support.constraint.Guideline
-            android:id="@+id/guideline2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_begin="20dp" />
 
         <android.support.constraint.Guideline
-            android:id="@+id/guideline3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_begin="20dp" />
 
         <android.support.constraint.Guideline
-            android:id="@+id/guideline4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"

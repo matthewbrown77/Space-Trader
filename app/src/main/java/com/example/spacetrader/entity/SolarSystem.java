@@ -68,7 +68,7 @@ public class SolarSystem implements Serializable {
 
     /**
      * Gets the distance between this SolarSystem and the parameter SolarSystem
-     * @param solarSystem
+     * @param solarSystem solarSystem
      * @return distance
      */
     public double getDistance (SolarSystem solarSystem) {
@@ -83,10 +83,18 @@ public class SolarSystem implements Serializable {
         return name;
     }
 
+    /**
+     * Gets the X coordinate of the solar System
+     * @return x Coordinate
+     */
     public int getXCoordinate() {
         return coordinate.getX();
     }
 
+    /**
+     * Gets the Y coordinate of the Solar System
+     * @return Y coordinate
+     */
     public int getYCoordinate() {
         return coordinate.getY();
     }

@@ -19,6 +19,11 @@ import java.util.List;
 public class Game implements Serializable {
 
     private static Game instance = new Game();
+
+    /**
+     * Gets game instance
+     * @return game instance
+     */
     public static Game getInstance() {
         return instance;
     }
@@ -45,8 +50,9 @@ public class Game implements Serializable {
     /**
      * Travels to the requested solarSystem and planet if allowed. Deducts the necessary
      * fuel from the player's ship.
-     * @param solarSystem
-     * @param planet
+     * @param solarSystem solar System
+     * @param planet planet
+     * @return true if successful, false otherwise
      */
     public boolean travel(SolarSystem solarSystem, Planet planet) {
         if (planet.equals(currentPlanet)) {
@@ -70,7 +76,7 @@ public class Game implements Serializable {
     /**
      * Determines if the requested solarSystem is in range given the player's current
      * fuel and current location
-     * @param solarSystem
+     * @param solarSystem solar System
      * @return true if solarSystem is in range
      */
     public boolean solarSystemInRange(SolarSystem solarSystem) {
@@ -87,7 +93,7 @@ public class Game implements Serializable {
 
     /**
      * Gets the distance between the parameter SolarSystem and the current solarSystem
-     * @param solarSystem
+     * @param solarSystem solar System
      * @return distance
      */
     public double getDistance(SolarSystem solarSystem) {
@@ -97,7 +103,7 @@ public class Game implements Serializable {
     /**
      * Gets the distance between the parameter planet and the current planet.
      * Ignores solarSystem distance if planets are in different SolarSystems.
-     * @param planet
+     * @param planet planet
      * @return distance
      */
     public int getDistance(Planet planet) {
@@ -148,6 +154,7 @@ public class Game implements Serializable {
 
     /**
      * Gets a list of the planets in the selected solar system in range given current fuel
+     * @param parentSolarSystem parent Solar System
      * @return list of planets
      */
     public List<Planet> getPlanetsInRange(SolarSystem parentSolarSystem) {
@@ -224,7 +231,7 @@ public class Game implements Serializable {
 
     /**
      * Sets the player in the game. Used in createPlayer Activity.
-     * @param player
+     * @param player player
      */
     public void setPlayer(Player player) {
         this.player = player;
@@ -271,7 +278,7 @@ public class Game implements Serializable {
      * Checks if the resource can be bought at the current location given the planet's
      * techLevel and resourceType. Note that even if a resource can be bought, it does
      * not necessarily mean it is available to purchase.
-     * @param resource
+     * @param resource resource
      * @return true if resource can be bought, false otherwise
      */
     public boolean allowedToBuy(Resource resource) {
@@ -280,7 +287,7 @@ public class Game implements Serializable {
 
     /**
      * Checks if the specified resource is available on the planet (i.e. amount > 0)
-     * @param resource
+     * @param resource resource
      * @return true if resource can be bought, false otherwise
      */
     private boolean resourceAvailableToBuy(Resource resource) {
@@ -292,7 +299,7 @@ public class Game implements Serializable {
      * techLevel and resourceType. Note that even if a resource can be sold, it does
      * not necessarily mean it is available to sell (i.e. the player does not have
      * the resource).
-     * @param resource
+     * @param resource resource
      * @return true if resource can be sold, false otherwise
      */
     public boolean allowedToSell(Resource resource) {
@@ -325,7 +332,7 @@ public class Game implements Serializable {
 
     /**
      * Gets the price for the resource at the current planet's market
-     * @param resource
+     * @param resource resource
      * @return int price of the good. -1 if the resource is not available to buy or sell.
      */
     public int getResourcePrice(Resource resource) {
@@ -334,7 +341,7 @@ public class Game implements Serializable {
 
     /**
      * Gets the amount of the specified resource at the current location
-     * @param resource
+     * @param resource resource
      * @return int resource amount
      */
     public int getResourceAmount(Resource resource) {
@@ -355,7 +362,7 @@ public class Game implements Serializable {
 
     /**
      * Gets the amount of cargo that the player's ship current holds
-     * @param resource
+     * @param resource resource
      * @return int cargo amount
      */
     public int getCargoCount(Resource resource) {
@@ -364,7 +371,7 @@ public class Game implements Serializable {
 
     /**
      * Adds the specified resource to the player's cargo hold.
-     * @param resource
+     * @param resource resource to add
      */
     public void addCargo(Resource resource) {
         if (!allowedToSell(resource)) {
@@ -381,8 +388,8 @@ public class Game implements Serializable {
 
     /**
      * Gets the average price the player will need to get for each resource to break even.
-     * @param resource
-     * @return
+     * @param resource resource
+     * @return avg price of resource
      */
     public double getAvgPrice(Resource resource) {
         return player.getAvgPrice(resource);
@@ -390,7 +397,7 @@ public class Game implements Serializable {
 
     /**
      * Removes the specified cargo from the ship's cargo.
-     * @param resource
+     * @param resource resource
      */
     public void removeCargo(Resource resource) {
         if (!allowedToSell(resource)) {
@@ -405,7 +412,7 @@ public class Game implements Serializable {
 
     /**
      * Dumps the specified cargo from the ship's cargo. No credits are added to player.
-     * @param resource
+     * @param resource resource
      */
     public void dumpCargo(Resource resource) {
         player.dumpCargo(resource);
@@ -442,6 +449,10 @@ public class Game implements Serializable {
 
     public static final String DEFAULT_BINARY_FILE_NAME = "data.bin";
 
+    /**
+     * Loads file
+     * @param file file
+     */
     public void loadBinary(File file) {
         boolean success = true;
         try {
@@ -457,6 +468,10 @@ public class Game implements Serializable {
         }
     }
 
+    /**
+     * Saves file
+     * @param file file
+     */
     public void saveBinary(File file) {
         boolean success = true;
         try {

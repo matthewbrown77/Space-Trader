@@ -32,7 +32,7 @@ public class Ship implements Serializable {
 
     /**
      * Gets the amount of the specified resource currently in the ship's cargo hold
-     * @param resource
+     * @param resource resource to add
      * @return amount of that resource in the ship's cargo hold
      */
     public int getCargoCount(Resource resource) {
@@ -133,8 +133,7 @@ public class Ship implements Serializable {
 
     /**
      * Deducts the amount from the ship health
-     * @param amount
-     * @return
+     * @param amount amount to deduct from ship's health
      */
     public void deductShipHealth(int amount) {
         health -= amount;
@@ -161,7 +160,6 @@ public class Ship implements Serializable {
 
     /**
      * Adds 1 fuel point to the ship
-     * @return true if successful
      */
     public void incrementFuel() {
         if (fuel < type.getFuelCapacity()) {

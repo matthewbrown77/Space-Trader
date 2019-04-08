@@ -18,6 +18,7 @@ public class Planet implements Serializable {
     /**
      * Planet constructor
      * Will create a random techLevel, resourceType, and Government
+     * @param pos position
      */
     public Planet(int pos) {
         this.name = Names.getName();
@@ -41,7 +42,7 @@ public class Planet implements Serializable {
     /**
      * Checks if the resource is available at the planet's market (i.e. amount > 0)
      *
-     * @param resource
+     * @param resource resource
      * @return true if resource is available, false otherwise
      */
     public boolean resourceAvailableToBuy(Resource resource) {
@@ -53,7 +54,7 @@ public class Planet implements Serializable {
      * techLevel and resourceType. Note that even if a resource can be bought, it does
      * not necessarily mean it is available to purchase.
      *
-     * @param resource
+     * @param resource resource
      * @return true if resource can be bought, false otherwise
      */
     public boolean allowedToBuy(Resource resource) {
@@ -66,7 +67,7 @@ public class Planet implements Serializable {
      * not necessarily mean it is available to sell (i.e. the player does not have
      * the resource).
      *
-     * @param resource
+     * @param resource resource
      * @return true if resource can be sold, false otherwise
      */
     public boolean allowedToSell(Resource resource) {
@@ -76,7 +77,7 @@ public class Planet implements Serializable {
     /**
      * Gets the price for the resource at the current planet's market
      *
-     * @param resource
+     * @param resource resource
      * @return int price of the good. -1 if the resource is not available to buy or sell.
      */
     public int getResourcePrice(Resource resource) {
@@ -86,7 +87,7 @@ public class Planet implements Serializable {
     /**
      * Gets the amount of the specified resource at the planet
      *
-     * @param resource
+     * @param resource to find amount
      * @return int resource amount
      */
     public int getResourceAmount(Resource resource) {
@@ -96,7 +97,7 @@ public class Planet implements Serializable {
     /**
      * Increments the amount of the specified resource at the planet's market
      *
-     * @param resource
+     * @param resource to increment
      */
     public void incrementResourceAmount(Resource resource) {
         market.incrementResourceAmount(resource);
@@ -105,7 +106,7 @@ public class Planet implements Serializable {
     /**
      * Decrements the amount of the specified resource at the planet's market
      *
-     * @param resource
+     * @param resource resource to deduct
      */
     public void decrementResourceAmount(Resource resource) {
         market.decrementResourceAmount(resource);
@@ -127,7 +128,7 @@ public class Planet implements Serializable {
     /**
      * Gets the planet's position in its solar system
      *
-     * @return
+     * @return position of the planet
      */
     public int getPosition() {
         return position;

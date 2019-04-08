@@ -41,7 +41,7 @@ public class Player implements Serializable {
 
     /**
      * Decrements the credits by the specified amount
-     * @param amount
+     * @param amount amount to decrement credits
      */
     public void decrementCredits(int amount) {
         credits -= amount;
@@ -68,7 +68,7 @@ public class Player implements Serializable {
 
     /**
      * Deducts the amount from the ship health
-     * @param amount
+     * @param amount amount to deduct health
      */
     public void deductShipHealth(int amount) {
         ship.deductShipHealth(amount);
@@ -80,7 +80,7 @@ public class Player implements Serializable {
 
     /**
      * Gets the amount of the specified resource currently on the ship
-     * @param resource
+     * @param resource resource
      * @return int amount of resource
      */
     public int getCargoCount(Resource resource) {
@@ -90,6 +90,7 @@ public class Player implements Serializable {
     /**
      * Method adds requested resource to cargo load, and updates credits if successful
      * @param resource to be added
+     * @param price price
      * @return true if the add was successful, false otherwise
      */
     public boolean addCargo(Resource resource, int price) {
@@ -121,6 +122,7 @@ public class Player implements Serializable {
     /**
      * Method removes requested resource from cargo load, and updates credits if successful
      * @param resource to be removed
+     * @param price price
      * @return true if the remove was successful, false otherwise
      */
     public boolean removeCargo(Resource resource, int price) {
@@ -136,7 +138,7 @@ public class Player implements Serializable {
 
     /**
      * Dumps the specified cargo from the ship's cargo. No credits are added to player.
-     * @param resource
+     * @param resource resource to dump
      */
     public void dumpCargo(Resource resource) {
         ship.removeCargo(resource);
@@ -158,7 +160,7 @@ public class Player implements Serializable {
 
     /**
      * Gets the current cargo amount
-     * @return
+     * @return current cargo amount
      */
     public int getCurrentCargo() {
         return ship.getCurrentCargo();
@@ -166,8 +168,8 @@ public class Player implements Serializable {
 
     /**
      * Gets the average price the player will need to get for each resource to break even.
-     * @param resource
-     * @return
+     * @param resource resource
+     * @return average price of the resource
      */
     public double getAvgPrice(Resource resource) {
         if (avgPrice.containsKey(resource)) {
@@ -202,7 +204,6 @@ public class Player implements Serializable {
 
     /**
      * Adds 1 fuel point to the ship
-     * @return true if successful
      */
     public void incrementFuel() {
         ship.incrementFuel();

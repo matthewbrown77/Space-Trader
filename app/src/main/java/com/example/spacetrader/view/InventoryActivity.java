@@ -56,51 +56,91 @@ public class InventoryActivity extends AppCompatActivity {
     //Dump Buttons
     ///////////////////////////////////////////////////////////////////////////////////////
 
+    /**
+     * DumpWater clicked
+     * @param v View
+     */
     public void onClickDumpWater(View v) {
         game.dumpCargo(Resource.WATER);
         updateText();
     }
 
+    /**
+     * DumpFurs clicked
+     * @param v View
+     */
     public void onClickDumpFurs(View v) {
         game.dumpCargo(Resource.FURS);
         updateText();
     }
 
+    /**
+     * DumpFood clicked
+     * @param v View
+     */
     public void onClickDumpFood(View v) {
         game.dumpCargo(Resource.FOOD);
         updateText();
     }
 
+    /**
+     * DumpOre clicked
+     * @param v View
+     */
     public void onClickDumpOre(View v) {
         game.dumpCargo(Resource.ORE);
         updateText();
     }
 
+    /**
+     * DumpGames clicked
+     * @param v View
+     */
     public void onClickDumpGames(View v) {
         game.dumpCargo(Resource.GAMES);
         updateText();
     }
 
+    /**
+     * DumpFirearms clicked
+     * @param v View
+     */
     public void onClickDumpFirearms(View v) {
         game.dumpCargo(Resource.FIREARMS);
         updateText();
     }
 
+    /**
+     * DumpMedicine clicked
+     * @param v View
+     */
     public void onClickDumpMedicine(View v) {
         game.dumpCargo(Resource.MEDICINE);
         updateText();
     }
 
+    /**
+     * DumpMachines clicked
+     * @param v View
+     */
     public void onClickDumpMachines(View v) {
         game.dumpCargo(Resource.MACHINES);
         updateText();
     }
 
+    /**
+     * DumpNarcotics clicked
+     * @param v View
+     */
     public void onClickDumpNarcotics(View v) {
         game.dumpCargo(Resource.NARCOTICS);
         updateText();
     }
 
+    /**
+     * DumpRobots clicked
+     * @param v View
+     */
     public void onClickDumpRobots(View v) {
         game.dumpCargo(Resource.ROBOTS);
         updateText();
@@ -110,6 +150,10 @@ public class InventoryActivity extends AppCompatActivity {
     //Back Buttons
     ///////////////////////////////////////////////////////////////////////////////////////
 
+    /**
+     * Back clicked
+     * @param v View
+     */
     public void onClickBackInventory(View v) {
         finish();
     }

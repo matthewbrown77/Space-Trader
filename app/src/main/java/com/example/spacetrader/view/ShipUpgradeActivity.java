@@ -5,6 +5,9 @@ import android.os.Bundle;
 
 import com.example.spacetrader.R;
 
+/**
+ * Upgrade Ship activity class
+ */
 public class ShipUpgradeActivity extends AppCompatActivity {
 
     @Override

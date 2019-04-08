@@ -44,7 +44,7 @@ class Map extends Drawable {
 
     /**
      * Draws the appropriate map on the canvas
-     * @param canvas
+     * @param canvas canvas
      */
     @Override
     public void draw(Canvas canvas) {
@@ -66,7 +66,7 @@ class Map extends Drawable {
 
     /**
      * Draws the planet on the canvas
-     * @param canvas
+     * @param canvas canvas
      */
     private void drawPlanet(Canvas canvas) {
         Paint paint = new Paint();
@@ -101,7 +101,7 @@ class Map extends Drawable {
 
     /**
      * Draws the solarSystem on the canvas
-     * @param canvas
+     * @param canvas canvas
      */
     private void drawSolarSystem(Canvas canvas) {
         List<Planet> planets = selectedSolarSystem.getPlanets();
@@ -132,7 +132,7 @@ class Map extends Drawable {
 
     /**
      * Draws the observable universe on the canvas
-     * @param canvas
+     * @param canvas canvas
      */
     private void drawObservableUniverse(Canvas canvas) {
         int radius = 10;

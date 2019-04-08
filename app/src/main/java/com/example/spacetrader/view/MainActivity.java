@@ -11,7 +11,9 @@ import com.example.spacetrader.entity.Game;
 
 import java.io.File;
 
-
+/**
+ * Main activity class
+ */
 public class MainActivity extends AppCompatActivity {
 
     private Game game;
@@ -62,27 +64,47 @@ public class MainActivity extends AppCompatActivity {
 	//Navigation Buttons
 	///////////////////////////////////////////////////////////////////////////////////////
 
+	/**
+	 * Travel clicked
+	 * @param v View
+	 */
     public void onClickTravel(View v) {
         Intent intent = new Intent(MainActivity.this, TravelActivity.class);
         startActivity(intent); //goes to Inventory.
     }
 
+	/**
+	 * Ship inventory clicked
+	 * @param v View
+	 */
 	public void onClickInventory(View v) {
 		Intent intent = new Intent(MainActivity.this, InventoryActivity.class);
 		startActivity(intent); //goes to Inventory.
 	}
 
+	/**
+	 * Trading clicked
+	 * @param v View
+	 */
 	public void onClickTrading(View v) {
 		Intent intent = new Intent(MainActivity.this, TradingActivity.class);
 		//intent.putExtra("Game", game);
 		startActivity(intent); //goes to Trading Activity.
 	}
 
+	/**
+	 * Upgrade ship Clicked
+	 * @param v View
+	 */
 	public void onClickUpgradeShip(View v) {
 		Intent intent = new Intent(MainActivity.this, ShipUpgradeActivity.class);
 		startActivity(intent); //goes to encounter.
 	}
 
+	/**
+	 * Planet Info Clicked
+	 * @param v View
+	 */
 	public void onClickPlanetInfo(View v) {
 		Intent intent = new Intent(MainActivity.this, PlanetInfoActivity.class);
 		startActivity(intent); //goes to planet info.

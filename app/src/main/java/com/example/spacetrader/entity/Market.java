@@ -37,7 +37,7 @@ class Market implements Serializable {
 
     /**
      * Checks if the resource is available at the current market (i.e. amount > 0)
-     * @param resource
+     * @param resource resource
      * @return true if resource is available, false otherwise
      */
     public boolean resourceAvailableToBuy(Resource resource) {
@@ -50,7 +50,7 @@ class Market implements Serializable {
     /**
      * Checks if the resource can be bought at the current market
      * Note that even if a resource can be bought, it does not necessarily mean it is available
-     * @param resource
+     * @param resource resource
      * @return true if resource can be bought, false otherwise
      */
     public boolean allowedToBuy(Resource resource) {
@@ -61,7 +61,7 @@ class Market implements Serializable {
      * Checks if the resource can be sold at the current market. Note that even if a resource
      * can be sold, it does not necessarily mean it is available to sell (i.e. the player does
      * not have the resource).
-     * @param resource
+     * @param resource resource
      * @return true if resource can be sold, false otherwise
      */
     public boolean allowedToSell(Resource resource) {
@@ -70,7 +70,7 @@ class Market implements Serializable {
 
     /**
      * Gets the price for the resource in the market
-     * @param resource
+     * @param resource resource
      * @return int price of the good. -1 if the resource is not available to buy or sell.
      */
     public int getResourcePrice(Resource resource) {
@@ -79,7 +79,7 @@ class Market implements Serializable {
 
     /**
      * Gets the current resource amount on the planet
-     * @param resource
+     * @param resource resource
      * @return int resource amount. -1 if resource cannot exist on the planet.
      */
     public int getResourceAmount(Resource resource) {

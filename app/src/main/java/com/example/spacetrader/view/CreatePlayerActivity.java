@@ -111,12 +111,20 @@ public class CreatePlayerActivity extends AppCompatActivity {
     //Trader
     ///////////////////////////////////////////////////////////////////////////////////////
 
+    /**
+     * Increments Trader Points
+     * @param v View
+     */
     public void onClickTraderPlus(View v) {
         player.incrementTraderSkillPoints();
         pilotTraderTextView.setText("" + player.getTraderSkillPoints());
         counterTextView.setText("" + player.getRemainingCount());
     }
 
+    /**
+     * Decrements Trader Points
+     * @param v View
+     */
     public void onClickTraderMinus(View v) {
         player.decrementTraderSkillPoints();
         pilotTraderTextView.setText("" + player.getTraderSkillPoints());
@@ -127,12 +135,20 @@ public class CreatePlayerActivity extends AppCompatActivity {
     //Engineer
     ///////////////////////////////////////////////////////////////////////////////////////
 
+    /**
+     * Increments Engineer Points
+     * @param v View
+     */
     public void onClickEngineerPlus(View v) {
         player.incrementEngineerSkillPoints();
         pilotEngineerTextView.setText("" + player.getEngineerSkillPoints());
         counterTextView.setText("" + player.getRemainingCount());
     }
 
+    /**
+     * Decrements Engineer Points
+     * @param v View
+     */
     public void onClickEngineerMinus(View v) {
         player.decrementEngineerSkillPoints();
         pilotEngineerTextView.setText("" + player.getEngineerSkillPoints());
@@ -143,6 +159,10 @@ public class CreatePlayerActivity extends AppCompatActivity {
     //Ok
     ///////////////////////////////////////////////////////////////////////////////////////
 
+    /**
+     * Checks player conditions, and creates new intent if acceptable
+     * @param v View
+     */
     public void onClickOK(View v) {
         if (myName.getText().length() == 0) {
             toastTextView.setText("PLEASE ENTER NAME");
@@ -163,15 +183,15 @@ public class CreatePlayerActivity extends AppCompatActivity {
     //Exit
     ///////////////////////////////////////////////////////////////////////////////////////
 
-    public void onClickExit() {
-        finish();
-        System.exit(0);
-    }
 
     ///////////////////////////////////////////////////////////////////////////////////////
     //Load
     ///////////////////////////////////////////////////////////////////////////////////////
 
+    /**
+     * Load previous game
+     * @param v View
+     */
     public void onClickLoad(View v) {
         File file = new File(this.getFilesDir(), Game.DEFAULT_BINARY_FILE_NAME);
         game = new Game();

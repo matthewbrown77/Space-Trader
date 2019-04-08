@@ -43,9 +43,6 @@ class Universe implements Serializable {
         solarSystemCoordinates.add(Coordinate.getCenterCoordinate());
         originPlanet = originSolarSystem.getPlanets().get(0);
         solarSystems.add(originSolarSystem);
-        /**
-         * Total number of solarSystems in the universe
-         */
         int SOLAR_SYSTEM_COUNT = 30;
         for (int i = 0; i < SOLAR_SYSTEM_COUNT; i++) {
             solarSystems.add(new SolarSystem(generateNewCoordinate(100)));
@@ -91,12 +88,6 @@ class Universe implements Serializable {
             throw new RuntimeException("Universe is too crowded. Increase the " +
                     "coordinate size or decrease the amount of solar-systems generated");
         }
-        /**
-         * Preferred minimum distance between any two solar systems.
-         *
-         * The actual distance between two solar systems may be less
-         * if the universe is extremely crowded.
-         */
         int MIN_DISTANCE_BETWEEN_SOLAR_SYSTEMS = 10;
         int distance = (maxAttempts1 > 10) ? MIN_DISTANCE_BETWEEN_SOLAR_SYSTEMS : 1;
         if (distance == 1) {

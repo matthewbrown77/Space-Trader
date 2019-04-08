@@ -28,8 +28,8 @@ public enum ResourceType {
 
     /**
      * ResourceType constructor
-     * @param name
-     * @param color
+     * @param name name of the resourceType
+     * @param color color of the resourceType
      */
     ResourceType(String name, int color) {
         this.name = name;
@@ -38,7 +38,7 @@ public enum ResourceType {
 
     /**
      * Gets the color of the Planet that has this resourceType
-     * @return
+     * @return color of the resourceType to use for the planet image
      */
     public int getColor() {
         return color;

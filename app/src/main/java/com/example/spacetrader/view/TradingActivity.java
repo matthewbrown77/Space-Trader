@@ -10,6 +10,9 @@ import com.example.spacetrader.R;
 import com.example.spacetrader.entity.Game;
 import com.example.spacetrader.entity.Resource;
 
+/**
+ * Trading Activity class
+ */
 public class TradingActivity extends AppCompatActivity {
 
     private Game game;
@@ -106,51 +109,91 @@ public class TradingActivity extends AppCompatActivity {
     //Buy Buttons
     ///////////////////////////////////////////////////////////////////////////////////////
 
+    /**
+     * Buy Water button clicked
+     * @param v View
+     */
     public void onClickBuyWater(View v) {
         game.addCargo(Resource.WATER);
         updateText();
     }
 
+    /**
+     * Buy Furs button clicked
+     * @param v View
+     */
     public void onClickBuyFurs(View v) {
         game.addCargo(Resource.FURS);
         updateText();
     }
 
+    /**
+     * Buy Food button clicked
+     * @param v View
+     */
     public void onClickBuyFood(View v) {
         game.addCargo(Resource.FOOD);
         updateText();
     }
 
+    /**
+     * Buy Ore button clicked
+     * @param v View
+     */
     public void onClickBuyOre(View v) {
         game.addCargo(Resource.ORE);
         updateText();
     }
 
+    /**
+     * Buy Games button clicked
+     * @param v View
+     */
     public void onClickBuyGames(View v) {
         game.addCargo(Resource.GAMES);
         updateText();
     }
 
+    /**
+     * Buy Firearms button clicked
+     * @param v View
+     */
     public void onClickBuyFirearms(View v) {
         game.addCargo(Resource.FIREARMS);
         updateText();
     }
 
+    /**
+     * Buy Medicine button clicked
+     * @param v View
+     */
     public void onClickBuyMedicine(View v) {
         game.addCargo(Resource.MEDICINE);
         updateText();
     }
 
+    /**
+     * Buy Machines button clicked
+     * @param v View
+     */
     public void onClickBuyMachines(View v) {
         game.addCargo(Resource.MACHINES);
         updateText();
     }
 
+    /**
+     * Buy Narcotics button clicked
+     * @param v View
+     */
     public void onClickBuyNarcotics(View v) {
         game.addCargo(Resource.NARCOTICS);
         updateText();
     }
 
+    /**
+     * Buy Robots button clicked
+     * @param v View
+     */
     public void onClickBuyRobots(View v) {
         game.addCargo(Resource.ROBOTS);
         updateText();
@@ -160,51 +203,91 @@ public class TradingActivity extends AppCompatActivity {
     //Sell Buttons
     ///////////////////////////////////////////////////////////////////////////////////////
 
+    /**
+     * Sell water button clicked
+     * @param v View
+     */
     public void onClickSellWater(View v) {
         game.removeCargo(Resource.WATER);
         updateText();
     }
 
+    /**
+     * Sell furs button clicked
+     * @param v View
+     */
     public void onClickSellFurs(View v) {
         game.removeCargo(Resource.FURS);
         updateText();
     }
 
+    /**
+     * Sell food button clicked
+     * @param v View
+     */
     public void onClickSellFood(View v) {
         game.removeCargo(Resource.FOOD);
         updateText();
     }
 
+    /**
+     * Sell ore button clicked
+     * @param v View
+     */
     public void onClickSellOre(View v) {
         game.removeCargo(Resource.ORE);
         updateText();
     }
 
+    /**
+     * Sell Games button clicked
+     * @param v View
+     */
     public void onClickSellGames(View v) {
         game.removeCargo(Resource.GAMES);
         updateText();
     }
 
+    /**
+     * Sell firearms button clicked
+     * @param v View
+     */
     public void onClickSellFirearms(View v) {
         game.removeCargo(Resource.FIREARMS);
         updateText();
     }
 
+    /**
+     * Sell medicine button clicked
+     * @param v View
+     */
     public void onClickSellMedicine(View v) {
         game.removeCargo(Resource.MEDICINE);
         updateText();
     }
 
+    /**
+     * Sell machines button clicked
+     * @param v View
+     */
     public void onClickSellMachines(View v) {
         game.removeCargo(Resource.MACHINES);
         updateText();
     }
 
+    /**
+     * Sell narcotics button clicked
+     * @param v View
+     */
     public void onClickSellNarcotics(View v) {
         game.removeCargo(Resource.NARCOTICS);
         updateText();
     }
 
+    /**
+     * Sell Robots button clicked
+     * @param v View
+     */
     public void onClickSellRobots(View v) {
         game.removeCargo(Resource.ROBOTS);
         updateText();
@@ -214,6 +297,10 @@ public class TradingActivity extends AppCompatActivity {
     //Back
     ///////////////////////////////////////////////////////////////////////////////////////
 
+    /**
+     * Back button clicked
+     * @param v View
+     */
     public void onClickBack(View v) {
         finish();
     }

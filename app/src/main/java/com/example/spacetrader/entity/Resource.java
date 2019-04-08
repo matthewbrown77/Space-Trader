@@ -32,16 +32,16 @@ public enum Resource {
 
     /**
      * Resource Constructor
-     * @param name
-     * @param minTechLevelToProduce
-     * @param minTechLevelToUse
-     * @param basePrice
-     * @param priceIncreasePerLevel
-     * @param variance
-     * @param cheapResourceCondition
-     * @param expensiveResourceCondition
-     * @param minPrice
-     * @param maxPrice
+     * @param name name
+     * @param minTechLevelToProduce minTechLevelToProduce
+     * @param minTechLevelToUse minTechLevelToUse
+     * @param basePrice basePrice
+     * @param priceIncreasePerLevel priceIncreasePerLevel
+     * @param variance variance
+     * @param cheapResourceCondition cheapResourceCondition
+     * @param expensiveResourceCondition expensiveResourceCondition
+     * @param minPrice minPrice
+     * @param maxPrice maxPrice
      */
     Resource(String name, int minTechLevelToProduce, int minTechLevelToUse, int basePrice,
              int priceIncreasePerLevel, int variance, ResourceType cheapResourceCondition,
@@ -78,6 +78,7 @@ public enum Resource {
      * Generates the price for the resource given the techLevel and resourceType
      * @param techLevel of the current Planet
      * @param resourceType of the current Planet
+     * @param government of the current planet
      * @return int price of the good. -1 if the resource is not available to buy or sell.
      */
     public int getPrice(TechLevel techLevel, ResourceType resourceType, Government government) {

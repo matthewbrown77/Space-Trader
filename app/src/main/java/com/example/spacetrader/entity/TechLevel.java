@@ -25,8 +25,8 @@ public enum TechLevel {
 
     /**
      * TechLevel constructor
-     * @param name
-     * @param level
+     * @param name string name
+     * @param level int level
      */
     TechLevel(String name, int level) {
         this.name = name;

@@ -9,7 +9,7 @@ public class PirateEncounter extends Encounter {
 
     /**
      * Creates a new pirate encounter with the player
-     * @param player
+     * @param player player
      */
     public PirateEncounter(Player player) {
         this.player = player;

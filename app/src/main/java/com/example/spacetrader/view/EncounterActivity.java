@@ -12,6 +12,9 @@ import com.example.spacetrader.entity.Game;
 
 import java.util.List;
 
+/**
+ * Activity for an encounter
+ */
 public class EncounterActivity extends AppCompatActivity {
 
     private List<Encounter> encounters;
@@ -80,18 +83,34 @@ public class EncounterActivity extends AppCompatActivity {
         shipHealth.setText("Ship Health " + game.getShipHealth() + "/100");
     }
 
+    /**
+     * Option 1 clicked
+     * @param v View
+     */
     public void onClickOption1(View v) {
         doOption(0);
     }
 
+    /**
+     * Option 2 clicked
+     * @param v View
+     */
     public void onClickOption2(View v) {
         doOption(1);
     }
 
+    /**
+     * Option 3 clicked
+     * @param v View
+     */
     public void onClickOption3(View v) {
         doOption(2);
     }
 
+    /**
+     * Continue clicked
+     * @param v View
+     */
     public void onClickContinue(View v) {
         if (encounters.isEmpty()) {
             finish();

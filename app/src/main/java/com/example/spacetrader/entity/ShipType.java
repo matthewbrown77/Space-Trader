@@ -24,9 +24,9 @@ public enum ShipType {
 
     /**
      * ShipType constructor
-     * @param name
-     * @param cargoSize
-     * @param fuelCapacity
+     * @param name ship's name
+     * @param cargoSize ship's max cargo size
+     * @param fuelCapacity ship's fuel capacity
      */
     ShipType(String name, int cargoSize, int fuelCapacity) {
         this.name = name;
@@ -52,7 +52,7 @@ public enum ShipType {
 
     /**
      * Gets the price for the ship.
-     * @return
+     * @return price of the ship
      */
     public int getPrice() {
         return (500 * cargoSize) + (200 * fuelCapacity);

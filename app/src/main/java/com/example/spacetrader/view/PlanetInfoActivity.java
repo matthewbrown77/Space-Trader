@@ -5,6 +5,9 @@ import android.os.Bundle;
 
 import com.example.spacetrader.R;
 
+/**
+ * Planet information activity class
+ */
 public class PlanetInfoActivity extends AppCompatActivity {
 
     @Override

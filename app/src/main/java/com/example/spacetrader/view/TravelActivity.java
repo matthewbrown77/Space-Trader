@@ -15,6 +15,9 @@ import com.example.spacetrader.entity.Game;
 import com.example.spacetrader.entity.Planet;
 import com.example.spacetrader.entity.SolarSystem;
 
+/**
+ * Class for Travel Activity
+ */
 public class TravelActivity extends AppCompatActivity {
 
     private View mapView;
@@ -146,7 +149,7 @@ public class TravelActivity extends AppCompatActivity {
 
     /**
      * Updates the mapSetting, and then updates the map
-     * @param newMapSetting
+     * @param newMapSetting mapSetting 0 - 3
      */
     private void update(int newMapSetting) {
         mapSetting = newMapSetting;
@@ -176,23 +179,39 @@ public class TravelActivity extends AppCompatActivity {
     //Buttons
     ///////////////////////////////////////////////////////////////////////////////////////
 
+    /**
+     * View Solar System is clicked
+     * @param v View
+     */
     public void onClickViewSolarSystem(View v) {
         mapSetting = (mapSetting > 0) ? (mapSetting - 1) : 0;
         update(mapSetting);
         updateText();
     }
 
+    /**
+     * View Universe is clicked
+     * @param v View
+     */
     public void onClickViewUniverse(View v) {
         mapSetting = (mapSetting < 2) ? (mapSetting + 1) : 2;
         update(mapSetting);
         updateText();
     }
 
+    /**
+     * Back is clicked
+     * @param v View
+     */
     public void onClickBackTravel(View v) {
         handler.removeCallbacksAndMessages(null);//ends the handler
         finish();
     }
 
+    /**
+     * Travel is clicked
+     * @param v View
+     */
     public void onClickTravelVerified(View v) {
         if (game.travel(selectedSolarSystem, selectedPlanet)) {
             solarSystemSpinner.setAdapter(new ArrayAdapter<>(this,
@@ -204,6 +223,10 @@ public class TravelActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Ship Status is clicked
+     * @param v View
+     */
     public void onClickShipStatus(View v) {
         game.incrementFuel();
         solarSystemSpinner.setAdapter(new ArrayAdapter<>(this,

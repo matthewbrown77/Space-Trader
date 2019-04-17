@@ -144,6 +144,14 @@ public class Game implements Serializable {
     }
 
     /**
+     * Generates and returns an Asteroid encounter with the player
+     * @return traderEncounter
+     */
+    private Encounter asteroidEncounter() {
+        return new AsteroidEncounter(player);
+    }
+
+    /**
      * Gets a list of encounters while traveling
      * @return list of encounters
      */
@@ -151,13 +159,18 @@ public class Game implements Serializable {
         List<Encounter> encounters = new ArrayList<>();
         int amount = 1 + (int)(Math.random() * 3);
         for (int i = 0; i < amount; i++) {
+            encounters.add(asteroidEncounter());
+            /*
             if (Math.random() < 0.5) {
                 encounters.add(pirateEncounter());
             } else if (Math.random() < 0.5){
                 encounters.add(policeEncounter());
-            } else {
+            } else if (Math.random() < 0.5){
                 encounters.add(traderEncounter());
+            } else {
+                encounters.add(asteroidEncounter());
             }
+            */
         }
         return encounters;
     }

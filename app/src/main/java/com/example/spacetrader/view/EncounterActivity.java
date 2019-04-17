@@ -9,7 +9,9 @@ import android.widget.TextView;
 import com.example.spacetrader.R;
 import com.example.spacetrader.entity.Encounter;
 import com.example.spacetrader.entity.Game;
+import com.example.spacetrader.entity.PirateEncounter;
 import com.example.spacetrader.entity.PoliceEncounter;
+import com.example.spacetrader.entity.TraderEncounter;
 
 import java.util.List;
 
@@ -76,9 +78,11 @@ public class EncounterActivity extends AppCompatActivity {
             option0Button.setText(encounter.getThreeOptions()[0]);
             option1Button.setText(encounter.getThreeOptions()[1]);
             option2Button.setText(encounter.getThreeOptions()[2]);
-            if (!(encounter instanceof PoliceEncounter)) {
+            if (encounter instanceof PirateEncounter || encounter instanceof TraderEncounter) {
                 opponentShipHealth.setText("Opponent Ship Health: " + encounter.getOpponentShipHealth()
                         + "/100");
+            } else {
+                opponentShipHealth.setText("");
             }
         } else {
             opponentShipHealth.setText("");

@@ -42,7 +42,11 @@ public abstract class Encounter implements Serializable {
      * @return opponent's ship health [0-100]
      */
     public int getOpponentShipHealth() {
-        return opponentShip.getShipHealth();
+        if (opponentShip != null) {
+            return opponentShip.getShipHealth();
+        } else {
+            return -1;
+        }
     }
 
     /**

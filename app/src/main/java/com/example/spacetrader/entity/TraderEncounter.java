@@ -37,7 +37,7 @@ public class TraderEncounter extends Encounter {
     }
 
     private void attack() {
-        messageToDisplay = "You attacked to trader";
+        messageToDisplay = "You attacked the trader";
         finished = true;
     }
 

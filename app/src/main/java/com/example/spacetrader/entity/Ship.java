@@ -67,6 +67,20 @@ public class Ship implements Serializable {
     }
 
     /**
+     * Removes all the specified type of cargo from the player's ship
+     * @param resource to be removed
+     * @return true if successful
+     */
+    public boolean removeAllCargo(Resource resource) {
+        if (resource == null) {
+            Log.e("main", "Ship Class: Failed to remove resource since resource is null");
+            return false;
+        }
+        cargoHold.remove(resource);
+        return true;
+    }
+
+    /**
      * Clears all the cargo from the cargoHold.
      */
     public void clearCargo() {

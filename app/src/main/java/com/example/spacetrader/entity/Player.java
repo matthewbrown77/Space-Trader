@@ -137,6 +137,15 @@ public class Player implements Serializable {
     }
 
     /**
+     * Removes all the specified type of cargo from the player's ship
+     * @param resource to be removed
+     * @return true if successful
+     */
+    public boolean removeAllCargo(Resource resource) {
+        return ship.removeAllCargo(resource);
+    }
+
+    /**
      * Dumps the specified cargo from the ship's cargo. No credits are added to player.
      * @param resource resource to dump
      */

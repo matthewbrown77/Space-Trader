@@ -128,6 +128,14 @@ public class Game implements Serializable {
     }
 
     /**
+     * Generates and returns a pirate encounter with the player
+     * @return pirateEncounter
+     */
+    private Encounter policeEncounter() {
+        return new PoliceEncounter(player);
+    }
+
+    /**
      * Gets a list of encounters while traveling
      * @return list of encounters
      */
@@ -135,7 +143,11 @@ public class Game implements Serializable {
         List<Encounter> encounters = new ArrayList<>();
         int amount = 1 + (int)(Math.random() * 3);
         for (int i = 0; i < amount; i++) {
-            encounters.add(pirateEncounter());
+            if (Math.random() < 0.5) {
+                encounters.add(pirateEncounter());
+            } else {
+                encounters.add(policeEncounter());
+            }
         }
         return encounters;
     }

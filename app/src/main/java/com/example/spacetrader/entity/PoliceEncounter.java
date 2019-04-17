@@ -50,7 +50,7 @@ public class PoliceEncounter extends Encounter {
                 return;
             }
         }
-        messageToDisplay = "The attempted to flee, but the police ship is still following you";
+        messageToDisplay = "You attempted to flee, but the police ship is still following you";
         finished = false;
     }
 

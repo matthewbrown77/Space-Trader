@@ -128,11 +128,19 @@ public class Game implements Serializable {
     }
 
     /**
-     * Generates and returns a pirate encounter with the player
-     * @return pirateEncounter
+     * Generates and returns a police encounter with the player
+     * @return policeEncounter
      */
     private Encounter policeEncounter() {
         return new PoliceEncounter(player);
+    }
+
+    /**
+     * Generates and returns a trader encounter with the player
+     * @return traderEncounter
+     */
+    private Encounter traderEncounter() {
+        return new TraderEncounter(player);
     }
 
     /**
@@ -145,8 +153,10 @@ public class Game implements Serializable {
         for (int i = 0; i < amount; i++) {
             if (Math.random() < 0.5) {
                 encounters.add(pirateEncounter());
-            } else {
+            } else if (Math.random() < 0.5){
                 encounters.add(policeEncounter());
+            } else {
+                encounters.add(traderEncounter());
             }
         }
         return encounters;

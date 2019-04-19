@@ -14,6 +14,12 @@ public abstract class Encounter implements Serializable {
     Ship opponentShip;
 
     /**
+     * Gets the title to display for the encounter activity
+     * @return title of the encounter
+     */
+    public abstract String getTitle();
+
+    /**
      * Gets the message to display for this encounter. Can change based on interaction.
      * @return String message
      */

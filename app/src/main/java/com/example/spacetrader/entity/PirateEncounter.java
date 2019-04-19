@@ -24,6 +24,11 @@ public class PirateEncounter extends Encounter {
     }
 
     @Override
+    public String getTitle() {
+        return "Pirate Encounter";
+    }
+
+    @Override
     public void doOption(int option) {
         if ("Attack".equals(options[option])) {
             attack();

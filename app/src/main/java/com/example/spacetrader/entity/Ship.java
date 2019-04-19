@@ -173,6 +173,18 @@ public class Ship implements Serializable {
     }
 
     /**
+     * Gets a random item from the cargo. Returns null if cargo hold is empty.
+     * @return random cargo item
+     */
+    public Resource getRandomCargoItem() {
+        if (cargoHold.size() == 0) {
+            return null;
+        } else {
+            return (Resource)cargoHold.keySet().toArray()[(int)(cargoHold.size() * Math.random())];
+        }
+    }
+
+    /**
      * Adds 1 fuel point to the ship
      */
     public void incrementFuel() {

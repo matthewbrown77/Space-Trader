@@ -17,6 +17,11 @@ public class AsteroidEncounter extends Encounter {
     }
 
     @Override
+    public String getTitle() {
+        return "Asteroid Encounter";
+    }
+
+    @Override
     public void doOption(int option) {
         if ("Turn Left".equals(options[option])) {
             messageToDisplay = "You turned left";
@@ -34,7 +39,7 @@ public class AsteroidEncounter extends Encounter {
         if (Math.random() < 0.4) {
             finished = true;
         }
-        for (int i = 0; i <= player.getFighterSkillPoints(); i++) {
+        for (int i = 0; i <= player.getPilotSkillPoints(); i++) {
             if (Math.random() < 0.1) {
                 messageToDisplay += " and avoided the asteroid.";
                 if (!finished) {

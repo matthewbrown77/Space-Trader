@@ -44,6 +44,7 @@ public class Player implements Serializable {
      * @param amount amount to decrement credits
      */
     public void decrementCredits(int amount) {
+        if (credits <= 0) return;
         credits -= amount;
         if (credits < 0) {
             Log.e("main", "Player Class: Failed to decrement player credits by "
@@ -51,6 +52,15 @@ public class Player implements Serializable {
                     "player does not have that many credits. Setting credits to 0.");
             credits = 0;
         }
+    }
+
+    /**
+     * Increments the credits by the specified amount
+     * @param amount amount to decrement credits
+     */
+    public void incrementCredits(int amount) {
+        if (credits <= 0) return;
+        credits += amount;
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -117,6 +127,14 @@ public class Player implements Serializable {
      */
     public void clearCargo() {
         ship.clearCargo();
+    }
+
+    /**
+     * Gets a random item from the cargo. Returns null if cargo hold is empty.
+     * @return random cargo item
+     */
+    public Resource getRandomCargoItem() {
+        return ship.getRandomCargoItem();
     }
 
     /**

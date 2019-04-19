@@ -23,6 +23,11 @@ public class PoliceEncounter extends Encounter {
     }
 
     @Override
+    public String getTitle() {
+        return "Police Encounter";
+    }
+
+    @Override
     public void doOption(int option) {
         if ("Consent".equals(options[option])) {
             consent();

@@ -32,6 +32,7 @@ public class EncounterActivity extends AppCompatActivity {
     private TextView messageText;
     private TextView shipHealth;
     private TextView opponentShipHealth;
+    private TextView titleText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +48,7 @@ public class EncounterActivity extends AppCompatActivity {
         messageText = findViewById(R.id.encounter_text);
         shipHealth = findViewById(R.id.ship_health_text);
         opponentShipHealth = findViewById(R.id.opponent_ship_health_text);
+        titleText = findViewById(R.id.encounter_title_text);
 
         encounter = encounters.remove(0);
         setEnabledButtons(false);
@@ -74,6 +76,7 @@ public class EncounterActivity extends AppCompatActivity {
 
     private void updateText() {
         if (encounter != null) {
+            titleText.setText(encounter.getTitle());
             messageText.setText(encounter.getMessage());
             option0Button.setText(encounter.getThreeOptions()[0]);
             option1Button.setText(encounter.getThreeOptions()[1]);

@@ -159,7 +159,7 @@ public class Game implements Serializable {
         List<Encounter> encounters = new ArrayList<>();
         int amount = 1 + (int)(Math.random() * 3);
         for (int i = 0; i < amount; i++) {
-            encounters.add(asteroidEncounter());
+            encounters.add(traderEncounter());
             /*
             if (Math.random() < 0.5) {
                 encounters.add(pirateEncounter());
